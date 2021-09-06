@@ -12,11 +12,11 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange',
-        href: 'https://app.pangolin.exchange/#/swap',
+        href: 'https://spookyswap.finance/swap',
       },
       {
         label: 'Liquidity',
-        href: 'https://app.pangolin.exchange/#/pool',
+        href: 'https://spookyswap.finance/pool',
       },
     ],
   },
@@ -138,12 +138,8 @@ const config: MenuEntry[] = [
     icon: 'InfoIcon',
     items: [
       {
-        label: 'Pangolin Info',
-        href: 'https://info.pangolin.exchange/#/token/0x1cE2310195C1282e65E5Bb62c032BEcC5D90A985',
-      },
-      {
-        label: 'Chartex',
-        href: 'https://chartex.pro/',
+        label: 'Spooky Info',
+        href: 'https://info.spookyswap.finance/token/0x0789ff5ba37f72abc4d561d00648acadc897b32d',
       },
     ],
   },

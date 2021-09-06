@@ -23,8 +23,6 @@ export interface ActionPanelProps {
   depositFee?: number
 }
 
-const BASE_TOKEN_LIQUIDITY_URL = `https://app.pangolin.exchange/#/swap`
-
 
 const expandAnimation = keyframes`
   from {
@@ -158,7 +156,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   const { t } = useTranslation()
   const isActive = farm.multiplier !== '0X'
   const { quoteToken, token, dual } = farm
-  const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('VICTUS', '')
+  const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('MORPHEUS', '')
   // const liquidityUrlPathParts = getLiquidityUrlPathParts({
   //   quoteTokenAddress: quoteToken.address,
   //   tokenAddress: token.address,
@@ -169,20 +167,20 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   let addLiquidityUrl: string;
   if (farm.isTokenOnly) {
     liquidityUrlPathParts = token.address[process.env.REACT_APP_CHAIN_ID]
-    addLiquidityUrl = `${BASE_TOKEN_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+    addLiquidityUrl = `https://info.spookyswap.finance/token/${liquidityUrlPathParts}`
   }else{
     liquidityUrlPathParts = getLiquidityUrlPathParts({
       quoteTokenAddress: quoteToken.address,
       tokenAddress: token.address,
-    })
+    })    
     addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
   }  
 
   let avaxExplorer: string;
   if (farm.isTokenOnly) {
-    avaxExplorer = `https://cchain.explorer.avax.network/address/${farm.token.address[process.env.REACT_APP_CHAIN_ID]}`
+    avaxExplorer = `https://ftmscan.com/address/${farm.token.address[process.env.REACT_APP_CHAIN_ID]}`
   }else{
-    avaxExplorer = `https://cchain.explorer.avax.network/address/${lpAddress}`
+    avaxExplorer = `https://ftmscan.com/address/${lpAddress}`
   }
   // const info = `https://info.quickswap.exchange/pair/${lpAddress}`
   // const isCommunityFarm = communityFarms.includes(token.symbol)

@@ -3,7 +3,7 @@ const tokens = {
     symbol: 'BNB',
     projectLink: 'https://www.binance.com/',
   },
-  // VICT
+  // MORPH
   cake: {
     symbol: 'CAKE',
     address: {

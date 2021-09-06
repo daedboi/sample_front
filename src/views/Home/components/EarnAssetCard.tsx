@@ -21,10 +21,10 @@ const CardMidContent = styled(Heading).attrs({ size: 'xl' })`
 `
 
 const EarnAssetCard = () => {
-  const activeNonLydPools = pools.filter((pool) => !pool.isFinished && !pool.earningToken.symbol.includes('VICT'))
+  const activeNonLydPools = pools.filter((pool) => !pool.isFinished && !pool.earningToken.symbol.includes('MORPH'))
   const latestPools: Pool[] = orderBy(activeNonLydPools, ['sortOrder', 'pid'], ['desc', 'desc']).slice(0, 3)
   // Always include LYD
-  const assets = ['VICT', ...latestPools.map((pool) => pool.earningToken.symbol)].join(', ')
+  const assets = ['MORPH', ...latestPools.map((pool) => pool.earningToken.symbol)].join(', ')
 
   return (
     <StyledFarmStakingCard>

@@ -65,7 +65,7 @@
     "styled-components": "^5.1.1",
     "tsparticles": "^1.32.0",
     "typescript": "^4.1.5",
-    "victusfinance": "^1.1.6",
+    "victusfinance": "^1.1.8",
     "web3": "1.4.0"
   },
   "devDependencies": {

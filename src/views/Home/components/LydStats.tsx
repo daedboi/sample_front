@@ -50,37 +50,37 @@ const LydStats = () => {
     <StyledLydStats>
       <CardBody>
         <Heading scale="xl" mb="24px">
-          {t('VICT Stats')}
+          {t('MORPH Stats')}
         </Heading>
         {/* <Row>
           <Text fontSize="14px">{t('Circulating Supply')}</Text>
           {lydSupply && <CardValue fontSize="14px" value={lydSupply} />}
         </Row> */}
         <Row>
-          <Text fontSize="14px">{t('Total VICT Supply')}</Text>
+          <Text fontSize="14px">{t('Total MORPH Supply')}</Text>
           {lydSupply && <CardValue fontSize="14px" value={lydSupply} />}
         </Row>
         <Row>
-          <Text fontSize="14px">{t('Total VICT Burned 🔥')}</Text>
+          <Text fontSize="14px">{t('Total MORPH Burned 🔥')}</Text>
           <CardValue fontSize="14px" decimals={0} value={burnedBalance} />
         </Row>
         <Row>
-          <Text fontSize="14px">{t('New VICT/block 🕒')}</Text>
+          <Text fontSize="14px">{t('New MORPH/block 🕒')}</Text>
           <CardValue fontSize="14px" decimals={0} value={Number(TOKEN_PER_BLOCK)} />
         </Row>
 
         <Row>
-          <Text fontSize="14px">{t('VICT Market Cap 💰')}</Text>
+          <Text fontSize="14px">{t('MORPH Market Cap 💰')}</Text>
           <CardValue fontSize="14px" decimals={0} prefix="$" value={Number(cakePrice.times(lydSupply))} />
         </Row>
 
         <Row>
-          <Text fontSize="14px">{t('VICT Price 💲')}</Text>
+          <Text fontSize="14px">{t('MORPH Price 💲')}</Text>
           <Text fontSize="14px">{t(`$${cakePrice?.toFixed(3)}`)}</Text>
         </Row>
 
         <Flex mb="4px">
-          <TokenLink onClick={() => registerToken(tokenAddress, 'VICT', 18, imageSrc)}>Add VICT to Metamask</TokenLink>
+          <TokenLink onClick={() => registerToken(tokenAddress, 'MORPH', 18, imageSrc)}>Add MORPH to Metamask</TokenLink>
           <MetamaskIcon height={15} width={15} ml="4px" />
         </Flex>
       </CardBody>

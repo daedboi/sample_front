@@ -86,7 +86,7 @@ const farms: FarmConfig[] = [
   {
     pid: 6,
     isTokenOnly: true,
-    lpSymbol: 'FTM',
+    lpSymbol: 'wFTM',
     lpAddresses: {
       250: '0x2b4c76d0dc16be1c31d4c1dc53bf9b45987fc75c',
     },
@@ -126,7 +126,7 @@ const farms: FarmConfig[] = [
   {
     pid: 10,
     isTokenOnly: true,
-    lpSymbol: 'BNB',
+    lpSymbol: 'wBNB',
     lpAddresses: {
       250: '0x956de13ea0fa5b577e4097be837bf4ac80005820',
     },
@@ -136,6 +136,17 @@ const farms: FarmConfig[] = [
   {
     pid: 11,
     isTokenOnly: true,
+    isCommunity: true,
+    lpSymbol: 'SCREAM',
+    lpAddresses: {
+      250: '0x30872e4fc4edbfd7a352bfc2463eb4fae9c09086',
+    },
+    token: tokens.scream,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 12,
+    isTokenOnly: true,
     lpSymbol: 'USDC',
     lpAddresses: {
       250: '0x2b4c76d0dc16be1c31d4c1dc53bf9b45987fc75c',
@@ -144,7 +155,7 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.ftm,
   },
   {
-    pid: 12,
+    pid: 13,
     isTokenOnly: true,
     lpSymbol: 'fUSDT',
     lpAddresses: {
@@ -154,7 +165,7 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.ftm,
   },
   {
-    pid: 13,
+    pid: 14,
     isTokenOnly: true,
     lpSymbol: 'DAI',
     lpAddresses: {
@@ -163,21 +174,10 @@ const farms: FarmConfig[] = [
     token: tokens.dai,
     quoteToken: tokens.ftm,
   },
-  {
-    pid: 14,
-    isTokenOnly: true,
-    isCommunity: true,
-    lpSymbol: 'SCREAM',
-    lpAddresses: {
-      250: '0x30872e4fc4edbfd7a352bfc2463eb4fae9c09086',
-    },
-    token: tokens.scream,
-    quoteToken: tokens.ftm,
-  },
   // {
   //   pid: 14,
   //   // isTokenOnly: true,
-  //   lpSymbol: 'PLATIN-IRID LP',
+  //   lpSymbol: 'PLATIN-IRID LP', 
   //   lpAddresses: {
   //     250: '0xD592bfB50ad10088A428F1a4e74213090fC4A6dC',
   //   },

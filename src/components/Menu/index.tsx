@@ -30,7 +30,7 @@ const Menu = (props) => {
       setLang={setLanguage}
       cakePriceUsd={cakePrice}
       profile={null}
-      priceLink="https://info.pangolin.exchange/token/0x1cE2310195C1282e65E5Bb62c032BEcC5D90A985"
+      priceLink="https://info.spookyswap.finance/token/0x0789ff5ba37f72abc4d561d00648acadc897b32d"
       {...props}
     />
   )

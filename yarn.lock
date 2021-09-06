@@ -16100,10 +16100,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-victusfinance@^1.1.6:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/victusfinance/-/victusfinance-1.1.6.tgz#e3d6908832745424221e9fbc0840d6327abc09b5"
-  integrity sha512-EYhQVGLQM3WqegYePb6JNuN9gJeNgacph2J6/enfixZSVIHiPcpHB+dSNy/NuUqicYf7TFmsOMa0Y+c/jLYKhg==
+victusfinance@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/victusfinance/-/victusfinance-1.1.8.tgz#1ebb15d1d1ab2d33c158b89b13ad558b72598643"
+  integrity sha512-jmuKSi6DbBp+c6O3nHMUbns2sd4wTczK1E0EMT3/hkiwimZZhcflIsHqqxYTwVgNqKaszjB/wNlPQ5qwGyvhAQ==
   dependencies:
     "@popperjs/core" "^2.9.2"
     "@types/lodash" "^4.14.168"

@@ -21,7 +21,7 @@ export interface FarmWithStakedValue extends Farm {
 }
 
 const chainId = process.env.REACT_APP_CHAIN_ID
-const BASE_TOKEN_LIQUIDITY_URL = `https://spookyswap.finance/swap`
+const BASE_TOKEN_LIQUIDITY_URL = `https://info.spookyswap.finance/token`
 
 const RainbowLight = keyframes`
 	0% {

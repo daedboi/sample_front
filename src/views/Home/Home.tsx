@@ -15,7 +15,7 @@ import VertStats from './components/VertStats'
 // import WinCard from 'views/Home/components/WinCard'
 // import LydStats from 'views/Home/components/LydStats'
 // import TwitterCard from './components/TwitterCard'
-import Background from '../Background'
+// import Background from '../Background'
 // import BridgeCard from './components/BridgeCard'
 // import PoolCard from '../Pools/components/PoolCard'
 // import LydVaultCard from '../Pools/components/LydVaultCard'
@@ -137,7 +137,7 @@ const Home: React.FC = () => {
         </Cards>
       </MobileSupportCard>
     </Page>
-    <Background/>
+    {/* <Background/> */}
 
     </>
   )

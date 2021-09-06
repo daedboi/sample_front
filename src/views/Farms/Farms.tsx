@@ -32,7 +32,7 @@ import SearchInput from './components/SearchInput'
 import { RowProps } from './components/FarmTable/Row'
 import ToggleView from './components/ToggleView/ToggleView'
 import { DesktopColumnSchema, ViewMode } from './components/types'
-import Background from '../Background'
+// import Background from '../Background'
 
 export interface FarmsProps{
   tokenMode?: boolean
@@ -310,7 +310,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
     const { token, quoteToken } = farm
     const tokenAddress = token.address
     const quoteTokenAddress = quoteToken.address
-    const lpLabel = farm.lpSymbol && farm.lpSymbol.split(' ')[0].toUpperCase().replace('VICTUS', '')
+    const lpLabel = farm.lpSymbol && farm.lpSymbol.split(' ')[0].toUpperCase().replace('MORPHEUS', '')
   
     let farmImage: string;
     if (farm.isTokenOnly) {
@@ -476,7 +476,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         {renderContent()}
         <div ref={loadMoreRef} />
       </Page>
-      <Background/>
+      {/* <Background/> */}
     </>
   )
 }

@@ -50,7 +50,7 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
   apr,
   linkLabel,
   linkHref,
-  earningTokenSymbol = 'VICT',
+  earningTokenSymbol = 'MORPH',
   // eslint-disable-next-line
   // roundingDecimals = 2,
   compoundFrequency = 1,

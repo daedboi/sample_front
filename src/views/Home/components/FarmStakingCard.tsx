@@ -61,11 +61,11 @@ const FarmedStakingCard = () => {
         </Heading>
         <CardImage src="/images/lyd.png" alt="lyd logo" width={64} height={64} />
         <Block>
-          <Label>{t('VICT to Harvest')}:</Label>
+          <Label>{t('MORPH to Harvest')}:</Label>
           <LydHarvestBalance />
         </Block>
         <Block>
-          <Label>{t('VICT in Wallet')}:</Label>
+          <Label>{t('MORPH in Wallet')}:</Label>
           <LydWalletBalance />
         </Block>
         <Actions>
@@ -77,7 +77,7 @@ const FarmedStakingCard = () => {
               width="100%"
             >
               {pendingTx
-                ? t('Collecting VICT')
+                ? t('Collecting MORPH')
                 : t(`Harvest all (${balancesWithValue.length})`, {
                     count: balancesWithValue.length,
                   })}
