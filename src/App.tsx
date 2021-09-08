@@ -63,7 +63,7 @@ const App: React.FC = () => {
   const v = Math.random();
   if (v < 0.5 && !didAskToJoinTelegram){
     // const action = {text:"Join now", url:"https://t.me/polyvertex"}
-    toastSuccess("Have you joined our Telegram community?", <a href="https://t.me/morpheusswap" rel="noreferrer" target="_blank">Join now</a>);
+    toastSuccess("Have you joined our Telegram community?", <a href="https://t.me/MorpheusSwapFinance" rel="noreferrer" target="_blank">Join now</a>);
   }
   didAskToJoinTelegram = true;
 
