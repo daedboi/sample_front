@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
-import { LinkExternal, Text } from 'victusfinance'
+import { LinkExternal, Text } from 'trinityhelper'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import { BASE_ADD_LIQUIDITY_URL } from 'config'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'

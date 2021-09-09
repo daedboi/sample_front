@@ -15591,6 +15591,19 @@ trim-right@^1.0.1:
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
   integrity sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM=
 
+trinityhelper@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/trinityhelper/-/trinityhelper-1.0.1.tgz#feaaf8051740954bf533efc376d941e0475554a1"
+  integrity sha512-FF6/ZLlLZMDRaN0sjJBnZ2VaauBWNwx3zSOXSg1VvMf44DasPchDA+9cLGD2CQJpfknwgpv4jS9YDnFCC1IxAw==
+  dependencies:
+    "@popperjs/core" "^2.9.2"
+    "@types/lodash" "^4.14.168"
+    "@types/styled-system" "^5.1.10"
+    lodash "^4.17.20"
+    react-popper "^2.2.5"
+    react-transition-group "^4.4.1"
+    styled-system "^5.1.5"
+
 tryer@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/tryer/-/tryer-1.0.1.tgz#f2c85406800b9b0f74c9f7465b81eaad241252f8"
@@ -16099,19 +16112,6 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
-
-victusfinance@^1.1.8:
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/victusfinance/-/victusfinance-1.1.8.tgz#1ebb15d1d1ab2d33c158b89b13ad558b72598643"
-  integrity sha512-jmuKSi6DbBp+c6O3nHMUbns2sd4wTczK1E0EMT3/hkiwimZZhcflIsHqqxYTwVgNqKaszjB/wNlPQ5qwGyvhAQ==
-  dependencies:
-    "@popperjs/core" "^2.9.2"
-    "@types/lodash" "^4.14.168"
-    "@types/styled-system" "^5.1.10"
-    lodash "^4.17.20"
-    react-popper "^2.2.5"
-    react-transition-group "^4.4.1"
-    styled-system "^5.1.5"
 
 vm-browserify@^1.0.1:
   version "1.1.2"

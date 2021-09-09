@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Flex, ArrowForwardIcon, Skeleton } from 'victusfinance'
+import { Heading, Card, CardBody, Flex, ArrowForwardIcon, Skeleton } from 'trinityhelper'
 import max from 'lodash/max'
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'contexts/Localization'

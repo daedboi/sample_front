@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js'
 import React, { useCallback, useMemo, useState } from 'react'
-import { Button, Modal, LinkExternal } from 'victusfinance'
+import { Button, Modal, LinkExternal } from 'trinityhelper'
 import ModalActions from 'components/ModalActions'
 import ModalInput from 'components/ModalInput'
 import { useTranslation } from 'contexts/Localization'

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
-import { Button, Flex, Heading, IconButton, AddIcon, MinusIcon, useModal } from 'victusfinance'
+import { Button, Flex, Heading, IconButton, AddIcon, MinusIcon, useModal } from 'trinityhelper'
 // import Balance from 'components/Balance'
 import { useTranslation } from 'contexts/Localization'
 import useStake from 'hooks/useStake'

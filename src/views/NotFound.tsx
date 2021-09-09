@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, Heading, Text } from 'victusfinance'
+import { Button, Heading, Text } from 'trinityhelper'
 import Page from 'components/layout/Page'
 import { useTranslation } from 'contexts/Localization'
 

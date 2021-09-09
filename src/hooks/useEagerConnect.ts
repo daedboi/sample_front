@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { connectorLocalStorageKey, ConnectorNames } from 'victusfinance'
+import { connectorLocalStorageKey, ConnectorNames } from 'trinityhelper'
 import useAuth from 'hooks/useAuth'
 
 const useEagerConnect = () => {

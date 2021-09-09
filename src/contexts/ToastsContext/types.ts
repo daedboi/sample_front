@@ -1,4 +1,4 @@
-import { Toast } from 'victusfinance'
+import { Toast } from 'trinityhelper'
 
 type ToastSignature = (title: Toast['title'], description?: Toast['description']) => void
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
-import { Modal, Text, LinkExternal, Flex, Box } from 'victusfinance'
+import { Modal, Text, LinkExternal, Flex, Box } from 'trinityhelper'
 import { useTranslation } from 'contexts/Localization'
 import { calculateTokenEarnedPerThousandDollars, apyModalRoi } from 'utils/compoundApyHelpers'
 

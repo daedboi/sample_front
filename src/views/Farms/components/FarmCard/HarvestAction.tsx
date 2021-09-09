@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import BigNumber from 'bignumber.js'
-import { Button, Flex, Heading } from 'victusfinance'
+import { Button, Flex, Heading } from 'trinityhelper'
 import { useTranslation } from 'contexts/Localization'
 import useStake from 'hooks/useStake'
 import { useHarvest } from 'hooks/useHarvest'

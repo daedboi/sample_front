@@ -1,5 +1,5 @@
 import React from 'react'
-import { ToastContainer } from 'victusfinance'
+import { ToastContainer } from 'trinityhelper'
 import useToast from 'hooks/useToast'
 
 const ToastListener = () => {

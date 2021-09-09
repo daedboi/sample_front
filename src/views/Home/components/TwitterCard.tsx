@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardBody, Heading } from 'victusfinance'
+import { Card, CardBody, Heading } from 'trinityhelper'
 // import BigNumber from 'bignumber.js/bignumber'
 import styled from 'styled-components'
 import { Timeline } from 'react-twitter-widgets'

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { HelpIcon } from 'victusfinance'
+import { HelpIcon } from 'trinityhelper'
 import { useTranslation } from 'contexts/Localization'
 
 import Tooltip from '../Tooltip/Tooltip'

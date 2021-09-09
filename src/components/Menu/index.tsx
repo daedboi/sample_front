@@ -1,6 +1,6 @@
 // eslint-disable-next-line
 import React from 'react'
-import { Menu as UikitMenu } from 'victusfinance'
+import { Menu as UikitMenu } from 'trinityhelper'
 import { useWeb3React } from '@web3-react/core'
 import { languageList } from 'config/localization/languages'
 import { useTranslation } from 'contexts/Localization'

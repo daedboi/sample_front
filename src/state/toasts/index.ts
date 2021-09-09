@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { Toast } from 'victusfinance'
+import { Toast } from 'trinityhelper'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { ToastsState } from '../types'
 

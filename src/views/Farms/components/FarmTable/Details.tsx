@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ChevronDownIcon, useMatchBreakpoints } from 'victusfinance'
+import { ChevronDownIcon, useMatchBreakpoints } from 'trinityhelper'
 import { useTranslation } from 'contexts/Localization'
 
 interface DetailsProps {

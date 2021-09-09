@@ -1,5 +1,5 @@
 import { ReactText } from 'react'
-import { Language } from 'victusfinance'
+import { Language } from 'trinityhelper'
 
 export type ContextData = {
   [key: string]: ReactText

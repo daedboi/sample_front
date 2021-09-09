@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, Flex, Input, InputProps } from 'victusfinance'
+import { Button, Flex, Input, InputProps } from 'trinityhelper'
 import { useTranslation } from 'contexts/Localization'
 
 interface TokenInputProps extends InputProps {

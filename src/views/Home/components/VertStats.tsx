@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardBody, Heading, Text, Image } from 'victusfinance'
+import { Card, CardBody, Heading, Text, Image } from 'trinityhelper'
 import BigNumber from 'bignumber.js/bignumber'
 import styled from 'styled-components'
 import { getBalanceNumber } from 'utils/formatBalance'
@@ -86,7 +86,7 @@ const VertStats = () => {
   const isDark = useTheme().isDark;
   const isMobile = useMediaQuery({ query: `(max-width: 900px)` }); 
 
-  const morphPerSec = 0.02;
+  const morphPerSec = 0.5;
   
 
 

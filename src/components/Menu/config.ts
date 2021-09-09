@@ -1,4 +1,4 @@
-import { MenuEntry } from 'victusfinance'
+import { MenuEntry } from 'trinityhelper'
 
 const config: MenuEntry[] = [
   {
@@ -38,6 +38,11 @@ const config: MenuEntry[] = [
     label: 'Pools',
     icon: 'PoolIcon',
     href: '/pools',
+  },
+  {
+    label: 'Neo Pools',
+    icon: 'GroupsIcon',
+    href: '/staking',
   },
   // {
   //   label: 'Maximus Farm',
@@ -158,7 +163,7 @@ const config: MenuEntry[] = [
       // },
       {
         label: 'Docs',
-        href: 'https://victusfinance.gitbook.io/victus-finance/',
+        href: 'https://morpheusswap.gitbook.io/morpheus-swap/',
       },
       // {
       //   label: 'Blog',

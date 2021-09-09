@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BaseLayout } from 'victusfinance'
+import { BaseLayout } from 'trinityhelper'
 // import { useTranslation } from 'contexts/Localization'
 import Page from 'components/layout/Page'
 // import { useWeb3React } from '@web3-react/core'

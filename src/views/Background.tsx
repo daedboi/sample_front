@@ -1,5 +1,5 @@
 import React from 'react'
-// import { Card, CardBody, Heading, Text } from 'victusfinance'
+// import { Card, CardBody, Heading, Text } from 'trinityhelper'
 // import styled from 'styled-components'
 import Particles from 'react-particles-js'
 import { useMediaQuery } from 'react-responsive'

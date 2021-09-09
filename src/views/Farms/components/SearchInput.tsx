@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react'
-import { Input } from 'victusfinance'
+import { Input } from 'trinityhelper'
 import styled from 'styled-components'
 import debounce from 'lodash/debounce'
 

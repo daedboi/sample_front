@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { Button, useModal, IconButton, AddIcon, MinusIcon, Skeleton } from 'victusfinance'
+import { Button, useModal, IconButton, AddIcon, MinusIcon, Skeleton } from 'trinityhelper'
 import { useLocation } from 'react-router-dom'
 import UnlockButton from 'components/UnlockButton'
 import { useWeb3React } from '@web3-react/core'

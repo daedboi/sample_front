@@ -1,6 +1,6 @@
 import React, { useEffect, lazy } from 'react'
-import { Router, Redirect, Route, Switch } from 'react-router-dom'
-import { ResetCSS } from 'victusfinance'
+import { Router, Route, Switch } from 'react-router-dom'
+import { ResetCSS } from 'trinityhelper'
 import useToast from 'hooks/useToast'
 import BigNumber from 'bignumber.js'
 import useEagerConnect from 'hooks/useEagerConnect'
@@ -13,7 +13,7 @@ import ToastListener from './components/ToastListener'
 import PageLoader from './components/PageLoader'
 // import EasterEgg from './components/EasterEgg'
 // import Pools from './views/Pools'
-// import ComingSoon from './views/ComingSoon'
+import ComingSoon from './views/ComingSoon'
 // import Maximus from './views/Maximus'
 // import Airdrop from './views/Airdrop'
 import history from './routerHistory'
@@ -84,7 +84,7 @@ const App: React.FC = () => {
               <Farms tokenMode/>
             </Route>
             <Route path="/staking">
-              <Redirect to="/pools" />
+              <ComingSoon />
             </Route>
             {/* <Route path="/electrum">
               <Redirect to="/pools" />

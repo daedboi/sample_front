@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ChevronDownIcon, ChevronUpIcon, Text } from 'victusfinance'
+import { ChevronDownIcon, ChevronUpIcon, Text } from 'trinityhelper'
 import { useTranslation } from 'contexts/Localization'
 
 export interface ExpandableSectionButtonProps {

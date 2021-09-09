@@ -8,7 +8,7 @@ import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components'
 import { PieChart } from 'react-minimal-pie-chart'
 import { LinearGauge } from '@progress/kendo-react-gauges'
-import { Heading } from 'victusfinance'
+import { Heading } from 'trinityhelper'
 
 const Charts = styled("div")<{isMobile:boolean}>`
   width: 100%;

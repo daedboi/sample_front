@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import BigNumber from 'bignumber.js/bignumber'
-import { Text, Button, Input, InputProps, Flex } from 'victusfinance'
+import { Text, Button, Input, InputProps, Flex } from 'trinityhelper'
 import { useTranslation } from 'contexts/Localization'
 
 interface ModalInputProps {

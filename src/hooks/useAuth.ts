@@ -4,7 +4,7 @@ import {
   NoEthereumProviderError,
   UserRejectedRequestError as UserRejectedRequestErrorInjected,
 } from '@web3-react/injected-connector'
-import { ConnectorNames, connectorLocalStorageKey } from 'victusfinance'
+import { ConnectorNames, connectorLocalStorageKey } from 'trinityhelper'
 import { useToast } from 'state/hooks'
 import { connectorsByName } from 'utils/web3React'
 import { setupNetwork } from 'utils/wallet'

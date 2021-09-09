@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import CountUp from 'react-countup'
-import { Text } from 'victusfinance'
+import { Text } from 'trinityhelper'
 
 interface TextProps {
   isDisabled?: boolean

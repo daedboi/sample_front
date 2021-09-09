@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react'
 import styled from 'styled-components'
-import { Tag, Flex, Heading, Image } from 'victusfinance'
+import { Tag, Flex, Heading, Image } from 'trinityhelper'
 import { CommunityTag, CoreTag, NoFeeTag } from 'components/Tags'
 
 export interface ExpandableSectionProps {

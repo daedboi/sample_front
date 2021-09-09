@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ListViewIcon, CardViewIcon, IconButton } from 'victusfinance'
+import { ListViewIcon, CardViewIcon, IconButton } from 'trinityhelper'
 import { ViewMode } from '../types'
 
 interface ToggleViewProps {

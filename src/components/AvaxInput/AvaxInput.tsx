@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, Box, BoxProps, Flex, Input as UIKitInput, Text } from 'victusfinance'
+import { Button, Box, BoxProps, Flex, Input as UIKitInput, Text } from 'trinityhelper'
 import { useTranslation } from 'contexts/Localization'
 
 export interface BalanceInputProps extends BoxProps {

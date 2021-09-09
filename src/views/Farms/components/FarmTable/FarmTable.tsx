@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
-import { useTable, Button, ChevronUpIcon, ColumnType } from 'victusfinance'
+import { useTable, Button, ChevronUpIcon, ColumnType } from 'trinityhelper'
 import { useTranslation } from 'contexts/Localization'
 
 import Row, { RowProps } from './Row'

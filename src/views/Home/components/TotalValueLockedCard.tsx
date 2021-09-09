@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Card, CardBody, Heading, Text } from 'victusfinance'
+import { Card, CardBody, Heading, Text } from 'trinityhelper'
 import { useTranslation } from 'contexts/Localization'
 // import { useGetStats } from 'hooks/api'
 import { useMediaQuery } from 'react-responsive';

@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import BigNumber from 'bignumber.js'
 import styled, { keyframes } from 'styled-components'
-import { Flex, Text, Skeleton } from 'victusfinance'
+import { Flex, Text, Skeleton } from 'trinityhelper'
 import { Farm } from 'state/types'
 import { provider as ProviderType } from 'web3-core'
 import { useTranslation } from 'contexts/Localization'

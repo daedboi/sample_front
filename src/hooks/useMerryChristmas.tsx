@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useParticleBurst } from 'victusfinance'
+import { useParticleBurst } from 'trinityhelper'
 import { useLocation } from 'react-router-dom'
 
 const disableWhenNotChristmas = () => {

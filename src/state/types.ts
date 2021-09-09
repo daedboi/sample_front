@@ -1,4 +1,4 @@
-import { Toast } from 'victusfinance'
+import { Toast } from 'trinityhelper'
 import BigNumber from 'bignumber.js'
 import { CampaignType, FarmConfig, Nft, PoolConfig, Team, MaximusConfig } from 'config/constants/types'
 

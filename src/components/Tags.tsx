@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tag, VerifiedIcon, CommunityIcon, RefreshIcon, AutoRenewIcon } from 'victusfinance'
+import { Tag, VerifiedIcon, CommunityIcon, RefreshIcon, AutoRenewIcon } from 'trinityhelper'
 
 const NoFeeTag = () => (
   <Tag variant="success" outline startIcon={<VerifiedIcon />}>
