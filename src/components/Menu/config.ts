@@ -146,6 +146,10 @@ const config: MenuEntry[] = [
         label: 'Spooky Info',
         href: 'https://info.spookyswap.finance/token/0x0789ff5ba37f72abc4d561d00648acadc897b32d',
       },
+      {
+        label: 'Charts',
+        href: 'https://charts.zoocoin.cash/charts?exchange=SpookySwap&pair=0x7D42442f764985F208E6fa6A7CD0e253CB447D58',
+      },
     ],
   },
   // {
