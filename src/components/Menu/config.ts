@@ -12,7 +12,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange',
-        href: 'https://spookyswap.finance/swap',
+        href: 'https://spookyswap.finance/swap?inputCurrency=0x0789ff5ba37f72abc4d561d00648acadc897b32d',
       },
       {
         label: 'Liquidity',
