@@ -150,6 +150,10 @@ const config: MenuEntry[] = [
         label: 'Charts',
         href: 'https://charts.zoocoin.cash/charts?exchange=SpookySwap&pair=0x7D42442f764985F208E6fa6A7CD0e253CB447D58',
       },
+      {
+        label: 'Vfat.tools',
+        href: 'https://vfat.tools/fantom/morpheusswap/',
+      },
     ],
   },
   // {
@@ -161,10 +165,10 @@ const config: MenuEntry[] = [
     label: 'More',
     icon: 'MoreIcon',
     items: [
-      // {
-      //   label: 'Github',
-      //   href: 'https://github.com/lydiafinance',
-      // },
+      {
+        label: 'Github',
+        href: 'https://github.com/crypdawg',
+      },
       {
         label: 'Docs',
         href: 'https://morpheusswap.gitbook.io/morpheus-swap/',
