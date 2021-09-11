@@ -12,7 +12,7 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange',
-        href: 'https://spookyswap.finance/swap?inputCurrency=0x0789ff5ba37f72abc4d561d00648acadc897b32d',
+        href: 'https://spookyswap.finance/swap?outputCurrency=0x0789ff5ba37f72abc4d561d00648acadc897b32d',
       },
       {
         label: 'Liquidity',
@@ -148,7 +148,7 @@ const config: MenuEntry[] = [
       },
       {
         label: 'Charts',
-        href: 'https://charts.zoocoin.cash/charts?exchange=SpookySwap&pair=0x7D42442f764985F208E6fa6A7CD0e253CB447D58',
+        href: 'https://kek.tools/t/0x0789ff5ba37f72abc4d561d00648acadc897b32d',
       },
       {
         label: 'Vfat.tools',
