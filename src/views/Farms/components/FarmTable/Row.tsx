@@ -80,6 +80,7 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
   const wavaxPrice = usePriceBnbBusd()
 
   const hasStakedAmount = !!useFarmUser(details.pid).stakedBalance.toNumber()
+  const { stakedBalance } = useFarmUser(details.pid)
   const [actionPanelExpanded, setActionPanelExpanded] = useState(hasStakedAmount)
   const shouldRenderChild = useDelayedUnmount(actionPanelExpanded, 300)
   const { t } = useTranslation()
@@ -93,6 +94,11 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
     return details.lpTotalInQuoteToken
   }, [lydPrice, wavaxPrice, details.lpTotalInQuoteToken, details.quoteToken.symbol])
 
+  let stakedUsd = stakedBalance
+
+  if (totalValue) {
+    stakedUsd = stakedUsd.times(new BigNumber(totalValue).div(details.lpStakedTotal))
+  }
   
   // const totalValueFormatted = totalValue
   //   ? `$${Number(totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
@@ -219,7 +225,7 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
       {shouldRenderChild && (
         <tr>
           <td colSpan={6}>
-            <ActionPanel {...props} depositFee={details.depositFeeBP} expanded={actionPanelExpanded} />
+            <ActionPanel {...props} depositFee={details.depositFeeBP} expanded={actionPanelExpanded} stakedUsd={stakedUsd}/>
           </td>
         </tr>
       )}

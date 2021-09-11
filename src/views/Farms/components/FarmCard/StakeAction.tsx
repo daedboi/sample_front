@@ -53,6 +53,7 @@ const LPWrapper = styled.div`
   text-align: left;
 `
 
+
 const StakeAction: React.FC<FarmCardActionsProps> = ({
   isTokenOnly,
   tokenDecimals,

@@ -88,14 +88,8 @@ const Home: React.FC = () => {
     <>
 
     <Page>
-      {/* <Hero>
-        <Heading as="h1" scale="xl" mb="24px" color="secondary">
-          {t('Morpheus Swap')}
-        </Heading>
-        <Text>{t('Time to take the Red Pill on Fantom.')}</Text>
-      </Hero> */}
       <img src="/images/WebBanner.gif" alt="titlebar" className="banner" />
-
+        
       <DesktopSupportCard isMobile={isMobile}>
         <Cards column={isMobile}>
           <Cards column>

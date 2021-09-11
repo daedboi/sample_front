@@ -430,9 +430,9 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         <Heading scale="lg" color="text">
         {
             tokenMode ?
-              t('Stake tokens to earn.')
+              t('Stake tokens to earn. Farming begins September 12th at 20:00 UTC.')
               :
-            t('Stake LP tokens to earn.')
+            t('Stake LP tokens to earn. Farming begins September 12th at 20:00 UTC.')
           }
         </Heading>
       </PageHeader>

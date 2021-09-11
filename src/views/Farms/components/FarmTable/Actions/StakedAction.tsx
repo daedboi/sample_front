@@ -11,7 +11,7 @@ import { useApprove } from 'hooks/useApprove'
 import { getBep20Contract } from 'utils/contractHelpers'
 import { BASE_ADD_LIQUIDITY_URL } from 'config'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
-import { getBalanceNumber, getFullDisplayBalance } from 'utils/formatBalance'
+import { getBalanceNumber, getCorrectedNumber } from 'utils/formatBalance'
 import useStake from 'hooks/useStake'
 import useUnstake from 'hooks/useUnstake'
 import useWeb3 from 'hooks/useWeb3'
@@ -24,11 +24,28 @@ const IconButtonWrapper = styled.div`
   display: flex;
 `
 
+const Label = styled.div`
+  color: ${({ theme }) => theme.colors.textSubtle};
+  font-size: 12px;
+  align: left;
+  display: inline;
+`
+
+const SciNumber = styled.div`
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  justify-content:center;
+  align-items:baseline;
+  white-space: pre;
+`
+
 const chainId = process.env.REACT_APP_CHAIN_ID
-const BASE_TOKEN_LIQUIDITY_URL = `https://quickswap.exchange/#/swap`
+const BASE_TOKEN_LIQUIDITY_URL = `https://info.spookyswap.finance/token`
 
 interface StackedActionProps extends FarmWithStakedValue {
   userDataReady: boolean
+  stakedUsd?
 }
 
 const Staked: React.FunctionComponent<StackedActionProps> = ({
@@ -39,7 +56,8 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   quoteToken,
   token,
   userDataReady,
-  isTokenOnly
+  isTokenOnly,
+  stakedUsd
 }) => {
   const { t } = useTranslation()
   const { account } = useWeb3React()
@@ -68,13 +86,14 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
     addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
   }  
 
-  const displayBalance = useCallback(() => {
-    const stakedBalanceNumber = getBalanceNumber(stakedBalance)
-    if (stakedBalanceNumber > 0 && stakedBalanceNumber < 0.0001) {
-      return getFullDisplayBalance(stakedBalance).toLocaleString()
-    }
-    return stakedBalanceNumber.toLocaleString()
-  }, [stakedBalance])
+  const rawStakedBalance = getBalanceNumber(stakedBalance, tokenDecimals);
+  const displayBalance = rawStakedBalance.toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 8,
+  })
+  const rawDisplayUsd = getBalanceNumber(stakedUsd, isTokenOnly ? tokenDecimals : quoteToken.decimals)
+  const correctedDisplayUsd = rawDisplayUsd;
+  const displayUSD = getCorrectedNumber(correctedDisplayUsd);
 
   const [onPresentDeposit] = useModal(
     <DepositModal isTokenOnly={isTokenOnly} max={tokenBalance} onConfirm={onStake} tokenName={lpSymbol} addLiquidityUrl={addLiquidityUrl} depositFeeBP={depositFeeBP} tokenDecimals={tokenDecimals} />,
@@ -122,8 +141,18 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
           </ActionTitles>
           <ActionContent>
             <div>
-              <Earned>{displayBalance()}</Earned>
+              <Earned>{displayBalance}</Earned>
             </div>
+             <SciNumber>
+            {stakedUsd.gt(0) ? <Label>~$
+            {displayUSD} 
+            {correctedDisplayUsd < 1e-5  && correctedDisplayUsd>0 ? (
+              <Label>{'  '}e{correctedDisplayUsd.toExponential(2).split('e')[1].toLocaleString()}</Label>
+            ) : (
+              null
+            )}
+            {' '} USD</Label> : null}
+            </SciNumber>
             <IconButtonWrapper>
               <IconButton variant="tertiary" onClick={onPresentWithdraw} mr="6px">
                 <MinusIcon color="primary" width="14px" />

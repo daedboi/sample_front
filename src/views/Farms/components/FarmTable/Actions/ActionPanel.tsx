@@ -1,4 +1,5 @@
 import React from 'react'
+import BigNumber from 'bignumber.js'
 import styled, { keyframes, css } from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
 import { LinkExternal, Text } from 'trinityhelper'
@@ -21,6 +22,7 @@ export interface ActionPanelProps {
   userDataReady: boolean
   expanded: boolean
   depositFee?: number
+  stakedUsd?: BigNumber
 }
 
 
@@ -149,7 +151,8 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   liquidity,
   userDataReady,
   expanded,
-  depositFee
+  depositFee,
+  stakedUsd
 }) => {
   const farm = details
 
@@ -219,7 +222,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
       </ValueContainer>
       <ActionContainer>
         <HarvestAction {...farm} userDataReady={userDataReady} />
-        <StakedAction {...farm} userDataReady={userDataReady} />
+        <StakedAction {...farm} userDataReady={userDataReady} stakedUsd={stakedUsd} />
       </ActionContainer>
     </Container>
   )
