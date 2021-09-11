@@ -98,12 +98,12 @@ function VertPie(props: Props) {
       onClick={(_, index) => {
         if (index === 0)
           window.open(
-            'https://polygonscan.com/token/0x0789fF5bA37f72ABC4D561D00648acaDC897b32d?a=0x000000000000000000000000000000000000dEaD',
+            'https://ftmscan.com/token/0x0789fF5bA37f72ABC4D561D00648acaDC897b32d?a=0x000000000000000000000000000000000000dEaD',
             '_blank',
           )
         else if (index === 1)
           window.open(
-            'https://polygonscan.com/token/0x0789fF5bA37f72ABC4D561D00648acaDC897b32d#tokenAnalytics',
+            'https://ftmscan.com/token/0x0789fF5bA37f72ABC4D561D00648acaDC897b32d#tokenAnalytics',
             '_blank',
           )
       }}
