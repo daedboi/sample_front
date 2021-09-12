@@ -136,7 +136,6 @@ const farms: FarmConfig[] = [
   {
     pid: 11,
     isTokenOnly: true,
-    isCommunity: true,
     lpSymbol: 'SCREAM',
     lpAddresses: {
       250: '0x30872e4fc4edbfd7a352bfc2463eb4fae9c09086',
@@ -174,16 +173,16 @@ const farms: FarmConfig[] = [
     token: tokens.dai,
     quoteToken: tokens.ftm,
   },
-  // {
-  //   pid: 14,
-  //   // isTokenOnly: true,
-  //   lpSymbol: 'PLATIN-IRID LP', 
-  //   lpAddresses: {
-  //     250: '0xD592bfB50ad10088A428F1a4e74213090fC4A6dC',
-  //   },
-  //   token: tokens.irid,
-  //   quoteToken: tokens.cake,
-  // },
+  {
+    pid: 15,
+    isCommunity: true,
+    lpSymbol: 'TOTEM-FTM LP', 
+    lpAddresses: {
+      250: '0x85263F06633A75f43A4074CaC84d6C4474080c9C',
+    },
+    token: tokens.totem,
+    quoteToken: tokens.ftm,
+  },
 ]
 
 export default farms

@@ -50,6 +50,13 @@ const tokens = {
     },
     decimals: 18,
   },
+  totem: {
+    symbol: 'TOTEM',
+    address: {
+      250: '0x31a37aedc0c18aa139e120e1cdc673bbb2063e6f',
+    },
+    decimals: 18,
+  },
   morph: {
     symbol: 'MORPH',
     address: {
