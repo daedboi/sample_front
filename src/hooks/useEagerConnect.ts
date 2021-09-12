@@ -1,9 +1,6 @@
 import { useEffect } from 'react'
-// import { connectorLocalStorageKey, ConnectorNames } from 'trinityhelper'
-import { ConnectorNames } from 'trinityhelper'
+import { connectorLocalStorageKey, ConnectorNames } from 'trinityhelper'
 import useAuth from 'hooks/useAuth'
-
-const connectorLocalStorageKey = "connectorId"
 
 const useEagerConnect = () => {
   const { login } = useAuth()

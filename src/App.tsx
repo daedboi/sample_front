@@ -1,5 +1,6 @@
 import React, { useEffect, lazy } from 'react'
 import { Router, Route, Switch } from 'react-router-dom'
+// import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { ResetCSS } from 'trinityhelper'
 import useToast from 'hooks/useToast'
 import BigNumber from 'bignumber.js'
@@ -44,7 +45,7 @@ const App: React.FC = () => {
 
   // const { account, connect } = useWallet()
   // useEffect(() => {
-  //   if (!account && window.localStorage.getItem('accountStatus')) {
+  //   if (!account && window.localStorage.getItem('connectorId')) {
   //     connect('injected')
   //   }
   // }, [account, connect])
