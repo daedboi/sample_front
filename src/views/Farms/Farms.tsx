@@ -315,7 +315,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
     let farmImage: string;
     if (farm.isTokenOnly) {
       farmImage = farm.token.symbol.toLowerCase()
-    } else if (farm.token.symbol === 'WAVAX'){
+    } else if (farm.token.symbol === 'FTM'){
       farmImage = `${farm.quoteToken.symbol.toLowerCase()}-${farm.token.symbol.toLowerCase()}`
     } else {
       farmImage = `${farm.token.symbol.toLowerCase()}-${farm.quoteToken.symbol.toLowerCase()}`
@@ -430,9 +430,9 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         <Heading scale="lg" color="text">
         {
             tokenMode ?
-              t('Stake tokens to earn. Farming begins September 12th at 20:00 UTC.')
+              t('Stake tokens to earn.')
               :
-            t('Stake LP tokens to earn. Farming begins September 12th at 20:00 UTC.')
+            t('Stake LP tokens to earn.')
           }
         </Heading>
       </PageHeader>
