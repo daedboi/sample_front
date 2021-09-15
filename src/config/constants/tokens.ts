@@ -57,6 +57,13 @@ const tokens = {
     },
     decimals: 18,
   },
+  tomb: {
+    symbol: 'TOMB',
+    address: {
+      250: '0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7',
+    },
+    decimals: 18,
+  },
   morph: {
     symbol: 'MORPH',
     address: {

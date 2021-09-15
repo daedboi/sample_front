@@ -59,6 +59,15 @@ const farms: FarmConfig[] = [
     token: tokens.ftm,
     quoteToken: tokens.usdc,
   },
+  {
+    pid: 16,
+    lpSymbol: 'MORPH-TOMB LP',
+    lpAddresses: {
+      250: '0x224A9029c65d4A34dde7393c439ba0C6089c207d',
+    },
+    token: tokens.tomb,
+    quoteToken: tokens.cake,
+  },
   /**
    * Single token pools
    */
