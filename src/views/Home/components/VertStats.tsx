@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
 import { useTranslation } from 'contexts/Localization'
+// import { registerToken } from 'utils/wallet'
 import { useMediaQuery } from 'react-responsive';
 import { getCakeAddress } from 'utils/addressHelpers'
 import useTheme from 'hooks/useTheme'
@@ -27,6 +28,15 @@ const ColumnLayout = styled(CardBody)<{isMobile:boolean}>`
   column-count:${(props)=>props.isMobile?"1":"3"}
 `
 
+// const TokenLink = styled.a`
+//   font-size: 14px;
+//   text-decoration: none;
+//   color: ${(props) => props.theme.colors.text};
+//   cursor: pointer;
+//   display: flex;
+//   justify-content: space-between;
+//   margin-bottom: 8px;
+// `
 
 const Row = styled.div`
   align-items: center;
@@ -76,7 +86,8 @@ const InvertedImage = styled(Image)`
 const VertStats = () => {
   const { t } = useTranslation()
   const totalSupply = useTotalSupply()
-  const burnedBalance = useBurnedBalance(getCakeAddress())
+  const tokenAddress = getCakeAddress()
+  const burnedBalance = useBurnedBalance(tokenAddress)
   // const farms = useFarms();
   const eggPrice = usePriceCakeBusd();
   const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0);
@@ -88,7 +99,7 @@ const VertStats = () => {
 
   const morphPerSec = 0.5;
   
-
+  // const imageSrc = '/images/tokens/morph.png'
 
   return (
     <StyledVertStats isMobile={isMobile}>
@@ -126,6 +137,12 @@ const VertStats = () => {
             <Text fontSize="14px">{t('Max Supply')}</Text>
             <Text bold fontSize="14px">2,000,000 MORPH</Text>
           </Row>
+
+          {/* <Flex mb="4px" mt='4px'>
+            <TokenLink onClick={() => registerToken(tokenAddress, 'MORPH', 18, imageSrc)}>Add MORPH to Metamask</TokenLink>
+            <MetamaskIcon height={15} width={15} ml="4px" />
+          </Flex> */}
+
         </Column>
         <Column>
           <TotalValueLockedCard />

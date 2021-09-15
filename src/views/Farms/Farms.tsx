@@ -189,22 +189,32 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         // useGetApiPrices
         // const quoteTokenPriceUsd = prices[farm?.quoteToken?.symbol?.toLowerCase()]
         // const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(quoteTokenPriceUsd)
-        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.usdtPrice)
-        // const { cakeRewardsApr } = isActive
-        // ? getFarmApr(new BigNumber(farm.poolWeight), lydPrice, totalLiquidity )
-        // : { cakeRewardsApr: 0 }
+        
 
+        // let totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(wavaxPrice)
+        
+        // if (farm.quoteToken.symbol === QuoteToken.CAKE) {
+        //   totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(lydPrice)
+        // }
+        
+        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.usdtPrice)
+
+        
         const cakeRewardPerBlock = new BigNumber(farm.morphPerSec || 1)
           .times(new BigNumber(farm.poolWeight))
           .div(new BigNumber(10).pow(18))
         const cakeRewardPerYear = cakeRewardPerBlock.times(SECOND_PER_YEAR)
         let apr = lydPrice.times(cakeRewardPerYear);
+        
+        // const poolWeight = farm.poolWeight
+        // const yearlyCakeRewardAllocation = CAKE_PER_YEAR.times(poolWeight)
+        // let apr = yearlyCakeRewardAllocation.times(lydPrice).div(totalLiquidity).times(100)
 
         let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0);
 
-        if (farm.quoteTokenSymbol === QuoteToken.FTM) {
+        if (farm.quoteToken.symbol === QuoteToken.FTM) {
           totalValue = totalValue.times(wavaxPrice);
-        }else if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
+        }if (farm.quoteToken.symbol === QuoteToken.CAKE) {
           totalValue = totalValue.times(lydPrice);
         }
 
