@@ -68,6 +68,26 @@ const farms: FarmConfig[] = [
     token: tokens.ftm,
     quoteToken: tokens.usdc,
   },
+  {
+    pid: 17,
+    isCommunity: true,
+    lpSymbol: 'REAPER-FTM LP', 
+    lpAddresses: {
+      250: '0x8c24602e232b13703afcda2fb661228c9005ce8c',
+    },
+    token: tokens.reaper,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 15,
+    isCommunity: true,
+    lpSymbol: 'TOTEM-FTM LP', 
+    lpAddresses: {
+      250: '0x85263F06633A75f43A4074CaC84d6C4474080c9C',
+    },
+    token: tokens.totem,
+    quoteToken: tokens.ftm,
+  },
   /**
    * Single token pools
    */
@@ -82,16 +102,6 @@ const farms: FarmConfig[] = [
     token: tokens.cake,
     quoteToken: tokens.usdc,
   },
-  // {
-  //   pid: 6,
-  //   isTokenOnly: true,
-  //   lpSymbol: 'PLATIN',
-  //   lpAddresses: {
-  //     250: '0x60BEFF3E9d3b4E8409471Ecc58e568EB153F1e00',
-  //   },
-  //   token: tokens.platin,
-  //   quoteToken: tokens.usdc,
-  // },
   {
     pid: 6,
     isTokenOnly: true,
@@ -180,16 +190,6 @@ const farms: FarmConfig[] = [
       250: '0xe120ffbda0d14f3bb6d6053e90e63c572a66a428',
     },
     token: tokens.dai,
-    quoteToken: tokens.ftm,
-  },
-  {
-    pid: 15,
-    isCommunity: true,
-    lpSymbol: 'TOTEM-FTM LP', 
-    lpAddresses: {
-      250: '0x85263F06633A75f43A4074CaC84d6C4474080c9C',
-    },
-    token: tokens.totem,
     quoteToken: tokens.ftm,
   },
 ]

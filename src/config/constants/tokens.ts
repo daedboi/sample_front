@@ -50,6 +50,13 @@ const tokens = {
     },
     decimals: 18,
   },
+  reaper: {
+    symbol: 'REAPER',
+    address: {
+      250: '0x117dB78176C8eDe4F12fCd29d85Cd96b91A4cbBb',
+    },
+    decimals: 18,
+  },
   totem: {
     symbol: 'TOTEM',
     address: {
