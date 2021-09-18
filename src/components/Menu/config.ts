@@ -147,8 +147,12 @@ const config: MenuEntry[] = [
         href: 'https://info.spookyswap.finance/token/0x0789ff5ba37f72abc4d561d00648acadc897b32d',
       },
       {
-        label: 'Charts',
+        label: 'Kek Tools',
         href: 'https://kek.tools/t/0x0789ff5ba37f72abc4d561d00648acadc897b32d',
+      },
+      {
+        label: 'Zoocoin',
+        href: 'https://charts.zoocoin.cash/charts?exchange=SpookySwap&pair=0x7D42442f764985F208E6fa6A7CD0e253CB447D58',
       },
       {
         label: 'Vfat.tools',
