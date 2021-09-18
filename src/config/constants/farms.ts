@@ -163,7 +163,7 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.ftm,
   },
   {
-    pid: 14,
+    pid: 18,
     isTokenOnly: true,
     lpSymbol: 'KINS',
     lpAddresses: {
@@ -202,6 +202,7 @@ const farms: FarmConfig[] = [
     token: tokens.dai,
     quoteToken: tokens.ftm,
   },
+  
 ]
 
 export default farms
