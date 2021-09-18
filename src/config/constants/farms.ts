@@ -164,6 +164,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 18,
+    isCommunity: true,
     isTokenOnly: true,
     lpSymbol: 'KINS',
     lpAddresses: {
