@@ -50,6 +50,13 @@ const tokens = {
     },
     decimals: 18,
   },
+  kins: {
+    symbol: 'KINS',
+    address: {
+      250: '0x6eced8e16eda61e65292f019b165542a5906ecd6',
+    },
+    decimals: 18,
+  },
   reaper: {
     symbol: 'REAPER',
     address: {

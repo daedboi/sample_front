@@ -155,7 +155,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, lydPrice, account, w
   
   return (
     <FCard>
-      {(farm.token.symbol === 'MORPH' || farm.quoteToken.symbol === 'MORPH' || farm.token.symbol === 'CAKE' || farm.token.symbol === 'TOTEM' || farm.quoteToken.symbol === 'CAKE' || farm.token.symbol === 'REAPER') && <StyledCardAccent />}
+      {(farm.token.symbol === 'MORPH' || farm.quoteToken.symbol === 'MORPH' || farm.token.symbol === 'CAKE' || farm.token.symbol === 'TOTEM' || farm.quoteToken.symbol === 'CAKE' || farm.token.symbol === 'REAPER' || farm.token.symbol === 'KINS') && <StyledCardAccent />}
       <CardHeading
         lpLabel={lpLabel}
         multiplier={farm.multiplier}

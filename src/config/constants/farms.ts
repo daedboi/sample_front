@@ -163,6 +163,16 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.ftm,
   },
   {
+    pid: 14,
+    isTokenOnly: true,
+    lpSymbol: 'KINS',
+    lpAddresses: {
+      250: '0xD24cf15F02D1cC4C868C303925aDF247118CAd9B',
+    },
+    token: tokens.kins,
+    quoteToken: tokens.ftm,
+  },
+  {
     pid: 12,
     isTokenOnly: true,
     lpSymbol: 'USDC',
