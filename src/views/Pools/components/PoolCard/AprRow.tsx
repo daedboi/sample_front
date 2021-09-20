@@ -1,6 +1,7 @@
 import React from 'react'
 // import BigNumber from 'bignumber.js'
-import { Flex, TooltipText, IconButton, useModal, CalculateIcon, Skeleton, useTooltip } from 'trinityhelper'
+// import { Flex, TooltipText, IconButton, useModal, CalculateIcon, Skeleton, useTooltip } from 'trinityhelper'
+import { Flex, TooltipText, Skeleton, useTooltip } from 'trinityhelper'
 import { useTranslation } from 'contexts/Localization'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { getPoolApr } from 'utils/apr'
@@ -8,9 +9,9 @@ import { getPoolApr } from 'utils/apr'
 import { tokenEarnedPerThousandDollarsCompounding, getRoi } from 'utils/compoundApyHelpers'
 import { usePriceBnbBusd, usePriceCakeBusd, usePriceQuoteToken } from 'state/hooks'
 import Balance from 'components/Balance'
-import ApyCalculatorModal from 'components/ApyCalculatorModal'
+// import ApyCalculatorModal from 'components/ApyCalculatorModal'
 import { Pool } from 'state/types'
-import { BASE_EXCHANGE_URL } from 'config'
+// import { BASE_EXCHANGE_URL } from 'config'
 import { QuoteToken } from 'config/constants/types'
 
 interface AprRowProps {
@@ -80,22 +81,22 @@ const AprRow: React.FC<AprRowProps> = ({
     return apr
   }
 
-  const apyModalLink =
-    stakingToken.address &&
-    `https://info.spookyswap.finance/token/${stakingToken.address[process.env.REACT_APP_CHAIN_ID]}`
+  // const apyModalLink =
+  //   stakingToken.address &&
+  //   `https://info.spookyswap.finance/token/${stakingToken.address[process.env.REACT_APP_CHAIN_ID]}`
 
-  const [onPresentApyModal] = useModal(
-    <ApyCalculatorModal
-      tokenPrice={rewardTokenPrice}
-      apr={apr}
-      linkLabel={`${t('Get')} ${stakingToken.symbol}`}
-      linkHref={apyModalLink || BASE_EXCHANGE_URL}
-      earningTokenSymbol={earningToken.symbol}
-      roundingDecimals={isHighValueToken ? 4 : 2}
-      compoundFrequency={compoundFrequency}
-      performanceFee={performanceFee}
-    />,
-  )
+  // const [onPresentApyModal] = useModal(
+  //   <ApyCalculatorModal
+  //     tokenPrice={rewardTokenPrice}
+  //     apr={apr}
+  //     linkLabel={`${t('Get')} ${stakingToken.symbol}`}
+  //     linkHref={apyModalLink || BASE_EXCHANGE_URL}
+  //     earningTokenSymbol={earningToken.symbol}
+  //     roundingDecimals={isHighValueToken ? 4 : 2}
+  //     compoundFrequency={compoundFrequency}
+  //     performanceFee={performanceFee}
+  //   />,
+  // )
 
   return (
     <Flex alignItems="center" justifyContent="space-between">
@@ -113,9 +114,9 @@ const AprRow: React.FC<AprRowProps> = ({
             unit="%"
             bold
           />
-          <IconButton onClick={onPresentApyModal} variant="text" scale="sm">
+          {/* <IconButton onClick={onPresentApyModal} variant="text" scale="sm">
             <CalculateIcon color="textSubtle" width="18px" />
-          </IconButton>
+          </IconButton> */}
         </Flex>
       )}
     </Flex>
