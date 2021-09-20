@@ -3,7 +3,7 @@ export default {
     250: '0xc7dad2e953Dc7b11474151134737A007049f576E',
   },
   sousChef: {
-    250: ''
+    250: '0x31cA75bA3DB4A8A61304dFAa854Bd301Dbc3484d'
   },
   lottery: {
     97: '',

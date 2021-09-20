@@ -2,16 +2,33 @@ import tokens from './tokens'
 import { PoolConfig, PoolCategory  } from './types'
 
 const pools: PoolConfig[] = [
+  // {
+  //   sousId: 0,
+  //   correspondingFarmId: 0,
+  //   usesCakeForPrice: false,
+  //   stakingToken: tokens.cake,
+  //   earningToken: tokens.cake,
+  //   contractAddress: {
+  //     250: '',
+  //   },
+  //   poolCategory: PoolCategory.CORE,
+  //   harvest: true,
+  //   tokenPerBlock: '10',
+  //   sortOrder: 1,
+  //   isFinished: false,
+  // },
   {
-    sousId: 0,
-    stakingToken: tokens.cake,
-    earningToken: tokens.cake,
+    sousId: 1,
+    correspondingFarmId: 4,
+    usesCakeForPrice: false,
+    stakingToken: tokens.morph,
+    earningToken: tokens.wftm,
     contractAddress: {
-      250: '',
+      250: '0x2854980e1f6526CB5AeC8d53c5028AF486368ea1',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
-    tokenPerBlock: '10',
+    tokenPerBlock: '0.05',
     sortOrder: 1,
     isFinished: false,
   },

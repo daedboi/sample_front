@@ -4,13 +4,13 @@ import { useDispatch } from 'react-redux'
 import useToast from 'hooks/useToast'
 import {
   fetchFarmUserDataAsync,
-  // updateUserStakedBalance,
-  // updateUserBalance,
-  // updateUserPendingReward,
+  updateUserStakedBalance,
+  updateUserBalance,
+  updateUserPendingReward,
 } from 'state/actions'
-import { unstake } from 'utils/callHelpers'
-import { useMasterchef } from './useContract'
-// import { useAppDispatch } from '../state'
+import { sousEmergencyUnstake, sousUnstake, unstake } from 'utils/callHelpers'
+import { useMasterchef, useSousChef } from './useContract'
+import { useAppDispatch } from '../state'
 
 const useUnstake = (pid: number) => {
   const dispatch = useDispatch()
@@ -37,32 +37,32 @@ const useUnstake = (pid: number) => {
 
 // const ELECTRUMIDS = [5, 6, 3, 1, 22, 23, 78]
 
-// export const useSousUnstake = (sousId, enableEmergencyWithdraw = false) => {
-//   const dispatch = useAppDispatch()
-//   const { account } = useWeb3React()
-//   const masterChefContract = useMasterchef()
-//   const sousChefContract = useSousChef(sousId)
+export const useSousUnstake = (sousId, enableEmergencyWithdraw = false) => {
+  const dispatch = useAppDispatch()
+  const { account } = useWeb3React()
+  const masterChefContract = useMasterchef()
+  const sousChefContract = useSousChef(sousId)
 
-//   const handleUnstake = useCallback(
-//     async (amount: string, decimals: number) => {
-//       if (sousId === 0) {
-//         const txHash = await unstake(masterChefContract, 0, amount, account)
-//         console.info(txHash)
-//       } else if (enableEmergencyWithdraw) {
-//         const txHash = await sousEmergencyUnstake(sousChefContract, account)
-//         console.info(txHash)
-//       } else {
-//         const txHash = await sousUnstake(sousChefContract, amount, decimals, account)
-//         console.info(txHash)
-//       }
-//       dispatch(updateUserStakedBalance(sousId, account))
-//       dispatch(updateUserBalance(sousId, account))
-//       dispatch(updateUserPendingReward(sousId, account))
-//     },
-//     [account, dispatch, enableEmergencyWithdraw, masterChefContract, sousChefContract, sousId],
-//   )
+  const handleUnstake = useCallback(
+    async (amount: string, decimals: number) => {
+      if (sousId === 0) {
+        const txHash = await unstake(masterChefContract, 0, amount, account)
+        console.info(txHash)
+      } else if (enableEmergencyWithdraw) {
+        const txHash = await sousEmergencyUnstake(sousChefContract, account)
+        console.info(txHash)
+      } else {
+        const txHash = await sousUnstake(sousChefContract, amount, decimals, account)
+        console.info(txHash)
+      }
+      dispatch(updateUserStakedBalance(sousId, account))
+      dispatch(updateUserBalance(sousId, account))
+      dispatch(updateUserPendingReward(sousId, account))
+    },
+    [account, dispatch, enableEmergencyWithdraw, masterChefContract, sousChefContract, sousId],
+  )
 
-//   return { onUnstake: handleUnstake }
-// }
+  return { onUnstake: handleUnstake }
+}
 
 export default useUnstake

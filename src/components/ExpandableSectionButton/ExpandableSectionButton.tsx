@@ -27,7 +27,7 @@ const ExpandableSectionButton: React.FC<ExpandableSectionButtonProps> = ({ onCli
       <Text color="text" bold>
         {expanded ? t('Hide') : t('Details')}
       </Text>
-      {expanded ? <ChevronUpIcon /> : <ChevronDownIcon />}
+      {expanded ? <ChevronUpIcon color="secondary"/> : <ChevronDownIcon color="secondary"/>}
     </Wrapper>
   )
 }

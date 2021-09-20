@@ -158,6 +158,22 @@ const config: MenuEntry[] = [
         label: 'Vfat.tools',
         href: 'https://vfat.tools/fantom/morpheusswap/',
       },
+      {
+        label: 'Nomics',
+        href: 'https://nomics.com/assets/morph4-morpheus-token',
+
+      },
+      {
+        label: 'CoinGecko',
+        href: 'https://www.coingecko.com/en/coins/morpheus-token',
+
+      },
+      {
+        label: 'CoinMarketCap',
+        href: 'https://coinmarketcap.com/currencies/morpheus-token/',
+
+      },
+      
     ],
   },
   // {

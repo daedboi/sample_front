@@ -13,8 +13,8 @@ import SuspenseWithChunkError from './components/SuspenseWithChunkError'
 import ToastListener from './components/ToastListener'
 import PageLoader from './components/PageLoader'
 // import EasterEgg from './components/EasterEgg'
-// import Pools from './views/Pools'
-import ComingSoon from './views/ComingSoon'
+import Pools from './views/Pools'
+// import ComingSoon from './views/ComingSoon'
 // import Maximus from './views/Maximus'
 // import Airdrop from './views/Airdrop'
 import history from './routerHistory'
@@ -85,7 +85,7 @@ const App: React.FC = () => {
               <Farms tokenMode/>
             </Route>
             <Route path="/staking">
-              <ComingSoon />
+              <Pools />
             </Route>
             {/* <Route path="/electrum">
               <Redirect to="/pools" />

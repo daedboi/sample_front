@@ -17,7 +17,8 @@ export enum QuoteToken {
   'CAKE' = 'CAKE',
   'BOO' = 'BOO',
   'SCREAM' = 'SCREAM',
-  'DAI' = 'DAI'
+  'DAI' = 'DAI',
+  'WFTM' = 'WFTM'
 
 }
 
@@ -108,6 +109,8 @@ export interface MaximusConfig {
 
 export interface PoolConfig {
   sousId: number
+  correspondingFarmId: number
+  usesCakeForPrice: boolean
   earningToken: Token
   stakingToken: Token
   stakingLimit?: number

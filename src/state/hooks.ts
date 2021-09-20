@@ -9,7 +9,7 @@ import { useAppDispatch } from 'state'
 import { getWeb3NoAccount } from 'utils/web3'
 import useRefresh from 'hooks/useRefresh'
 import { BIG_ZERO } from 'utils/bigNumber'
-import { getBalanceAmount } from 'utils/formatBalance'
+import { getBalanceAmount, getBalanceNumber } from 'utils/formatBalance'
 import Nfts from 'config/constants/nfts'
 import { fetchWalletNfts } from './collectibles'
 import { QuoteToken } from '../config/constants/types'
@@ -17,8 +17,8 @@ import { QuoteToken } from '../config/constants/types'
 
 import {
   fetchFarmsPublicDataAsync,
-  // fetchPoolsPublicDataAsync,
-  // fetchPoolsUserDataAsync,
+  fetchPoolsPublicDataAsync,
+  fetchPoolsUserDataAsync,
   // fetchMaximusPublicDataAsync,
   // fetchMaximusUserDataAsync,
   push as pushToast,
@@ -28,7 +28,7 @@ import {
 } from './actions'
 // import { QuoteToken } from '../config/constants/types'
 // eslint-disable-next-line
-import { State, Farm, ProfileState, AchievementState, FarmsState } from './types'
+import { State, Farm, Pool, ProfileState, AchievementState, FarmsState } from './types'
 // import { fetchProfile } from './profile'
 // import { fetchTeam, fetchTeams } from './teams'
 import { fetchAchievements } from './achievements'
@@ -39,7 +39,7 @@ export const useFetchPublicData = () => {
   const { slowRefresh } = useRefresh()
   useEffect(() => {
     dispatch(fetchFarmsPublicDataAsync())
-    // dispatch(fetchPoolsPublicDataAsync())
+    dispatch(fetchPoolsPublicDataAsync())
     // dispatch(fetchMaximusPublicDataAsync())
   }, [dispatch, slowRefresh])
 
@@ -104,23 +104,28 @@ export const useFarmUser = (pid) => {
 
 // Pools
 
-// export const usePools = (account): Pool[] => {
-//   const { fastRefresh } = useRefresh()
-//   const dispatch = useDispatch()
-//   useEffect(() => {
-//     if (account) {
-//       dispatch(fetchPoolsUserDataAsync(account))
-//     }
-//   }, [account, dispatch, fastRefresh])
+export const usePools = (account): Pool[] => {
+  const { fastRefresh } = useRefresh()
+  const dispatch = useDispatch()
+  useEffect(() => {
+    if (account) {
+      dispatch(fetchPoolsUserDataAsync(account))
+    }
+  }, [account, dispatch, fastRefresh])
 
-//   const pools = useSelector((state: State) => state.pools.data)
-//   return pools
-// }
+  const pools = useSelector((state: State) => state.pools.data)
+  return pools
+}
 
-// export const usePoolFromPid = (sousId): Pool => {
-//   const pool = useSelector((state: State) => state.pools.data.find((p) => p.sousId === sousId))
-//   return pool
-// }
+export const usePoolsData = (): Pool[] => {
+  const pools = useSelector((state: State) => state.pools.data)
+  return pools
+}
+
+export const usePoolFromPid = (sousId): Pool => {
+  const pool = useSelector((state: State) => state.pools.data.find((p) => p.sousId === sousId))
+  return pool
+}
 
 // Maximus
 
@@ -262,21 +267,30 @@ export const usePriceCakeBusd = (): BigNumber => {
 export const useTotalValue = (): BigNumber => {
   // const farms = useFarms();
   const farms = useFarmsData();
+  const pools = usePoolsData();
   const bnbPrice = usePriceBnbBusd();
   const cakePrice = usePriceCakeBusd();
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
     if (farm.lpTotalInQuoteToken) {
-      let val;
+      let farmVal;
       if (farm.quoteToken.symbol === QuoteToken.FTM) {
-        val = (bnbPrice.times(farm.lpTotalInQuoteToken));
+        farmVal = (bnbPrice.times(farm.lpTotalInQuoteToken));
       }else if (farm.quoteToken.symbol === QuoteToken.CAKE) {
-        val = (cakePrice.times(farm.lpTotalInQuoteToken));
+        farmVal = (cakePrice.times(farm.lpTotalInQuoteToken));
       }else{
-        val = (farm.lpTotalInQuoteToken); // USDC etc
+        farmVal = (farm.lpTotalInQuoteToken); // USDC etc
       }
-      value = value.plus(val);
+      value = value.plus(farmVal);
+    }
+  }
+  for (let i = 0; i < pools.length; i++) {
+    const pool = pools[i]
+    if (pool.totalStaked) {
+      const totalStaked = getBalanceNumber(pool.totalStaked, pool.stakingToken.decimals)
+      const poolVal = (cakePrice.times(totalStaked));
+      value = value.plus(poolVal);
     }
   }
   // Calculate TVL for Vault
@@ -356,6 +370,11 @@ export const useInitialBlock = () => {
 export const useUsdtPriceFromPid = (pid: number): BigNumber => {
   const farm = useFarmFromPid(pid)
   return farm && new BigNumber(farm.token.usdtPrice)
+}
+
+export const usePriceQuoteToken = (pid: number): BigNumber => {
+  const farm = useFarmFromPid(pid)
+  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO
 }
 
 export const useFarmFromLpSymbol = (lpSymbol: string): Farm => {

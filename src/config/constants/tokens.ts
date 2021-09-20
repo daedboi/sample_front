@@ -8,12 +8,9 @@ const tokens = {
     symbol: 'CAKE',
     address: {
       250: '0x0789fF5bA37f72ABC4D561D00648acaDC897b32d',
+      projectLink: 'https://morpheusswap.finance/'
     },
     decimals: 18,
-  },
-  avax: {
-    symbol: 'AVAX',
-    projectLink: 'https://www.avalabs.org/',
   },
   wbnb: {
     symbol: 'WBNB',
@@ -21,6 +18,7 @@ const tokens = {
       250: '0xd67de0e0a0fd7b15dc8348bb9be742f3c5850454',
     },
     decimals: 18,
+    projectLink: 'https://www.binance.org/en/blog/what-is-wbnb/'
   },
   usdc: {
     symbol: 'USDC',
@@ -28,6 +26,7 @@ const tokens = {
       250: '0x04068da6c83afcfa0e13ba15a6696662335d5b75',
     },
     decimals: 6,
+    projectLink: 'https://www.circle.com/en/usdc'
   },
   usdt: {
     symbol: 'fUSDT',
@@ -35,6 +34,7 @@ const tokens = {
       250: '0x049d68029688eabf473097a2fc38ef61633a3c7a',
     },
     decimals: 6,
+    projectLink: 'https://frapped.io/'
   },
   wbtc: {
     symbol: 'WBTC',
@@ -42,6 +42,7 @@ const tokens = {
       250: '0x321162cd933e2be498cd2267a90534a804051b11',
     },
     decimals: 8,
+    projectLink: 'https://wbtc.network/'
   },
   weth: {
     symbol: 'WETH',
@@ -49,6 +50,7 @@ const tokens = {
       250: '0x74b23882a30290451a17c44f4f05243b6b58c76d',
     },
     decimals: 18,
+    projectLink: 'https://weth.io/'
   },
   kins: {
     symbol: 'KINS',
@@ -56,6 +58,7 @@ const tokens = {
       250: '0x6eced8e16eda61e65292f019b165542a5906ecd6',
     },
     decimals: 18,
+    projectLink: 'https://pumpkins.farm/'
   },
   reaper: {
     symbol: 'REAPER',
@@ -63,6 +66,7 @@ const tokens = {
       250: '0x117dB78176C8eDe4F12fCd29d85Cd96b91A4cbBb',
     },
     decimals: 18,
+    projectLink: 'https://www.grim.finance/'
   },
   totem: {
     symbol: 'TOTEM',
@@ -70,6 +74,7 @@ const tokens = {
       250: '0x31a37aedc0c18aa139e120e1cdc673bbb2063e6f',
     },
     decimals: 18,
+    projectLink: 'https://totemfinance.app/#/'
   },
   tomb: {
     symbol: 'TOMB',
@@ -77,6 +82,7 @@ const tokens = {
       250: '0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7',
     },
     decimals: 18,
+    projectLink: 'https://tomb.finance/'
   },
   morph: {
     symbol: 'MORPH',
@@ -84,6 +90,7 @@ const tokens = {
       250: '0x0789fF5bA37f72ABC4D561D00648acaDC897b32d',
     },
     decimals: 18,
+    projectLink: 'https://morpheusswap.finance/'
   },
   dai: {
     symbol: 'DAI',
@@ -91,6 +98,7 @@ const tokens = {
       250: '0x8d11ec38a3eb5e956b052f67da8bdc9bef8abf3e',
     },
     decimals: 18,
+    projectLink: 'https://makerdao.com/en/'
   },
   boo: {
     symbol: 'BOO',
@@ -98,6 +106,7 @@ const tokens = {
       250: '0x841fad6eae12c286d1fd18d1d525dffa75c7effe',
     },
     decimals: 18,
+    projectLink: 'https://spookyswap.finance/'
   },
   scream: {
     symbol: 'SCREAM',
@@ -105,6 +114,7 @@ const tokens = {
       250: '0xe0654c8e6fd4d733349ac7e09f6f23da256bf475',
     },
     decimals: 18,
+    projectLink: 'https://scream.sh/'
   },
   ftm: {
     symbol: 'FTM',
@@ -112,6 +122,15 @@ const tokens = {
       250: '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83',
     },
     decimals: 18,
+    projectLink: 'https://fantom.foundation/'
+  },
+  wftm: {
+    symbol: 'WFTM',
+    address: {
+      250: '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83',
+    },
+    decimals: 18,
+    projectLink: 'https://fantom.foundation/'
   },
   kalm: {
     symbol: 'KALM',
