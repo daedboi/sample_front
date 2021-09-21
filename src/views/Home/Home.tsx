@@ -100,7 +100,7 @@ const Home: React.FC = () => {
     <>
 
     <Page>
-      <img src="/images/WebBanner.png" alt="titlebar" className="banner" />
+      <img src="/images/WebBanner.gif" alt="titlebar" className="banner" />
       <DesktopSupportCard isMobile={isMobile}>
         <Cards column={isMobile}>
           <Cards column>
