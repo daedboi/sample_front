@@ -51,6 +51,7 @@ export interface FarmConfig {
   lpTokenBalanceMC?: any
   multiplier?: string
   isCommunity?: any
+  isSpirit?: boolean
   quoteTokenSymbol?: any
   isTokenOnly?: any
   tokenSymbol?: any

@@ -6,7 +6,7 @@ import { LinkExternal, Text } from 'trinityhelper'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import { BASE_ADD_LIQUIDITY_URL } from 'config'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
-import { CommunityTag, CoreTag, DualTag, NoFeeTag } from 'components/Tags'
+import { CommunityTag, CoreTag, DualTag, NoFeeTag, SpiritTag } from 'components/Tags'
 
 import HarvestAction from './HarvestAction'
 import StakedAction from './StakedAction'
@@ -202,7 +202,8 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
         {/* <StyledLinkExternal href={info}>{t('See Pair Info')}</StyledLinkExternal> */}
         <TagsContainer>
           {depositFee === 0 ? <NoFeeTag /> : null}
-          {farm.isCommunity ? <CommunityTag /> : <CoreTag />}
+          {farm.isSpirit ? <SpiritTag /> : <CoreTag />}
+          {farm.isCommunity ? <CommunityTag /> : null}
           {dual ? <DualTag /> : null}
         </TagsContainer>
       </InfoContainer>

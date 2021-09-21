@@ -9,7 +9,7 @@ const NoFeeTag = () => (
 
 const CoreTag = (props) => (
   <Tag variant="secondary" outline startIcon={<VerifiedIcon color="secondary" />} {...props}>
-    Core
+    Spooky
   </Tag>
 )
 
@@ -22,6 +22,12 @@ const CommunityTag = (props) => (
 const AvaxTag = (props) => (
   <Tag variant="avalanche" outline startIcon={<CommunityIcon color="secondary" />} {...props}>
     Avalanche
+  </Tag>
+)
+
+const SpiritTag = (props) => (
+  <Tag variant="textSubtle" outline startIcon={<VerifiedIcon color="secondary" />} {...props}>
+    Spirit
   </Tag>
 )
 
@@ -43,4 +49,4 @@ const CompoundingPoolTag = (props) => (
   </Tag>
 )
 
-export { CoreTag, CommunityTag, AvaxTag, DualTag, CompoundingPoolTag, ManualPoolTag, NoFeeTag }
+export { CoreTag, CommunityTag, AvaxTag, DualTag, CompoundingPoolTag, ManualPoolTag, NoFeeTag, SpiritTag }

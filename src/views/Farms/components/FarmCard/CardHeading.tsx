@@ -2,12 +2,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Tag, Flex, Heading, Image } from 'trinityhelper'
-import { CommunityTag, CoreTag, NoFeeTag } from 'components/Tags'
+import { CommunityTag, CoreTag, NoFeeTag, SpiritTag } from 'components/Tags'
 
 export interface ExpandableSectionProps {
   lpLabel?: string
   multiplier?: string
   isCommunityFarm?: boolean
+  isSpirit?: boolean
   farmImage?: string
   tokenSymbol?: string
   targetTokenSymbol?: string
@@ -42,6 +43,7 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
   lpLabel,
   multiplier,
   isCommunityFarm,
+  isSpirit,
   farmImage,
   tokenSymbol,
   targetTokenSymbol,
@@ -93,7 +95,8 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
         <Heading mb="4px">{lpLabel.split(' ')[0]}</Heading>
         <Flex justifyContent="center">
           {depositFee === 0 ? <NoFeeTag /> : null}
-          {isCommunityFarm ? <CommunityTag /> : <CoreTag />}
+          {isSpirit ? <SpiritTag /> : <CoreTag />}
+          {isCommunityFarm ? <CommunityTag /> : null}
           <MultiplierTag variant="secondary">{multiplier}</MultiplierTag>
         </Flex>
       </Flex>

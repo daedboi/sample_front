@@ -21,6 +21,18 @@ import TwitterCard from './components/TwitterCard'
 // import LydVaultCard from '../Pools/components/LydVaultCard'
 import useDeviceSize from '../../hooks/useWindowSize'
 
+// const AuditA = styled.a<{ target: string; rel: string; href: string }>`
+//   img src="https://paladinsec.co/pld/assets/audited-by-paladin-long.svg"
+//   width= 200
+// `;
+
+// const Audit = styled(AuditA)`
+//   position:fixed;
+//   bottom:15px;
+//   right:20px;
+//   z-index:999;
+//   width:250px;
+// `;
 
 // const Hero = styled.div`
 //   align-items: center;
@@ -89,7 +101,6 @@ const Home: React.FC = () => {
 
     <Page>
       <img src="/images/WebBanner.gif" alt="titlebar" className="banner" />
-        
       <DesktopSupportCard isMobile={isMobile}>
         <Cards column={isMobile}>
           <Cards column>
