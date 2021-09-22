@@ -7,7 +7,7 @@ const config: MenuEntry[] = [
     href: '/',
   },
   {
-    label: 'Trade',
+    label: 'Trade (Spooky)',
     icon: 'TradeIcon',
     items: [
       {
@@ -17,6 +17,20 @@ const config: MenuEntry[] = [
       {
         label: 'Liquidity',
         href: 'https://spookyswap.finance/pool',
+      },
+    ],
+  },
+  {
+    label: 'Trade (Spirit)',
+    icon: 'TradeIcon',
+    items: [
+      {
+        label: 'Exchange',
+        href: 'https://swap.spiritswap.finance/#/swap/0x0789fF5bA37f72ABC4D561D00648acaDC897b32d',
+      },
+      {
+        label: 'Liquidity',
+        href: 'https://swap.spiritswap.finance/#/pool',
       },
     ],
   },
@@ -145,6 +159,10 @@ const config: MenuEntry[] = [
       {
         label: 'Spooky Info',
         href: 'https://info.spookyswap.finance/token/0x0789ff5ba37f72abc4d561d00648acadc897b32d',
+      },
+      {
+        label: 'Spirit Info',
+        href: 'https://info.spiritswap.finance/token/0x0789ff5ba37f72abc4d561d00648acadc897b32d',
       },
       {
         label: 'Kek Tools',
