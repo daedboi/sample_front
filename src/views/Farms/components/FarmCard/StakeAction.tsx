@@ -66,7 +66,6 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
   addLiquidityUrl,
   stakedUsd,
   quoteTokenDecimals,
-  isSpirit
 }) => {
   const { t } = useTranslation()
   const { onStake } = useStake(pid)
