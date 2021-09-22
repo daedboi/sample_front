@@ -80,6 +80,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidi
         depositFeeBP={depositFeeBP}
         stakedUsd={stakedUsd}
         quoteTokenDecimals={farm.quoteToken.decimals}
+        isSpirit={farm.isSpirit}
       />
     ) : (
       <Button mt="8px" width="100%" disabled={requestedApproval} onClick={handleApprove}>

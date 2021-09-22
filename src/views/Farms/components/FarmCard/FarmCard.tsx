@@ -150,7 +150,10 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, lydPrice, account, w
       tokenAddress: farm.token.address,
     })
     addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
-  }  
+  }
+  if (farm.isSpirit) {
+    addLiquidityUrl = `https://info.spiritswap.finance/token/${liquidityUrlPathParts}`
+  }
   const lpAddress = farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
   
   return (

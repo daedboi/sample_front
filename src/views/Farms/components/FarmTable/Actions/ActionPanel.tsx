@@ -179,6 +179,9 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
     addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
   }  
 
+  if (farm.isSpirit) {
+    addLiquidityUrl = `https://info.spiritswap.finance/token/${liquidityUrlPathParts}`
+  }
   let avaxExplorer: string;
   if (farm.isTokenOnly) {
     avaxExplorer = `https://ftmscan.com/address/${farm.token.address[process.env.REACT_APP_CHAIN_ID]}`
@@ -223,7 +226,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
       </ValueContainer>
       <ActionContainer>
         <HarvestAction {...farm} userDataReady={userDataReady} />
-        <StakedAction {...farm} userDataReady={userDataReady} stakedUsd={stakedUsd} />
+        <StakedAction {...farm} userDataReady={userDataReady} stakedUsd={stakedUsd} isSpirit={farm.isSpirit}/>
       </ActionContainer>
     </Container>
   )

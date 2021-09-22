@@ -57,7 +57,8 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   token,
   userDataReady,
   isTokenOnly,
-  stakedUsd
+  stakedUsd,
+  isSpirit
 }) => {
   const { t } = useTranslation()
   const { account } = useWeb3React()
@@ -85,6 +86,9 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
     })
     addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
   }  
+  if (isSpirit) {
+    addLiquidityUrl = `https://info.spiritswap.finance/token/${liquidityUrlPathParts}`
+  }
 
   const rawStakedBalance = getBalanceNumber(stakedBalance, tokenDecimals);
   const displayBalance = rawStakedBalance.toLocaleString(undefined, {

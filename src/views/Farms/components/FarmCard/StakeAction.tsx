@@ -24,6 +24,7 @@ interface FarmCardActionsProps {
   addLiquidityUrl?: string
   stakedUsd?: BigNumber
   quoteTokenDecimals?: number
+  isSpirit?: boolean
 }
 
 const IconButtonWrapper = styled.div`
@@ -64,7 +65,8 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
   depositFeeBP,
   addLiquidityUrl,
   stakedUsd,
-  quoteTokenDecimals
+  quoteTokenDecimals,
+  isSpirit
 }) => {
   const { t } = useTranslation()
   const { onStake } = useStake(pid)
