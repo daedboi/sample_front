@@ -33,6 +33,16 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.usdc,
   },
   {
+    pid: 19,
+    isSpirit: true,
+    lpSymbol: 'MORPH-SPIRIT LP',
+    lpAddresses: {
+      250: '0x862932D09dFB15B90b6F0034906a06313cD7ef42',
+    },
+    token: tokens.spirit,
+    quoteToken: tokens.cake,
+  },
+  {
     pid: 16,
     lpSymbol: 'MORPH-TOMB LP',
     lpAddresses: {
