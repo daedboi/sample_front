@@ -15610,10 +15610,10 @@ trim-right@^1.0.1:
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
   integrity sha1-yy4SAwZ+DI3h9hQJS5/kVwTqYAM=
 
-trinityhelper@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/trinityhelper/-/trinityhelper-1.0.7.tgz#f4cbe7df90b6445706cf3ae5d55afab2f854d7df"
-  integrity sha512-puAyt1o0IBjF4qRt27LXPiGhwXmnxGwKuN/7NQpebD+FDUy/c5K43RkZxBWbFkr7Kz0+9w78HO/BSaGErB4xAg==
+trinityhelper@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/trinityhelper/-/trinityhelper-1.1.5.tgz#6e73f84b1aaa8e468fe868834c7b327c9f82588c"
+  integrity sha512-9rKMbT0wslGmzeOtFJSWYiTGBzeRHW8J1GWenij+Z7cIcqM/ulJZRl7N25shNJBzEheaWI7g+RQUIJmsaDvnCw==
   dependencies:
     "@popperjs/core" "^2.9.2"
     "@types/lodash" "^4.14.168"

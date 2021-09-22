@@ -32,7 +32,7 @@ const VertCharts = () => {
   const totalSupply = useTotalSupply()
   const burnedBalance = useBurnedBalance(getCakeAddress())
   const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0)
-  const { theme } = useTheme()
+  // const { theme } = useTheme()
   const isMobile = useMediaQuery({ query: `(max-width: 900px)` }); 
   // const myData = [
   //   { angle: 1.0 / circSupply.div(totalSupply).toNumber(), label: 'Burned', className: 'arc' },
@@ -44,8 +44,8 @@ const VertCharts = () => {
         <ChartHeading>MORPH supply</ChartHeading>
         <VertPie
           data={[
-            { title: 'Burned', value: burnedBalance.div(totalSupply).toNumber(), color: theme.colors.failure },
-            { title: 'Circulating', value: circSupply.div(totalSupply).toNumber(), color: '#30acff' },
+            { title: 'Burned', value: burnedBalance.div(totalSupply).toNumber(), color: '#622626' },
+            { title: 'Circulating', value: circSupply.div(totalSupply).toNumber(), color: '#274b38' },
           ]}
         />
       </ChartContainer>
@@ -91,7 +91,7 @@ function VertPie(props: Props) {
       label={({ dataEntry }) => `${dataEntry.title} - ${dataEntry.percentage.toLocaleString(undefined, {maximumFractionDigits:2})}%`}
       labelPosition={80 - lineWidth / 100}
       labelStyle={{
-        fill: theme.colors.secondary,
+        fill: theme.colors.text,
         opacity: 0.75,
         pointerEvents: 'none',
       }}
