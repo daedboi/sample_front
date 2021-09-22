@@ -155,10 +155,10 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
             </SciNumber>
             <IconButtonWrapper>
               <IconButton variant="tertiary" onClick={onPresentWithdraw} mr="6px">
-                <MinusIcon color="primary" width="14px" />
+                <MinusIcon color="secondary" width="14px" />
               </IconButton>
               <IconButton variant="tertiary" onClick={onPresentDeposit}>
-                <AddIcon color="primary" width="14px" />
+                <AddIcon color="secondary" width="14px" />
               </IconButton>
             </IconButtonWrapper>
           </ActionContent>

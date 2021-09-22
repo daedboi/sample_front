@@ -36,6 +36,14 @@ const tokens = {
     decimals: 6,
     projectLink: 'https://frapped.io/'
   },
+  spirit: {
+    symbol: 'SPIRIT',
+    address: {
+      250: '0x5Cc61A78F164885776AA610fb0FE1257df78E59B',
+    },
+    decimals: 18,
+    projectLink: 'https://www.spiritswap.finance/'
+  },
   wbtc: {
     symbol: 'WBTC',
     address: {
