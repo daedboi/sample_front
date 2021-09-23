@@ -61,6 +61,15 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.ftm,
   },
   {
+    pid: 20,
+    lpSymbol: 'SCREAM-FTM LP',
+    lpAddresses: {
+      250: '0x30872e4fc4edbFD7a352bFC2463eb4fAe9C09086',
+    },
+    token: tokens.scream,
+    quoteToken: tokens.ftm,
+  },
+  {
     pid: 3,
     lpSymbol: 'wETH-FTM LP',
     lpAddresses: {
@@ -153,16 +162,6 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.ftm,
   },
   {
-    pid: 10,
-    isTokenOnly: true,
-    lpSymbol: 'wBNB',
-    lpAddresses: {
-      250: '0x956de13ea0fa5b577e4097be837bf4ac80005820',
-    },
-    token: tokens.wbnb,
-    quoteToken: tokens.ftm,
-  },
-  {
     pid: 11,
     isTokenOnly: true,
     lpSymbol: 'SCREAM',
@@ -170,6 +169,16 @@ const farms: FarmConfig[] = [
       250: '0x30872e4fc4edbfd7a352bfc2463eb4fae9c09086',
     },
     token: tokens.scream,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 10,
+    isTokenOnly: true,
+    lpSymbol: 'wBNB',
+    lpAddresses: {
+      250: '0x956de13ea0fa5b577e4097be837bf4ac80005820',
+    },
+    token: tokens.wbnb,
     quoteToken: tokens.ftm,
   },
   {
