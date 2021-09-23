@@ -88,14 +88,24 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.usdc,
   },
   {
-    pid: 17,
-    isCommunity: true,
-    lpSymbol: 'REAPER-FTM LP', 
+    pid: 4,
+    lpSymbol: 'USDC-FTM LP',
     lpAddresses: {
-      250: '0x8c24602e232b13703afcda2fb661228c9005ce8c',
+      250: '0x2b4c76d0dc16be1c31d4c1dc53bf9b45987fc75c',
     },
-    token: tokens.reaper,
-    quoteToken: tokens.ftm,
+    token: tokens.ftm,
+    quoteToken: tokens.usdc,
+  },
+  {
+    pid: 21,
+    isCommunity: true,
+    isSpirit: true,
+    lpSymbol: 'PAPR-USDC LP', 
+    lpAddresses: {
+      250: '0x64bb8a5a4b2f7bd354876059c845c77cb4554818',
+    },
+    token: tokens.papr,
+    quoteToken: tokens.usdc,
   },
   {
     pid: 15,

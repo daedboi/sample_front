@@ -76,6 +76,14 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://www.grim.finance/'
   },
+  papr: {
+    symbol: 'PAPR',
+    address: {
+      250: '0xc5e7a99a20941cbf56e0d4de608332cdb792e23e',
+    },
+    decimals: 18,
+    projectLink: 'https://ftm.paprprintr.finance/'
+  },
   totem: {
     symbol: 'TOTEM',
     address: {
