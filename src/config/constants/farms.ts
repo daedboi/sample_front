@@ -43,6 +43,15 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.cake,
   },
   {
+    pid: 22,
+    lpSymbol: 'MORPH-TAROT LP',
+    lpAddresses: {
+      250: '0x827aD29cB88f135C5994355309E98382a2773e47',
+    },
+    token: tokens.tarot,
+    quoteToken: tokens.cake,
+  },
+  {
     pid: 16,
     lpSymbol: 'MORPH-TOMB LP',
     lpAddresses: {
@@ -67,6 +76,15 @@ const farms: FarmConfig[] = [
       250: '0x30872e4fc4edbFD7a352bFC2463eb4fAe9C09086',
     },
     token: tokens.scream,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 23,
+    lpSymbol: 'TAROT-FTM LP',
+    lpAddresses: {
+      250: '0x11d90ea9d16e1ee5879b299a819f6d618816d70f',
+    },
+    token: tokens.tarot,
     quoteToken: tokens.ftm,
   },
   {
@@ -180,6 +198,16 @@ const farms: FarmConfig[] = [
       250: '0x30872e4fc4edbfd7a352bfc2463eb4fae9c09086',
     },
     token: tokens.scream,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 24,
+    isTokenOnly: true,
+    lpSymbol: 'TAROT',
+    lpAddresses: {
+      250: '0x11d90ea9d16e1ee5879b299a819f6d618816d70f',
+    },
+    token: tokens.tarot,
     quoteToken: tokens.ftm,
   },
   {

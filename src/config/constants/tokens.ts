@@ -44,6 +44,14 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://www.spiritswap.finance/'
   },
+  tarot: {
+    symbol: 'TAROT',
+    address: {
+      250: '0xc5e2b037d30a390e62180970b3aa4e91868764cd',
+    },
+    decimals: 18,
+    projectLink: 'https://www.tarot.to/'
+  },
   wbtc: {
     symbol: 'WBTC',
     address: {
