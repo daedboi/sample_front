@@ -44,6 +44,14 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://www.spiritswap.finance/'
   },
+  sun: {
+    symbol: 'SUN',
+    address: {
+      250: '0x60e91f89A2986975822De3BfE50df002Ef46EaAD',
+    },
+    decimals: 18,
+    projectLink: 'https://sunfinance.site/'
+  },
   tarot: {
     symbol: 'TAROT',
     address: {

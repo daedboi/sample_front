@@ -106,6 +106,17 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.usdc,
   },
   {
+    pid: 26,
+    isCommunity: true,
+    isSpirit: true,
+    lpSymbol: 'SUN-FTM LP', 
+    lpAddresses: {
+      250: '0xdAaca3CA5974626E7BB18B2f2245438e04d128f1',
+    },
+    token: tokens.sun,
+    quoteToken: tokens.ftm,
+  },
+  {
     pid: 21,
     isCommunity: true,
     isSpirit: true,
@@ -168,6 +179,17 @@ const farms: FarmConfig[] = [
       250: '0xec7178f4c41f346b2721907f5cf7628e388a7a58',
     },
     token: tokens.boo,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 25,
+    isTokenOnly: true,
+    isSpirit: true,
+    lpSymbol: 'SPIRIT',
+    lpAddresses: {
+      250: '0x30748322b6e34545dbe0788c421886aeb5297789',
+    },
+    token: tokens.spirit,
     quoteToken: tokens.ftm,
   },
   {
