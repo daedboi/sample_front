@@ -44,6 +44,14 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://www.spiritswap.finance/'
   },
+  ice: {
+    symbol: 'ICE',
+    address: {
+      250: '0xf16e81dce15B08F326220742020379B855B87DF9',
+    },
+    decimals: 18,
+    projectLink: 'https://popsicle.finance/'
+  },
   sun: {
     symbol: 'SUN',
     address: {

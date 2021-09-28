@@ -61,6 +61,15 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.cake,
   },
   {
+    pid: 27,
+    lpSymbol: 'MORPH-ICE LP',
+    lpAddresses: {
+      250: '0x3746A3F50Dc59029554B314b9a227c2dBB8Aa743',
+    },
+    token: tokens.ice,
+    quoteToken: tokens.cake,
+  },
+  {
     pid: 2,
     lpSymbol: 'BOO-FTM LP',
     lpAddresses: {
@@ -85,6 +94,15 @@ const farms: FarmConfig[] = [
       250: '0x11d90ea9d16e1ee5879b299a819f6d618816d70f',
     },
     token: tokens.tarot,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 28,
+    lpSymbol: 'ICE-FTM LP',
+    lpAddresses: {
+      250: '0x623ee4a7f290d11c11315994db70fb148b13021d',
+    },
+    token: tokens.ice,
     quoteToken: tokens.ftm,
   },
   {
@@ -230,6 +248,16 @@ const farms: FarmConfig[] = [
       250: '0x11d90ea9d16e1ee5879b299a819f6d618816d70f',
     },
     token: tokens.tarot,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 29,
+    isTokenOnly: true,
+    lpSymbol: 'ICE',
+    lpAddresses: {
+      250: '0x623ee4a7f290d11c11315994db70fb148b13021d',
+    },
+    token: tokens.ice,
     quoteToken: tokens.ftm,
   },
   {
