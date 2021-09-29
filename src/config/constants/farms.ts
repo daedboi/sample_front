@@ -79,6 +79,16 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.ftm,
   },
   {
+    pid: 30,
+    isSpirit: true,
+    lpSymbol: 'SPIRIT-FTM LP',
+    lpAddresses: {
+      250: '0x30748322b6e34545dbe0788c421886aeb5297789',
+    },
+    token: tokens.spirit,
+    quoteToken: tokens.ftm,
+  },
+  {
     pid: 20,
     lpSymbol: 'SCREAM-FTM LP',
     lpAddresses: {
