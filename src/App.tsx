@@ -7,6 +7,8 @@ import BigNumber from 'bignumber.js'
 import useEagerConnect from 'hooks/useEagerConnect'
 import { useFetchPublicData } from 'state/hooks'
 // import useGetDocumentTitlePrice from './hooks/useGetDocumentTitlePrice'
+import Landing from 'views/Landing/Landing'
+
 import GlobalStyle from './style/Global'
 import Menu from './components/Menu'
 import SuspenseWithChunkError from './components/SuspenseWithChunkError'
@@ -60,9 +62,9 @@ const App: React.FC = () => {
   // useFetchPriceList()
   // useGetDocumentTitlePrice()
 
-  const { toastSuccess} = useToast()
+  const { toastSuccess } = useToast()
   const v = Math.random();
-  if (v < 0.5 && !didAskToJoinTelegram){
+  if (v < 0.5 && !didAskToJoinTelegram) {
     // const action = {text:"Join now", url:"https://t.me/polyvertex"}
     toastSuccess("Have you joined our Telegram community?", <a href="https://t.me/MorpheusSwapFinance" rel="noreferrer" target="_blank">Join now</a>);
   }
@@ -75,6 +77,9 @@ const App: React.FC = () => {
       <Menu>
         <SuspenseWithChunkError fallback={<PageLoader />}>
           <Switch>
+            <Route exact path="/landing">
+              <Landing />
+            </Route>
             <Route path="/" exact>
               <Home />
             </Route>
@@ -82,7 +87,7 @@ const App: React.FC = () => {
               <Farms />
             </Route>
             <Route path="/pools">
-              <Farms tokenMode/>
+              <Farms tokenMode />
             </Route>
             <Route path="/staking">
               <Pools />
