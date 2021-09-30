@@ -7,6 +7,7 @@ import BigNumber from 'bignumber.js'
 import useEagerConnect from 'hooks/useEagerConnect'
 import { useFetchPublicData } from 'state/hooks'
 // import useGetDocumentTitlePrice from './hooks/useGetDocumentTitlePrice'
+import styled from 'styled-components'
 import GlobalStyle from './style/Global'
 import Menu from './components/Menu'
 import SuspenseWithChunkError from './components/SuspenseWithChunkError'
@@ -39,6 +40,9 @@ BigNumber.config({
   DECIMAL_PLACES: 80,
 })
 
+const DiscordLink = styled.a`
+  color: #b1fd00;
+`
 const App: React.FC = () => {
   // Monkey patch warn() because of web3 flood
   // To be removed when web3 1.3.5 is released
@@ -60,11 +64,10 @@ const App: React.FC = () => {
   // useFetchPriceList()
   // useGetDocumentTitlePrice()
 
-  const { toastSuccess} = useToast()
+  const { toastInfo} = useToast()
   const v = Math.random();
   if (v < 0.5 && !didAskToJoinTelegram){
-    // const action = {text:"Join now", url:"https://t.me/polyvertex"}
-    toastSuccess("Have you joined our Telegram community?", <a href="https://t.me/MorpheusSwapFinance" rel="noreferrer" target="_blank">Join now</a>);
+    toastInfo("Have you joined our Discord community?", <DiscordLink href="https://discord.gg/DgKyUX6g" rel="noreferrer" target="_blank">Join now</DiscordLink>);
   }
   didAskToJoinTelegram = true;
 
