@@ -140,6 +140,14 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://makerdao.com/en/'
   },
+  daiv2: {
+    symbol: 'DAI (v2)',
+    address: {
+      250: '0x8d11ec38a3eb5e956b052f67da8bdc9bef8abf3e',
+    },
+    decimals: 18,
+    projectLink: 'https://makerdao.com/en/'
+  },
   boo: {
     symbol: 'BOO',
     address: {
