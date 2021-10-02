@@ -5,7 +5,7 @@ import { useTranslation } from 'contexts/Localization'
 
 const Wrapper = styled(CardHeader)<{ isFinished?: boolean; background?: string }>`
   background: ${({ isFinished, background, theme }) =>
-    isFinished ? theme.colors.backgroundDisabled : theme.colors.gradients[background]};
+    isFinished ? theme.colors.backgroundAlt : theme.colors.gradients[background]};
 `
 
 const StyledCardHeader: React.FC<{
