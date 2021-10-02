@@ -2,36 +2,38 @@ import tokens from './tokens'
 import { Ifo, Token } from './types'
 import farms from './farms'
 
-const cakeBnbLpToken: Token = {
-  symbol: farms[1].lpSymbol,
-  address: farms[1].lpAddresses,
+const lydAvaxFarm = farms.find((x) => x.pid === 0)
+
+const lydAvaxLPToken: Token = {
+  symbol: lydAvaxFarm.lpSymbol,
+  address: lydAvaxFarm.lpAddresses,
   decimals: 18,
 }
 
 const ifos: Ifo[] = [
   {
-    id: 'kalmar',
-    address: '0x1aFB32b76696CdF05593Ca3f3957AEFB23a220FB',
+    id: 'evrt',
+    address: '0x66E39268cbBf595FfaAeB17F44fB17cDdd37cd2e',
     isActive: true,
-    name: 'Kalmar (KALM)',
+    name: 'EVEREST DAO (EVRT)',
     poolBasic: {
-      saleAmount: '375,000 KALM',
-      raiseAmount: '$750,000',
-      cakeToBurn: '$375,000',
+      saleAmount: '6,000,000 EVRT',
+      raiseAmount: '$120,000',
+      lydToBurn: '$60,000',
       distributionRatio: 0.3,
     },
     poolUnlimited: {
-      saleAmount: '875,000 KALM',
-      raiseAmount: '$2,500,000',
-      cakeToBurn: '$1,250,000',
+      saleAmount: '14,000,000 EVRT',
+      raiseAmount: '$280,000',
+      lydToBurn: '$140,000',
       distributionRatio: 0.7,
     },
-    currency: cakeBnbLpToken,
-    token: tokens.kalm,
-    releaseBlockNumber: 7707736,
-    campaignId: '511110000',
-    articleUrl: 'https://pancakeswap.medium.com/kalmar-kalm-ifo-to-be-hosted-on-pancakeswap-4540059753e4',
-    tokenOfferingPrice: 2.0,
+    currency: lydAvaxLPToken,
+    token: tokens.morph,
+    releaseTimestamp: 7707736,
+    campaignId: '511110001',
+    articleUrl: 'https://lydiafinance.medium.com/everest-dao-ifo-on-lydia-finance-6bf983a5c9ad',
+    tokenOfferingPrice: 0.02,
     version: 2,
   },
 ]

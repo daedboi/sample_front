@@ -69,6 +69,15 @@ const farms: FarmConfig[] = [
     token: tokens.ice,
     quoteToken: tokens.cake,
   },
+  // {
+  //   pid: xx,
+  //   lpSymbol: 'MORPH-IronICE LP',
+  //   lpAddresses: {
+  //     250: '0x0eC281e5194eF05A3f0Ed2392CEd2dF442c9C491',
+  //   },
+  //   token: tokens.ironice,
+  //   quoteToken: tokens.cake,
+  // },
   {
     pid: 2,
     lpSymbol: 'BOO-FTM LP',
@@ -131,6 +140,15 @@ const farms: FarmConfig[] = [
       250: '0x2b4c76d0dc16be1c31d4c1dc53bf9b45987fc75c',
     },
     token: tokens.ftm,
+    quoteToken: tokens.usdc,
+  },
+  {
+    pid: 32,
+    lpSymbol: 'USDC-fUSDT LP',
+    lpAddresses: {
+      250: '0xfdef392adc84607135c24ca45de5452d77aa10de',
+    },
+    token: tokens.usdt,
     quoteToken: tokens.usdc,
   },
   {
@@ -280,6 +298,26 @@ const farms: FarmConfig[] = [
     token: tokens.wbnb,
     quoteToken: tokens.ftm,
   },
+  {
+    pid: 31,
+    isTokenOnly: true,
+    lpSymbol: 'LINK',
+    lpAddresses: {
+      250: '0x89d9bc2f2d091cfbfc31e333d6dc555ddbc2fd29',
+    },
+    token: tokens.link,
+    quoteToken: tokens.ftm,
+  },
+  // {
+  //   pid: xx,
+  //   isTokenOnly: true,
+  //   lpSymbol: 'IronICE',
+  //   lpAddresses: {
+  //     250: '0x46C8054edc2d7F8CD517fD9ba1688e1285d2345d',
+  //   },
+  //   token: tokens.ironice,
+  //   quoteToken: tokens.ftm,
+  // },
   {
     pid: 18,
     isCommunity: true,

@@ -70,7 +70,7 @@ export type IfoStatus = 'idle' | 'coming_soon' | 'live' | 'finished'
 interface IfoPoolInfo {
   saleAmount: string
   raiseAmount: string
-  cakeToBurn: string
+  lydToBurn: string
   distributionRatio: number // Range [0-1]
 }
 
@@ -81,7 +81,7 @@ export interface Ifo {
   name: string
   currency: Token
   token: Token
-  releaseBlockNumber: number
+  releaseTimestamp: number
   articleUrl: string
   campaignId: string
   tokenOfferingPrice: number

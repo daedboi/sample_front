@@ -44,6 +44,14 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://www.spiritswap.finance/'
   },
+  ironice: {
+    symbol: 'IronICE',
+    address: {
+      250: '0x260b3E40c714Ce8196465Ec824Cd8Bb915081812',
+    },
+    decimals: 18,
+    projectLink: 'https://app.iron.finance/'
+  },
   ice: {
     symbol: 'ICE',
     address: {
@@ -59,6 +67,14 @@ const tokens = {
     },
     decimals: 18,
     projectLink: 'https://sunfinance.site/'
+  },
+  link: {
+    symbol: 'LINK',
+    address: {
+      250: '0xb3654dc3D10Ea7645f8319668E8F54d2574FBdC8',
+    },
+    decimals: 18,
+    projectLink: 'https://chain.link/'
   },
   tarot: {
     symbol: 'TAROT',
