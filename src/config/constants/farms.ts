@@ -69,15 +69,15 @@ const farms: FarmConfig[] = [
     token: tokens.ice,
     quoteToken: tokens.cake,
   },
-  // {
-  //   pid: xx,
-  //   lpSymbol: 'MORPH-IronICE LP',
-  //   lpAddresses: {
-  //     250: '0x0eC281e5194eF05A3f0Ed2392CEd2dF442c9C491',
-  //   },
-  //   token: tokens.ironice,
-  //   quoteToken: tokens.cake,
-  // },
+  {
+    pid: 33,
+    lpSymbol: 'MORPH-IronICE LP',
+    lpAddresses: {
+      250: '0x0eC281e5194eF05A3f0Ed2392CEd2dF442c9C491',
+    },
+    token: tokens.ironice,
+    quoteToken: tokens.cake,
+  },
   {
     pid: 2,
     lpSymbol: 'BOO-FTM LP',
@@ -308,16 +308,16 @@ const farms: FarmConfig[] = [
     token: tokens.link,
     quoteToken: tokens.ftm,
   },
-  // {
-  //   pid: xx,
-  //   isTokenOnly: true,
-  //   lpSymbol: 'IronICE',
-  //   lpAddresses: {
-  //     250: '0x46C8054edc2d7F8CD517fD9ba1688e1285d2345d',
-  //   },
-  //   token: tokens.ironice,
-  //   quoteToken: tokens.ftm,
-  // },
+  {
+    pid: 34,
+    isTokenOnly: true,
+    lpSymbol: 'IronICE',
+    lpAddresses: {
+      250: '0x46C8054edc2d7F8CD517fD9ba1688e1285d2345d',
+    },
+    token: tokens.ironice,
+    quoteToken: tokens.ftm,
+  },
   {
     pid: 18,
     isCommunity: true,
