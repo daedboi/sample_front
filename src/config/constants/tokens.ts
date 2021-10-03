@@ -76,6 +76,22 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://chain.link/'
   },
+  spell: {
+    symbol: 'SPELL',
+    address: {
+      250: '0x468003B688943977e6130F4F68F23aad939a1040',
+    },
+    decimals: 18,
+    projectLink: 'https://abracadabra.money/'
+  },
+  mim: {
+    symbol: 'MIM',
+    address: {
+      250: '0x82f0B8B456c1A451378467398982d4834b6829c1',
+    },
+    decimals: 18,
+    projectLink: 'https://abracadabra.money/'
+  },
   tarot: {
     symbol: 'TAROT',
     address: {

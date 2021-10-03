@@ -70,6 +70,16 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.cake,
   },
   {
+    pid: 35,
+    isSpirit: true,
+    lpSymbol: 'MORPH-MIM LP',
+    lpAddresses: {
+      250: '0x73b2cAD57A75c1DAE593514A62f64d6a4EcD601c',
+    },
+    token: tokens.mim,
+    quoteToken: tokens.cake,
+  },
+  {
     pid: 33,
     lpSymbol: 'MORPH-IronICE LP',
     lpAddresses: {
@@ -122,6 +132,26 @@ const farms: FarmConfig[] = [
       250: '0x623ee4a7f290d11c11315994db70fb148b13021d',
     },
     token: tokens.ice,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 36,
+    isSpirit: true,
+    lpSymbol: 'SPELL-fUSDT LP',
+    lpAddresses: {
+      250: '0x31c0385DDE956f95D43Dac80Bd74FEE149961f4c',
+    },
+    token: tokens.spell,
+    quoteToken: tokens.usdt,
+  },
+  {
+    pid: 37,
+    isSpirit: true,
+    lpSymbol: 'MIM-FTM LP',
+    lpAddresses: {
+      250: '0xB32b31DfAfbD53E310390F641C7119b5B9Ea0488',
+    },
+    token: tokens.mim,
     quoteToken: tokens.ftm,
   },
   {
@@ -289,6 +319,17 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.ftm,
   },
   {
+    pid: 38,
+    isTokenOnly: true,
+    isSpirit: true,
+    lpSymbol: 'SPELL',
+    lpAddresses: {
+      250: '0x31c0385DDE956f95D43Dac80Bd74FEE149961f4c',
+    },
+    token: tokens.spell,
+    quoteToken: tokens.usdt,
+  },
+  {
     pid: 10,
     isTokenOnly: true,
     lpSymbol: 'wBNB',
@@ -306,6 +347,17 @@ const farms: FarmConfig[] = [
       250: '0x89d9bc2f2d091cfbfc31e333d6dc555ddbc2fd29',
     },
     token: tokens.link,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 39,
+    isTokenOnly: true,
+    isSpirit: true,
+    lpSymbol: 'MIM',
+    lpAddresses: {
+      250: '0xB32b31DfAfbD53E310390F641C7119b5B9Ea0488',
+    },
+    token: tokens.mim,
     quoteToken: tokens.ftm,
   },
   {
