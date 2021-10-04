@@ -89,6 +89,16 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.cake,
   },
   {
+    pid: 40,
+    isSpirit: true,
+    lpSymbol: 'MORPH-TCS LP',
+    lpAddresses: {
+      250: '0xfB7e4164F073757CE1b7DceC6be3D000eA760096',
+    },
+    token: tokens.tcs,
+    quoteToken: tokens.cake,
+  },
+  {
     pid: 2,
     lpSymbol: 'BOO-FTM LP',
     lpAddresses: {
@@ -180,6 +190,17 @@ const farms: FarmConfig[] = [
     },
     token: tokens.usdt,
     quoteToken: tokens.usdc,
+  },
+  {
+    pid: 41,
+    isSpirit: true,
+    isCommunity: true,
+    lpSymbol: 'TCS-FTM LP',
+    lpAddresses: {
+      250: '0x4a5a8bd8e3cdf572e00050771ba66d3ee94571c1',
+    },
+    token: tokens.tcs,
+    quoteToken: tokens.ftm,
   },
   {
     pid: 26,
@@ -368,6 +389,17 @@ const farms: FarmConfig[] = [
       250: '0x46C8054edc2d7F8CD517fD9ba1688e1285d2345d',
     },
     token: tokens.ironice,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 42,
+    isTokenOnly: true,
+    isCommunity: true,
+    lpSymbol: 'TCS',
+    lpAddresses: {
+      250: '0x4a5a8bd8e3cdf572e00050771ba66d3ee94571c1',
+    },
+    token: tokens.tcs,
     quoteToken: tokens.ftm,
   },
   {

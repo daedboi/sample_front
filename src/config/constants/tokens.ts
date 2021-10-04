@@ -76,6 +76,14 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://chain.link/'
   },
+  tcs: {
+    symbol: 'TCS',
+    address: {
+      250: '0xfbfae0dd49882e503982f8eb4b8b1e464eca0b91',
+    },
+    decimals: 18,
+    projectLink: 'https://timechainswap.com/'
+  },
   spell: {
     symbol: 'SPELL',
     address: {
