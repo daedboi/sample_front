@@ -351,6 +351,26 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.usdt,
   },
   {
+    pid: 43,
+    isTokenOnly: true,
+    lpSymbol: 'YFI',
+    lpAddresses: {
+      250: '0x4fc38a2735c7da1d71ccabf6dec235a7da4ec52c',
+    },
+    token: tokens.yfi,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 44,
+    isTokenOnly: true,
+    lpSymbol: 'ANY',
+    lpAddresses: {
+      250: '0x5c021d9cfad40aafc57786b409a9ce571de375b4',
+    },
+    token: tokens.any,
+    quoteToken: tokens.ftm,
+  },
+  {
     pid: 10,
     isTokenOnly: true,
     lpSymbol: 'wBNB',

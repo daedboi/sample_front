@@ -68,6 +68,22 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://sunfinance.site/'
   },
+  yfi: {
+    symbol: 'YFI',
+    address: {
+      250: '0x29b0da86e484e1c0029b56e817912d778ac0ec69',
+    },
+    decimals: 18,
+    projectLink: 'https://yearn.finance/'
+  },
+  any: {
+    symbol: 'ANY',
+    address: {
+      250: '0xddcb3ffd12750b45d32e084887fdf1aabab34239',
+    },
+    decimals: 18,
+    projectLink: 'https://anyswap.exchange/'
+  },
   link: {
     symbol: 'LINK',
     address: {
