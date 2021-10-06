@@ -67,7 +67,7 @@ const App: React.FC = () => {
   const { toastInfo} = useToast()
   const v = Math.random();
   if (v < 0.5 && !didAskToJoinTelegram){
-    toastInfo("Have you joined our Discord community?", <DiscordLink href="https://discord.gg/DgKyUX6g" rel="noreferrer" target="_blank">Join now</DiscordLink>);
+    toastInfo("Have you joined our Discord community?", <DiscordLink href="https://discord.gg/jBrusSrzCp" rel="noreferrer" target="_blank">Join now</DiscordLink>);
   }
   didAskToJoinTelegram = true;
 
