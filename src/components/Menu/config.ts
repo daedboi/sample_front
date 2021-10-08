@@ -213,7 +213,7 @@ const config: MenuEntry[] = [
       },
       {
         label: 'Discord',
-        href: 'https://discord.gg/HUrrGFxw2x',
+        href: 'https://discord.gg/TR7zzfT2ru',
       },
       // {
       //   label: 'Blog',
