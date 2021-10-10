@@ -9,7 +9,7 @@ import styled from 'styled-components'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
 // import { useFarms, useGetApiPrices, useGetApiPrice } from 'state/hooks'
-import { useFarms, usePriceCakeBusd, usePriceBnbBusd } from 'state/hooks'
+import { useFarms, usePriceCakeBusd, usePriceBnbBusd, usePriceWethFtm } from 'state/hooks'
 import useRefresh from 'hooks/useRefresh'
 import { fetchFarmUserDataAsync } from 'state/actions'
 import usePersistState from 'hooks/usePersistState'
@@ -120,6 +120,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const _farmsLP = farmsLP.filter((item) => !item.hide)
   const lydPrice = usePriceCakeBusd()
   const wavaxPrice = usePriceBnbBusd()
+  const wethPrice = usePriceWethFtm().times(wavaxPrice)
   const [query, setQuery] = useState('')
   const [viewMode, setViewMode] = usePersistState(ViewMode.TABLE, { localStorageKey: 'morpheus_farm_view' })
   const { account } = useWeb3React()
@@ -216,6 +217,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           totalValue = totalValue.times(wavaxPrice);
         }if (farm.quoteToken.symbol === QuoteToken.CAKE) {
           totalValue = totalValue.times(lydPrice);
+        }if (farm.quoteToken.symbol === QuoteToken.WETH) {
+          totalValue = totalValue.times(wethPrice)
         }
 
         if(totalValue.comparedTo(0) > 0){
@@ -233,7 +236,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       }
       return farmsToDisplayWithAPR
     },
-    [lydPrice, wavaxPrice, query],
+    [lydPrice, wavaxPrice, wethPrice, query],
   )
 
   const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -404,17 +407,17 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         <FlexLayout>
           <Route exact path={`${path}`}>
             {farmsStakedMemoized.map((farm) => (
-              <FarmCard key={farm.pid} farm={farm} lydPrice={lydPrice} wavaxPrice={wavaxPrice} account={account} removed={false} />
+              <FarmCard key={farm.pid} farm={farm} lydPrice={lydPrice} wavaxPrice={wavaxPrice} wethPrice ={wethPrice} account={account} removed={false} />
             ))}
           </Route>
           <Route exact path={`${path}/history`}>
             {farmsStakedMemoized.map((farm) => (
-              <FarmCard key={farm.pid} farm={farm} lydPrice={lydPrice} wavaxPrice={wavaxPrice} account={account} removed />
+              <FarmCard key={farm.pid} farm={farm} lydPrice={lydPrice} wavaxPrice={wavaxPrice} wethPrice ={wethPrice} account={account} removed />
             ))}
           </Route>
           <Route exact path={`${path}/archived`}>
             {farmsStakedMemoized.map((farm) => (
-              <FarmCard key={farm.pid} farm={farm} lydPrice={lydPrice} wavaxPrice={wavaxPrice} account={account} removed />
+              <FarmCard key={farm.pid} farm={farm} lydPrice={lydPrice} wavaxPrice={wavaxPrice} wethPrice ={wethPrice} account={account} removed />
             ))}
           </Route>
         </FlexLayout>

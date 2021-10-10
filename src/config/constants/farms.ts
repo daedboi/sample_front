@@ -24,6 +24,16 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.ftm,
   },
   {
+    pid: 35,
+    isSpirit: true,
+    lpSymbol: 'MORPH-MIM LP',
+    lpAddresses: {
+      250: '0x73b2cAD57A75c1DAE593514A62f64d6a4EcD601c',
+    },
+    token: tokens.mim,
+    quoteToken: tokens.cake,
+  },
+  {
     pid: 1,
     lpSymbol: 'MORPH-USDC LP',
     lpAddresses: {
@@ -67,16 +77,6 @@ const farms: FarmConfig[] = [
       250: '0x3746A3F50Dc59029554B314b9a227c2dBB8Aa743',
     },
     token: tokens.ice,
-    quoteToken: tokens.cake,
-  },
-  {
-    pid: 35,
-    isSpirit: true,
-    lpSymbol: 'MORPH-MIM LP',
-    lpAddresses: {
-      250: '0x73b2cAD57A75c1DAE593514A62f64d6a4EcD601c',
-    },
-    token: tokens.mim,
     quoteToken: tokens.cake,
   },
   {
@@ -171,6 +171,24 @@ const farms: FarmConfig[] = [
       250: '0xf0702249f4d3a25cd3ded7859a165693685ab577',
     },
     token: tokens.weth,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 45,
+    lpSymbol: 'wETH-wBTC LP',
+    lpAddresses: {
+      250: '0xec454eda10accdd66209c57af8c12924556f3abd',
+    },
+    token: tokens.wbtc,
+    quoteToken: tokens.weth,
+  },
+  {
+    pid: 46,
+    lpSymbol: 'wBTC-FTM LP',
+    lpAddresses: {
+      250: '0xfdb9ab8b9513ad9e419cf19530fee49d412c3ee3',
+    },
+    token: tokens.wbtc,
     quoteToken: tokens.ftm,
   },
   {
@@ -269,25 +287,25 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.usdc,
   },
   {
-    pid: 7,
+    pid: 29,
     isTokenOnly: true,
-    lpSymbol: 'BOO',
+    lpSymbol: 'ICE',
     lpAddresses: {
-      250: '0xec7178f4c41f346b2721907f5cf7628e388a7a58',
+      250: '0x623ee4a7f290d11c11315994db70fb148b13021d',
     },
-    token: tokens.boo,
+    token: tokens.ice,
     quoteToken: tokens.ftm,
   },
   {
-    pid: 25,
+    pid: 38,
     isTokenOnly: true,
     isSpirit: true,
-    lpSymbol: 'SPIRIT',
+    lpSymbol: 'SPELL',
     lpAddresses: {
-      250: '0x30748322b6e34545dbe0788c421886aeb5297789',
+      250: '0x31c0385DDE956f95D43Dac80Bd74FEE149961f4c',
     },
-    token: tokens.spirit,
-    quoteToken: tokens.ftm,
+    token: tokens.spell,
+    quoteToken: tokens.usdt,
   },
   {
     pid: 8,
@@ -307,6 +325,27 @@ const farms: FarmConfig[] = [
       250: '0xfdb9ab8b9513ad9e419cf19530fee49d412c3ee3',
     },
     token: tokens.wbtc,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 7,
+    isTokenOnly: true,
+    lpSymbol: 'BOO',
+    lpAddresses: {
+      250: '0xec7178f4c41f346b2721907f5cf7628e388a7a58',
+    },
+    token: tokens.boo,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 25,
+    isTokenOnly: true,
+    isSpirit: true,
+    lpSymbol: 'SPIRIT',
+    lpAddresses: {
+      250: '0x30748322b6e34545dbe0788c421886aeb5297789',
+    },
+    token: tokens.spirit,
     quoteToken: tokens.ftm,
   },
   {
@@ -330,27 +369,6 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.ftm,
   },
   {
-    pid: 29,
-    isTokenOnly: true,
-    lpSymbol: 'ICE',
-    lpAddresses: {
-      250: '0x623ee4a7f290d11c11315994db70fb148b13021d',
-    },
-    token: tokens.ice,
-    quoteToken: tokens.ftm,
-  },
-  {
-    pid: 38,
-    isTokenOnly: true,
-    isSpirit: true,
-    lpSymbol: 'SPELL',
-    lpAddresses: {
-      250: '0x31c0385DDE956f95D43Dac80Bd74FEE149961f4c',
-    },
-    token: tokens.spell,
-    quoteToken: tokens.usdt,
-  },
-  {
     pid: 43,
     isTokenOnly: true,
     lpSymbol: 'YFI',
@@ -368,6 +386,16 @@ const farms: FarmConfig[] = [
       250: '0x5c021d9cfad40aafc57786b409a9ce571de375b4',
     },
     token: tokens.any,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 47,
+    isTokenOnly: true,
+    lpSymbol: 'TSHARE',
+    lpAddresses: {
+      250: '0x4733bc45ef91cf7ccecaeedb794727075fb209f2',
+    },
+    token: tokens.tshare,
     quoteToken: tokens.ftm,
   },
   {

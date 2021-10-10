@@ -188,6 +188,14 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://tomb.finance/'
   },
+  tshare: {
+    symbol: 'TSHARE',
+    address: {
+      250: '0x4cdf39285d7ca8eb3f090fda0c069ba5f4145b37',
+    },
+    decimals: 18,
+    projectLink: 'https://tomb.finance/'
+  },
   morph: {
     symbol: 'MORPH',
     address: {

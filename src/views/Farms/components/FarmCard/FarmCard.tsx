@@ -91,11 +91,12 @@ interface FarmCardProps {
   removed: boolean
   lydPrice?: BigNumber
   wavaxPrice?: BigNumber
+  wethPrice?: BigNumber
   provider?: ProviderType
   account?: string
 }
 
-const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, lydPrice, account, wavaxPrice }) => {
+const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, lydPrice, account, wavaxPrice, wethPrice }) => {
   const { t } = useTranslation()
 
   const [showExpandableSection, setShowExpandableSection] = useState(false)
@@ -119,9 +120,11 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, lydPrice, account, w
       return lydPrice.times(farm.lpTotalInQuoteToken)
     }if (farm.quoteToken.symbol === QuoteToken.FTM) {
       return wavaxPrice.times(farm.lpTotalInQuoteToken)
+    }if (farm.quoteToken.symbol === QuoteToken.WETH) {
+      return wethPrice.times(farm.lpTotalInQuoteToken)
     }
     return farm.lpTotalInQuoteToken
-  }, [lydPrice, wavaxPrice, farm.lpTotalInQuoteToken, farm.quoteToken.symbol])
+  }, [lydPrice, wavaxPrice, wethPrice, farm.lpTotalInQuoteToken, farm.quoteToken.symbol])
 
   const totalValueFormatted = totalValue
     ? `$${Number(totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
@@ -158,7 +161,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, lydPrice, account, w
   
   return (
     <FCard>
-      {(farm.token.symbol === 'MORPH' || farm.quoteToken.symbol === 'MORPH' || farm.token.symbol === 'CAKE' || farm.quoteToken.symbol === 'CAKE' || farm.token.symbol === 'TCS' || farm.token.symbol === 'IronICE' || farm.token.symbol === 'SUN') && <StyledCardAccent />}
+      {(farm.token.symbol === 'MORPH' || farm.quoteToken.symbol === 'MORPH' || farm.token.symbol === 'CAKE' || farm.quoteToken.symbol === 'CAKE' || farm.token.symbol === 'ICE' || farm.token.symbol === 'SPELL') && <StyledCardAccent />}
       <CardHeading
         lpLabel={lpLabel}
         multiplier={farm.multiplier}

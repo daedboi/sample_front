@@ -5,7 +5,7 @@ import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import { useMatchBreakpoints } from 'trinityhelper'
 import { useTranslation } from 'contexts/Localization'
 import useDelayedUnmount from 'hooks/useDelayedUnmount'
-import { useFarmUser, usePriceCakeBusd, usePriceBnbBusd } from 'state/hooks'
+import { useFarmUser, usePriceCakeBusd, usePriceBnbBusd, usePriceWethFtm } from 'state/hooks'
 import { QuoteToken } from 'config/constants/types'
 import Apr, { AprProps } from './Apr'
 import Farm, { FarmProps } from './Farm'
@@ -78,6 +78,7 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
   
   const lydPrice = usePriceCakeBusd()
   const wavaxPrice = usePriceBnbBusd()
+  const wethPrice = usePriceWethFtm().times(wavaxPrice)
 
   const hasStakedAmount = !!useFarmUser(details.pid).stakedBalance.toNumber()
   const { stakedBalance } = useFarmUser(details.pid)
@@ -90,9 +91,11 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
       return wavaxPrice.times(details.lpTotalInQuoteToken)
     }if (details.quoteToken.symbol === QuoteToken.CAKE) {
       return lydPrice.times(details.lpTotalInQuoteToken)
+    }if (details.quoteToken.symbol === QuoteToken.WETH) {
+      return wethPrice.times(details.lpTotalInQuoteToken)
     }
     return details.lpTotalInQuoteToken
-  }, [lydPrice, wavaxPrice, details.lpTotalInQuoteToken, details.quoteToken.symbol])
+  }, [lydPrice, wavaxPrice, wethPrice, details.lpTotalInQuoteToken, details.quoteToken.symbol])
 
   let stakedUsd = stakedBalance
 

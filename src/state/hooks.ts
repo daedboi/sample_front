@@ -263,6 +263,11 @@ export const usePriceCakeBusd = (): BigNumber => {
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO;
 }
 
+export const usePriceWethFtm = (): BigNumber => {
+  const farm = useFarmFromPid(3); // WETH-FTM LP
+  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO;
+}
+
 // TVL substitute until debank API
 export const useTotalValue = (): BigNumber => {
   // const farms = useFarms();
@@ -270,6 +275,7 @@ export const useTotalValue = (): BigNumber => {
   const pools = usePoolsData();
   const bnbPrice = usePriceBnbBusd();
   const cakePrice = usePriceCakeBusd();
+  const wethPrice = usePriceWethFtm().times(bnbPrice)
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
@@ -279,7 +285,9 @@ export const useTotalValue = (): BigNumber => {
         farmVal = (bnbPrice.times(farm.lpTotalInQuoteToken));
       }else if (farm.quoteToken.symbol === QuoteToken.CAKE) {
         farmVal = (cakePrice.times(farm.lpTotalInQuoteToken));
-      }else{
+      }else if (farm.quoteToken.symbol === QuoteToken.WETH) {
+        farmVal = (wethPrice.times(farm.lpTotalInQuoteToken));
+      }else {
         farmVal = (farm.lpTotalInQuoteToken); // USDC etc
       }
       value = value.plus(farmVal);
