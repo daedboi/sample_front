@@ -328,6 +328,17 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.ftm,
   },
   {
+    pid: 39,
+    isTokenOnly: true,
+    isSpirit: true,
+    lpSymbol: 'MIM',
+    lpAddresses: {
+      250: '0xB32b31DfAfbD53E310390F641C7119b5B9Ea0488',
+    },
+    token: tokens.mim,
+    quoteToken: tokens.ftm,
+  },
+  {
     pid: 7,
     isTokenOnly: true,
     lpSymbol: 'BOO',
@@ -416,17 +427,6 @@ const farms: FarmConfig[] = [
       250: '0x89d9bc2f2d091cfbfc31e333d6dc555ddbc2fd29',
     },
     token: tokens.link,
-    quoteToken: tokens.ftm,
-  },
-  {
-    pid: 39,
-    isTokenOnly: true,
-    isSpirit: true,
-    lpSymbol: 'MIM',
-    lpAddresses: {
-      250: '0xB32b31DfAfbD53E310390F641C7119b5B9Ea0488',
-    },
-    token: tokens.mim,
     quoteToken: tokens.ftm,
   },
   {
