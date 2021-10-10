@@ -99,6 +99,62 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.cake,
   },
   {
+    pid: 37,
+    isSpirit: true,
+    lpSymbol: 'MIM-FTM LP',
+    lpAddresses: {
+      250: '0xB32b31DfAfbD53E310390F641C7119b5B9Ea0488',
+    },
+    token: tokens.mim,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 28,
+    lpSymbol: 'ICE-FTM LP',
+    lpAddresses: {
+      250: '0x623ee4a7f290d11c11315994db70fb148b13021d',
+    },
+    token: tokens.ice,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 36,
+    isSpirit: true,
+    lpSymbol: 'SPELL-fUSDT LP',
+    lpAddresses: {
+      250: '0x31c0385DDE956f95D43Dac80Bd74FEE149961f4c',
+    },
+    token: tokens.spell,
+    quoteToken: tokens.usdt,
+  },
+  {
+    pid: 3,
+    lpSymbol: 'wETH-FTM LP',
+    lpAddresses: {
+      250: '0xf0702249f4d3a25cd3ded7859a165693685ab577',
+    },
+    token: tokens.weth,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 45,
+    lpSymbol: 'wETH-wBTC LP',
+    lpAddresses: {
+      250: '0xec454eda10accdd66209c57af8c12924556f3abd',
+    },
+    token: tokens.wbtc,
+    quoteToken: tokens.weth,
+  },
+  {
+    pid: 46,
+    lpSymbol: 'wBTC-FTM LP',
+    lpAddresses: {
+      250: '0xfdb9ab8b9513ad9e419cf19530fee49d412c3ee3',
+    },
+    token: tokens.wbtc,
+    quoteToken: tokens.ftm,
+  },
+  {
     pid: 2,
     lpSymbol: 'BOO-FTM LP',
     lpAddresses: {
@@ -133,62 +189,6 @@ const farms: FarmConfig[] = [
       250: '0x11d90ea9d16e1ee5879b299a819f6d618816d70f',
     },
     token: tokens.tarot,
-    quoteToken: tokens.ftm,
-  },
-  {
-    pid: 28,
-    lpSymbol: 'ICE-FTM LP',
-    lpAddresses: {
-      250: '0x623ee4a7f290d11c11315994db70fb148b13021d',
-    },
-    token: tokens.ice,
-    quoteToken: tokens.ftm,
-  },
-  {
-    pid: 36,
-    isSpirit: true,
-    lpSymbol: 'SPELL-fUSDT LP',
-    lpAddresses: {
-      250: '0x31c0385DDE956f95D43Dac80Bd74FEE149961f4c',
-    },
-    token: tokens.spell,
-    quoteToken: tokens.usdt,
-  },
-  {
-    pid: 37,
-    isSpirit: true,
-    lpSymbol: 'MIM-FTM LP',
-    lpAddresses: {
-      250: '0xB32b31DfAfbD53E310390F641C7119b5B9Ea0488',
-    },
-    token: tokens.mim,
-    quoteToken: tokens.ftm,
-  },
-  {
-    pid: 3,
-    lpSymbol: 'wETH-FTM LP',
-    lpAddresses: {
-      250: '0xf0702249f4d3a25cd3ded7859a165693685ab577',
-    },
-    token: tokens.weth,
-    quoteToken: tokens.ftm,
-  },
-  {
-    pid: 45,
-    lpSymbol: 'wETH-wBTC LP',
-    lpAddresses: {
-      250: '0xec454eda10accdd66209c57af8c12924556f3abd',
-    },
-    token: tokens.wbtc,
-    quoteToken: tokens.weth,
-  },
-  {
-    pid: 46,
-    lpSymbol: 'wBTC-FTM LP',
-    lpAddresses: {
-      250: '0xfdb9ab8b9513ad9e419cf19530fee49d412c3ee3',
-    },
-    token: tokens.wbtc,
     quoteToken: tokens.ftm,
   },
   {
