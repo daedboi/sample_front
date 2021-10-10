@@ -116,6 +116,14 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://abracadabra.money/'
   },
+  spellv2: {
+    symbol: 'SPELL (v2)',
+    address: {
+      250: '0x468003B688943977e6130F4F68F23aad939a1040',
+    },
+    decimals: 18,
+    projectLink: 'https://abracadabra.money/'
+  },
   mim: {
     symbol: 'MIM',
     address: {
