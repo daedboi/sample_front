@@ -308,6 +308,16 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.usdt,
   },
   {
+    pid: 43,
+    isTokenOnly: true,
+    lpSymbol: 'YFI',
+    lpAddresses: {
+      250: '0x4fc38a2735c7da1d71ccabf6dec235a7da4ec52c',
+    },
+    token: tokens.yfi,
+    quoteToken: tokens.ftm,
+  },
+  {
     pid: 8,
     isTokenOnly: true,
     lpSymbol: 'wETH',
@@ -377,16 +387,6 @@ const farms: FarmConfig[] = [
       250: '0x11d90ea9d16e1ee5879b299a819f6d618816d70f',
     },
     token: tokens.tarot,
-    quoteToken: tokens.ftm,
-  },
-  {
-    pid: 43,
-    isTokenOnly: true,
-    lpSymbol: 'YFI',
-    lpAddresses: {
-      250: '0x4fc38a2735c7da1d71ccabf6dec235a7da4ec52c',
-    },
-    token: tokens.yfi,
     quoteToken: tokens.ftm,
   },
   {
