@@ -50,7 +50,7 @@ const AprRow: React.FC<AprRowProps> = ({
     earningTokenPriceBig = quoteTokenPrice.times(cakePrice)
   } else if (_symbol === QuoteToken.SPELL) {
     earningTokenPriceBig = quoteTokenPrice
-  }
+  } 
   const rewardTokenPrice = earningTokenPriceBig.toNumber()
 
   const apr = getPoolApr(

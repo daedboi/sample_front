@@ -157,7 +157,7 @@ const pools: PoolConfig[] = [
     correspondingFarmId: 28,
     usesCakeForPrice: false,
     stakingToken: tokens.morph,
-    earningToken: tokens.icev2,
+    earningToken: tokens.ice,
     contractAddress: {
       250: '0xeb4ad0BA4CCC7702e2a6c3200D535272f19BAa81',
     },
@@ -187,7 +187,7 @@ const pools: PoolConfig[] = [
     correspondingFarmId: 36,
     usesCakeForPrice: false,
     stakingToken: tokens.morph,
-    earningToken: tokens.spellv2,
+    earningToken: tokens.spell,
     contractAddress: {
       250: '0xB8F1e3B0d5BB8EEAf9CD382dbC3524f49A72fC37',
     },

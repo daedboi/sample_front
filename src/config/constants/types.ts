@@ -19,7 +19,8 @@ export enum QuoteToken {
   'SCREAM' = 'SCREAM',
   'DAI' = 'DAI',
   'WFTM' = 'WFTM',
-  'SPELL' = 'SPELL'
+  'SPELL' = 'SPELL',
+  'SPELLv2' = 'SPELL (v2)'
 }
 
 export enum PoolCategory {
