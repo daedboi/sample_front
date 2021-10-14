@@ -180,7 +180,7 @@ const pools: PoolConfig[] = [
     harvest: true,
     tokenPerBlock: '0.025',
     sortOrder: 1,
-    isFinished: false,
+    isFinished: true,
   },
   {
     sousId: 12,
@@ -232,7 +232,7 @@ const pools: PoolConfig[] = [
     correspondingFarmId: 37,
     usesCakeForPrice: false,
     stakingToken: tokens.morph,
-    earningToken: tokens.mimv2,
+    earningToken: tokens.mim,
     contractAddress: {
       250: '0x35f439Ea8FC52C5f3Bd754Da6199128eFc8e429f',
     },
