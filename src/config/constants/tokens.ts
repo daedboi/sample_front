@@ -132,6 +132,14 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://abracadabra.money/'
   },
+  mimv2: {
+    symbol: 'MIM (v2)',
+    address: {
+      250: '0x82f0B8B456c1A451378467398982d4834b6829c1',
+    },
+    decimals: 18,
+    projectLink: 'https://abracadabra.money/'
+  },
   tarot: {
     symbol: 'TAROT',
     address: {
