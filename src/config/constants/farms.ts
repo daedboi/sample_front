@@ -128,6 +128,25 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.usdt,
   },
   {
+    pid: 49,
+    lpSymbol: 'YFI-wETH LP',
+    lpAddresses: {
+      250: '0x0845c0bfe75691b1e21b24351aac581a7fb6b7df',
+    },
+    token: tokens.yfi,
+    quoteToken: tokens.weth,
+  },
+  {
+    pid: 50,
+    isSpirit: true,
+    lpSymbol: 'YFI-FTM LP',
+    lpAddresses: {
+      250: '0x4fc38a2735c7da1d71ccabf6dec235a7da4ec52c',
+    },
+    token: tokens.yfi,
+    quoteToken: tokens.ftm,
+  },
+  {
     pid: 3,
     lpSymbol: 'wETH-FTM LP',
     lpAddresses: {
@@ -397,6 +416,16 @@ const farms: FarmConfig[] = [
       250: '0x5c021d9cfad40aafc57786b409a9ce571de375b4',
     },
     token: tokens.any,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 48,
+    isTokenOnly: true,
+    lpSymbol: 'TOMB',
+    lpAddresses: {
+      250: '0x2a651563c9d3af67ae0388a5c8f89b867038089e',
+    },
+    token: tokens.tomb,
     quoteToken: tokens.ftm,
   },
   {
