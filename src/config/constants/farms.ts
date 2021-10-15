@@ -30,8 +30,8 @@ const farms: FarmConfig[] = [
     lpAddresses: {
       250: '0x73b2cAD57A75c1DAE593514A62f64d6a4EcD601c',
     },
-    token: tokens.mim,
-    quoteToken: tokens.cake,
+    token: tokens.cake,
+    quoteToken: tokens.mim,
   },
   {
     pid: 1,
