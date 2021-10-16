@@ -183,16 +183,6 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.ftm,
   },
   {
-    pid: 30,
-    isSpirit: true,
-    lpSymbol: 'SPIRIT-FTM LP',
-    lpAddresses: {
-      250: '0x30748322b6e34545dbe0788c421886aeb5297789',
-    },
-    token: tokens.spirit,
-    quoteToken: tokens.ftm,
-  },
-  {
     pid: 20,
     lpSymbol: 'SCREAM-FTM LP',
     lpAddresses: {
@@ -200,6 +190,15 @@ const farms: FarmConfig[] = [
     },
     token: tokens.scream,
     quoteToken: tokens.ftm,
+  },
+  {
+    pid: 4,
+    lpSymbol: 'USDC-FTM LP',
+    lpAddresses: {
+      250: '0x2b4c76d0dc16be1c31d4c1dc53bf9b45987fc75c',
+    },
+    token: tokens.ftm,
+    quoteToken: tokens.usdc,
   },
   {
     pid: 23,
@@ -211,13 +210,14 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.ftm,
   },
   {
-    pid: 4,
-    lpSymbol: 'USDC-FTM LP',
+    pid: 30,
+    isSpirit: true,
+    lpSymbol: 'SPIRIT-FTM LP',
     lpAddresses: {
-      250: '0x2b4c76d0dc16be1c31d4c1dc53bf9b45987fc75c',
+      250: '0x30748322b6e34545dbe0788c421886aeb5297789',
     },
-    token: tokens.ftm,
-    quoteToken: tokens.usdc,
+    token: tokens.spirit,
+    quoteToken: tokens.ftm,
   },
   {
     pid: 32,
@@ -304,6 +304,17 @@ const farms: FarmConfig[] = [
     },
     token: tokens.ftm,
     quoteToken: tokens.usdc,
+  },
+  {
+    pid: 51,
+    isSpirit: true,
+    isTokenOnly: true,
+    lpSymbol: 'wMEMO',
+    lpAddresses: {
+      250: '0xc9b98e4a4e306dfc24bc5b5f66e271e19fd74c5a',
+    },
+    token: tokens.wmemo,
+    quoteToken: tokens.mim,
   },
   {
     pid: 29,

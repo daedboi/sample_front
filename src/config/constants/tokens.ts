@@ -132,6 +132,14 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://abracadabra.money/'
   },
+  wmemo: {
+    symbol: 'wMEMO',
+    address: {
+      250: '0xddc0385169797937066bbd8ef409b5b3c0dfeb52',
+    },
+    decimals: 18,
+    projectLink: 'https://www.wonderland.money/'
+  },
   mimv2: {
     symbol: 'MIM (v2)',
     address: {
