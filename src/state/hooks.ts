@@ -259,7 +259,7 @@ export const usePriceBnbBusd = (): BigNumber => {
 }
 
 export const usePriceCakeBusd = (): BigNumber => {
-  const farm = useFarmFromPid(1); // MORPH-USDC LP
+  const farm = useFarmFromPid(35); // MORPH-USDC LP
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO;
 }
 

@@ -3,11 +3,11 @@ import BigNumber from 'bignumber.js/bignumber'
 import useTheme from 'hooks/useTheme'
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
 import { getCakeAddress } from 'utils/addressHelpers'
-import { getBalanceNumber } from 'utils/formatBalance'
+// import { getBalanceNumber } from 'utils/formatBalance'
 import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components'
 import { PieChart } from 'react-minimal-pie-chart'
-import { LinearGauge } from '@progress/kendo-react-gauges'
+// import { LinearGauge } from '@progress/kendo-react-gauges'
 import { Heading } from 'trinityhelper'
 
 const Charts = styled("div")<{isMobile:boolean}>`
@@ -49,10 +49,10 @@ const VertCharts = () => {
           ]}
         />
       </ChartContainer>
-      <ChartContainer>
-        <ChartHeading>MORPH emission</ChartHeading>
-        <VertGauge isMobile={isMobile}/>
-      </ChartContainer>
+      {/* <ChartContainer> */}
+        {/* <ChartHeading>MORPH emission</ChartHeading> */}
+        {/* <VertGauge isMobile={isMobile}/> */}
+      {/* </ChartContainer> */}
     </Charts>
   )
 }
@@ -117,41 +117,41 @@ function VertPie(props: Props) {
   )
 }
 
-const VertGauge = (props: any) => {
-  const { theme } = useTheme()
-  const totalSupply = (useTotalSupply())
+// const VertGauge = (props: any) => {
+//   const { theme } = useTheme()
+//   const totalSupply = (useTotalSupply())
 
-  const maxSupply = 2000000
-  const {isMobile} = props;
-  const style = {
-    width: isMobile?'100%':'75%',
-    height: '100px',
-    display: 'block',
-  }
-  const linearOptions = {
-    pointer: {
-      value: getBalanceNumber((totalSupply || new BigNumber(0))),
-      color: theme.colors.secondary,
-      border: {
-        color: theme.colors.secondary,
-      },
-    },
-    scale: {
-      vertical: false,
-      majorTicks: { color: theme.colors.secondary,  },
-      labels: { visible: true, content: (e) => `${parseInt(e.value)/(1000000)}M`, color: theme.colors.secondary },
-      min: 0,
-      max: maxSupply,
-    },
-    style,
-  }
-  return <>
-  <LinearGauge {...linearOptions} />
-    <ChartHeading>{(100*getBalanceNumber((totalSupply || new BigNumber(0)))/maxSupply).toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      })}% minted</ChartHeading>
-  </>
-}
+//   const maxSupply = 2000000
+//   const {isMobile} = props;
+//   const style = {
+//     width: isMobile?'100%':'75%',
+//     height: '100px',
+//     display: 'block',
+//   }
+//   const linearOptions = {
+//     pointer: {
+//       value: getBalanceNumber((totalSupply || new BigNumber(0))),
+//       color: theme.colors.secondary,
+//       border: {
+//         color: theme.colors.secondary,
+//       },
+//     },
+//     scale: {
+//       vertical: false,
+//       majorTicks: { color: theme.colors.secondary,  },
+//       labels: { visible: true, content: (e) => `${parseInt(e.value)/(1000000)}M`, color: theme.colors.secondary },
+//       min: 0,
+//       max: maxSupply,
+//     },
+//     style,
+//   }
+//   return <>
+//   <LinearGauge {...linearOptions} />
+//     <ChartHeading>{(100*getBalanceNumber((totalSupply || new BigNumber(0)))/maxSupply).toLocaleString(undefined, {
+//         minimumFractionDigits: 2,
+//         maximumFractionDigits: 2,
+//       })}% minted</ChartHeading>
+//   </>
+// }
 
 export default VertCharts
