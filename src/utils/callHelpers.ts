@@ -7,6 +7,12 @@ export const approve = async (lpContract, masterChefContract, account) => {
     .send({ from: account })
 }
 
+export const approveSwapper = async (morphContract, swapperAddress, account) => {
+  return morphContract.methods
+    .approve(swapperAddress, ethers.constants.MaxUint256)
+    .send({ from: account })
+}
+
 export const stake = async (masterChefContract, pid, amount, account, decimals = 18) => {
   return masterChefContract.methods
     .deposit(pid, new BigNumber(amount).times(new BigNumber(10).pow(decimals)).toString())
@@ -118,6 +124,15 @@ export const maximusClaimReward = async (maximusContract, account) => {
   return maximusContract.methods
     .getReward()
     .send({ from: account, value: new BigNumber(0) })
+    .on('transactionHash', (tx) => {
+      return tx.transactionHash
+    })
+}
+
+export const swapMorph = async (swapperContract, amount, account, decimals = 18) => {
+  return swapperContract.methods
+    .swap(new BigNumber(amount).times(new BigNumber(10).pow(decimals)).toString())
+    .send({ from: account })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
     })

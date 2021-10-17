@@ -21,6 +21,7 @@ import {
   // getMaximusFeeManagerAddress,
   // getMaximusDashboardAddress,
   getMulticallAddress,
+  getSwapperAddress
 } from 'utils/addressHelpers'
 
 // ABI
@@ -39,6 +40,7 @@ import ifoAbi from 'config/abi/ifo.json'
 import masterChef from 'config/abi/masterchef.json'
 import sousChef from 'config/abi/sousChef.json'
 import sousChefAvax from 'config/abi/sousChefAvax.json'
+import swapper from 'config/abi/swapper.json'
 // import claimRefundAbi from 'config/abi/claimRefund.json'
 // import airDropAbi from 'config/abi/airdrop.json'
 import lydVaultAbi from 'config/abi/lydVaultAbi.json'
@@ -96,6 +98,10 @@ export const getLydiaRabbitContract = (web3?: Web3) => {
 // }
 export const getMasterchefContract = (web3?: Web3) => {
   return getContract(masterChef, getMasterChefAddress(), web3)
+}
+
+export const getSwapperContract = (web3?: Web3) => {
+  return getContract(swapper, getSwapperAddress(), web3)
 }
 // export const getClaimRefundContract = (web3?: Web3) => {
 //   return getContract(claimRefundAbi, getClaimRefundAddress(), web3)

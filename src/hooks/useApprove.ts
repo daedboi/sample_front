@@ -4,8 +4,9 @@ import { Contract } from 'web3-eth-contract'
 import { ethers } from 'ethers'
 import { useDispatch } from 'react-redux'
 import useToast from 'hooks/useToast'
-import { updateUserAllowance, fetchFarmUserDataAsync } from 'state/actions'
-import { approve } from 'utils/callHelpers'
+import { updateUserAllowance, fetchFarmUserDataAsync, updateSwapperAllowance } from 'state/actions'
+import { approve, approveSwapper } from 'utils/callHelpers'
+import { getSwapperAddress } from 'utils/addressHelpers'
 import { useMasterchef, useSousChef } from './useContract'
 
 // Approve a Farm
@@ -46,6 +47,23 @@ export const useSousApprove = (lpContract: Contract, sousId) => {
       return false
     }
   }, [account, dispatch, lpContract, sousChefContract, sousId])
+
+  return { onApprove: handleApprove }
+}
+
+export const useSwapperApprove = (morphContract: Contract) => {
+  const dispatch = useDispatch()
+  const { account } = useWeb3React()
+
+  const handleApprove = useCallback(async () => {
+    try {
+      const tx = await approveSwapper(morphContract, getSwapperAddress(), account)
+      dispatch(updateSwapperAllowance(account))
+      return tx
+    } catch (e) {
+      return false
+    }
+  }, [account, dispatch, morphContract])
 
   return { onApprove: handleApprove }
 }

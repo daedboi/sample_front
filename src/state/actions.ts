@@ -3,7 +3,10 @@ export { clear, remove, push } from './toasts'
 export {
   fetchPoolsPublicDataAsync,
   fetchPoolsUserDataAsync,
+  fetchSwapperInfoAsync,
+  fetchSwapperRatioAsync,
   updateUserAllowance,
+  updateSwapperAllowance,
   updateUserBalance,
   updateUserPendingReward,
   updateUserStakedBalance,

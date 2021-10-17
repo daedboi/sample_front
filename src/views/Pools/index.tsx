@@ -14,6 +14,7 @@ import PageHeader from 'components/PageHeader'
 import PoolCard from './components/PoolCard'
 // import LydVaultCard from './components/LydVaultCard'
 import PoolTabButtons from './components/PoolTabButtons'
+import MorpheusSwapCard from './components/MorpheusSwapCard'
 // import BountyCard from './components/BountyCard'
 
 const Pools: React.FC = () => {
@@ -60,6 +61,7 @@ const Pools: React.FC = () => {
         </Flex>
       </PageHeader>
       <Page>
+        <MorpheusSwapCard account={account} />
         <PoolTabButtons
           stakedOnly={stakedOnly}
           setStakedOnly={setStakedOnly}

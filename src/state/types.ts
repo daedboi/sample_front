@@ -1,6 +1,6 @@
 import { Toast } from 'trinityhelper'
 import BigNumber from 'bignumber.js'
-import { CampaignType, FarmConfig, Nft, PoolConfig, Team, MaximusConfig } from 'config/constants/types'
+import { CampaignType, FarmConfig, Nft, PoolConfig, Team, MaximusConfig, Token } from 'config/constants/types'
 
 export type TranslatableText =
   | string
@@ -90,7 +90,12 @@ export interface FarmsState {
 }
 
 export interface PoolsState {
-  data: Pool[]
+  data: Pool[],
+  swapperInfo: {
+    ratio: string,
+    morphBalance: string,
+    allowance: string,
+  }
 }
 
 export interface MaximusState {
@@ -180,5 +185,19 @@ export interface CollectiblesState {
   isLoading: boolean
   data: {
     [key: string]: number[]
+  }
+}
+
+export interface MorpheusSwapPool {
+  earningToken: Token
+  stakingToken: Token
+  totalStaked?: BigNumber
+  startBlock?: number
+  endBlock?: number
+  userData?: {
+    allowance: BigNumber
+    stakingTokenBalance: BigNumber
+    stakedBalance: BigNumber
+    pendingReward: BigNumber
   }
 }

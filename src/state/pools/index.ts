@@ -7,10 +7,20 @@ import {
   fetchUserBalances,
   fetchUserStakeBalances,
   fetchUserPendingRewards,
+  fetchSwapperRatio,
+  fetchSwapperInfo,
+  fetchSwapperAllowance,
 } from './fetchPoolsUser'
 import { PoolsState, Pool } from '../types'
 
-const initialState: PoolsState = { data: [...poolsConfig] }
+const initialState: PoolsState = {
+  data: [...poolsConfig],
+  swapperInfo: {
+    ratio: null,
+    morphBalance: '0',
+    allowance: '0',
+  }
+}
 
 export const PoolsSlice = createSlice({
   name: 'Pools',
@@ -30,16 +40,36 @@ export const PoolsSlice = createSlice({
         return { ...pool, userData: userPoolData }
       })
     },
+    setPoolsSwapperRatio: (state, action) => {
+      const { ratio } = action.payload
+      state.swapperInfo.ratio = ratio
+    },
+    setPoolsSwapperInfo: (state, action) => {
+      const { morphBalance, allowance } = action.payload
+      state.swapperInfo.morphBalance = morphBalance
+      state.swapperInfo.allowance = allowance
+    },
     updatePoolsUserData: (state, action) => {
       const { field, value, sousId } = action.payload
       const index = state.data.findIndex((p) => p.sousId === sousId)
       state.data[index] = { ...state.data[index], userData: { ...state.data[index].userData, [field]: value } }
     },
+    updateUserSwapperAllowance: (state, action) => {
+      const { allowance } = action.payload
+      state.swapperInfo.allowance = allowance
+    },
   },
 })
 
 // Actions
-export const { setPoolsPublicData, setPoolsUserData, updatePoolsUserData } = PoolsSlice.actions
+export const {
+  setPoolsPublicData,
+  setPoolsUserData,
+  updatePoolsUserData,
+  setPoolsSwapperRatio,
+  setPoolsSwapperInfo,
+  updateUserSwapperAllowance,
+} = PoolsSlice.actions
 
 // Thunks
 export const fetchPoolsPublicDataAsync = () => async (dispatch) => {
@@ -75,9 +105,24 @@ export const fetchPoolsUserDataAsync = (account) => async (dispatch) => {
   dispatch(setPoolsUserData(userData))
 }
 
+export const fetchSwapperRatioAsync = () => async (dispatch) => {
+  const ratio = await fetchSwapperRatio()
+  dispatch(setPoolsSwapperRatio({ ratio }))
+}
+
+export const fetchSwapperInfoAsync = (account) => async (dispatch) => {
+  const { morphBalance, allowance } = await fetchSwapperInfo(account)
+  dispatch(setPoolsSwapperInfo({ morphBalance, allowance }))
+}
+
 export const updateUserAllowance = (sousId: string, account: string) => async (dispatch) => {
   const allowances = await fetchPoolsAllowance(account)
   dispatch(updatePoolsUserData({ sousId, field: 'allowance', value: allowances[sousId] }))
+}
+
+export const updateSwapperAllowance = (account: string) => async (dispatch) => {
+  const allowance = await fetchSwapperAllowance(account)
+  dispatch(updateUserSwapperAllowance({ allowance }))
 }
 
 export const updateUserBalance = (sousId: string, account: string) => async (dispatch) => {

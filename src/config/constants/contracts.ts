@@ -71,4 +71,8 @@ export default {
     56: '',
     97: '',
   },
+  swapper: {
+    250: '0x7683850AE8f1378B0727Df723630E6148787E67D',
+    4002: '0x0789fF5bA37f72ABC4D561D00648acaDC897b32d',
+  },
 }

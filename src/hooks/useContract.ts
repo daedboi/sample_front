@@ -21,6 +21,7 @@ import {
   getIfoV2Contract,
   getIfoV1Contract,
   getErc721Contract,
+  getSwapperContract,
 } from 'utils/contractHelpers'
 
 /**
@@ -85,6 +86,11 @@ export const useMasterchef = () => {
 export const useSousChef = (id) => {
   const web3 = useWeb3()
   return useMemo(() => getSouschefContract(id, web3), [id, web3])
+}
+
+export const useSwapperContract = () => {
+  const web3 = useWeb3()
+  return useMemo(() => getSwapperContract(web3), [web3])
 }
 
 // export const usePointCenterIfoContract = () => {
