@@ -211,10 +211,10 @@ const config: MenuEntry[] = [
         label: 'Docs',
         href: 'https://morpheusswap.gitbook.io/morpheus-swap/',
       },
-      {
-        label: 'Discord',
-        href: 'https://discord.gg/TR7zzfT2ru',
-      },
+      // {
+      //   label: 'Discord',
+      //   href: 'https://discord.gg/TR7zzfT2ru',
+      // },
       // {
       //   label: 'Blog',
       //   href: 'https://lydia.medium.com',
