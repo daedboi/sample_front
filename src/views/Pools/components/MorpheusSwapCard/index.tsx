@@ -66,10 +66,10 @@ const MorpheusSwapCard: React.FC<{ account: string; isHomeCard?: boolean }> = ({
       <CardBody>
         <CardInfo>
           <Heading scale="md" color="text" className="w-50" mr="20px">
-            {t('Swap MORPH here and receive PILLS as receipt representing your share of the pool. This pool automatically compounds and by using a portion of all trade fees to buy back MORPH which means the PILLS to MORPH ratio will grow over time!')}
+            {t('Swap MORPH here and receive PILLS as per the current swap ratio. This swapper automatically burns MORPH and mints PILLS, which are required in order to stake in the Neo Pools. ')}
             <br />
             <br />
-            {t('Like liquidity providing (LP), you will earn fees according to your share in the pool, and your PILL receipt is needed as proof when claiming the rewards.')}
+            {t('This ratio will increase over time, once every thirty days.')}
           </Heading>
           <Flex flexDirection="column" className="w-50">
             <Row>
