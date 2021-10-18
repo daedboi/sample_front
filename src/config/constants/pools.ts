@@ -244,7 +244,7 @@ const pools: PoolConfig[] = [
   },
   {
     sousId: 16,
-    correspondingFarmId: 19,
+    correspondingFarmId: 30,
     usesCakeForPrice: false,
     stakingToken: tokens.morph,
     earningToken: tokens.spirit,
