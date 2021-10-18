@@ -1,10 +1,11 @@
 import BigNumber from 'bignumber.js'
-import React from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { CardBody, Flex, Text, Heading } from 'trinityhelper'
 import UnlockButton from 'components/UnlockButton'
 import { useTranslation } from 'contexts/Localization'
 import { usePriceCakeBusd, useSwapper } from 'state/hooks'
 import styled from 'styled-components'
+import { startTimeStamp } from 'config/constants'
 import StyledCard from './StyledCard'
 import StyledCardHeader from './StyledCardHeader'
 import CardActions from './CardActions'
@@ -33,6 +34,29 @@ const MorpheusSwapCard: React.FC<{ account: string; isHomeCard?: boolean }> = ({
   const allowance = new BigNumber(swapperInfo.allowance)
   const stakingTokenPrice = usePriceCakeBusd().toNumber()
 
+  const getDisplayDateNumbers = (min: number) => {
+    return { d: Math.trunc(min / (60 * 24)), h: Math.trunc(min / 60 % 24), m: Math.trunc(min % 60) }
+  }
+
+  const getTimeLeftToNextRebase = useCallback((startTimestamp: number) => {
+    const currentTimeStampe = Math.round(new Date().getTime() / 1000)
+    const minDifference = (currentTimeStampe - startTimestamp) / 60
+    const _5daysMins = 60 * 24 * 5
+    const _30daysMins = 60 * 24 * 30
+    if (minDifference > _5daysMins) {
+      return getDisplayDateNumbers(_30daysMins - (minDifference - _5daysMins) % (_30daysMins))
+    }
+    return getDisplayDateNumbers(_5daysMins - minDifference)
+  }, [])
+
+  const [leftDaysInfo, setleftDaysInfo] = useState(getTimeLeftToNextRebase(startTimeStamp))
+
+  useEffect(() => {
+    setTimeout(() => {
+      setleftDaysInfo(getTimeLeftToNextRebase(startTimeStamp))
+    }, 60000);
+  }, [leftDaysInfo, getTimeLeftToNextRebase]);
+
   return (
     <StyledCard>
       <StyledCardHeader
@@ -51,6 +75,9 @@ const MorpheusSwapCard: React.FC<{ account: string; isHomeCard?: boolean }> = ({
             <Row>
               <Text fontSize="14px">{t('Ratio')}</Text>
               <Text fontSize="14px">{t(`1 PILLS = ${ parseFloat(swapperInfo.ratio) / 100 } MORPH`)}</Text>
+            </Row>
+            <Row>
+              <Text fontSize="14px">{t(`${leftDaysInfo.d === 0 ? '' : leftDaysInfo.d.toString().concat(' Days,')} ${leftDaysInfo.h === 0 ? '' : leftDaysInfo.h.toString().concat(' Hours,')} ${leftDaysInfo.m} Mins to Next Rebase`)}</Text>
             </Row>
             <Flex mt="24px" flexDirection="column">
               {account ? (
