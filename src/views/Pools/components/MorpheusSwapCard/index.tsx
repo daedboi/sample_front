@@ -77,7 +77,7 @@ const MorpheusSwapCard: React.FC<{ account: string; isHomeCard?: boolean }> = ({
               <Text fontSize="14px">{t(`1 PILLS = ${ parseFloat(swapperInfo.ratio) / 100 } MORPH`)}</Text>
             </Row>
             <Row>
-              <Text fontSize="14px">{t(`${leftDaysInfo.d === 0 ? '' : leftDaysInfo.d.toString().concat(' Days,')} ${leftDaysInfo.h === 0 ? '' : leftDaysInfo.h.toString().concat(' Hours,')} ${leftDaysInfo.m} Mins to Next Rebase`)}</Text>
+              <Text fontSize="14px">{t(`${leftDaysInfo.d === 0 ? '' : leftDaysInfo.d.toString().concat(' Days,')} ${leftDaysInfo.h === 0 ? '' : leftDaysInfo.h.toString().concat(' Hours,')} ${leftDaysInfo.m} Mins to Next Ratio Change`)}</Text>
             </Row>
             <Flex mt="24px" flexDirection="column">
               {account ? (
