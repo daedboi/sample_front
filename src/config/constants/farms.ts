@@ -299,16 +299,6 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.usdc,
   },
   {
-    pid: 6,
-    isTokenOnly: true,
-    lpSymbol: 'wFTM',
-    lpAddresses: {
-      250: '0x2b4c76d0dc16be1c31d4c1dc53bf9b45987fc75c',
-    },
-    token: tokens.ftm,
-    quoteToken: tokens.usdc,
-  },
-  {
     pid: 51,
     isSpirit: true,
     isTokenOnly: true,
@@ -318,6 +308,16 @@ const farms: FarmConfig[] = [
     },
     token: tokens.wmemo,
     quoteToken: tokens.mim,
+  },
+  {
+    pid: 6,
+    isTokenOnly: true,
+    lpSymbol: 'wFTM',
+    lpAddresses: {
+      250: '0x2b4c76d0dc16be1c31d4c1dc53bf9b45987fc75c',
+    },
+    token: tokens.ftm,
+    quoteToken: tokens.usdc,
   },
   {
     pid: 29,
