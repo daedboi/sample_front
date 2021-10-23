@@ -320,6 +320,16 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.usdc,
   },
   {
+    pid: 52,
+    isTokenOnly: true,
+    lpSymbol: 'CRV',
+    lpAddresses: {
+      250: '0xb471ac6ef617e952b84c6a9ff5de65a9da96c93b',
+    },
+    token: tokens.crv,
+    quoteToken: tokens.ftm,
+  },
+  {
     pid: 29,
     isTokenOnly: true,
     lpSymbol: 'ICE',

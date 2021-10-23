@@ -76,6 +76,14 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://sunfinance.site/'
   },
+  crv: {
+    symbol: 'CRV',
+    address: {
+      250: '0x1e4f97b9f9f913c46f1632781732927b9019c68b',
+    },
+    decimals: 18,
+    projectLink: 'https://curve.fi/'
+  },
   yfi: {
     symbol: 'YFI',
     address: {
