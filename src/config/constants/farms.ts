@@ -320,6 +320,16 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.usdc,
   },
   {
+    pid: 43,
+    isTokenOnly: true,
+    lpSymbol: 'YFI',
+    lpAddresses: {
+      250: '0x4fc38a2735c7da1d71ccabf6dec235a7da4ec52c',
+    },
+    token: tokens.yfi,
+    quoteToken: tokens.ftm,
+  },
+  {
     pid: 52,
     isTokenOnly: true,
     lpSymbol: 'CRV',
@@ -349,16 +359,6 @@ const farms: FarmConfig[] = [
     },
     token: tokens.spell,
     quoteToken: tokens.usdt,
-  },
-  {
-    pid: 43,
-    isTokenOnly: true,
-    lpSymbol: 'YFI',
-    lpAddresses: {
-      250: '0x4fc38a2735c7da1d71ccabf6dec235a7da4ec52c',
-    },
-    token: tokens.yfi,
-    quoteToken: tokens.ftm,
   },
   {
     pid: 39,
