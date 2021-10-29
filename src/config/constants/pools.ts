@@ -300,7 +300,7 @@ const pools: PoolConfig[] = [
     harvest: true,
     tokenPerBlock: '0.0496',
     sortOrder: 1,
-    isFinished: false,
+    isFinished: true,
   },
   {
     sousId: 20,
