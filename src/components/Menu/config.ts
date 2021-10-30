@@ -30,7 +30,7 @@ const config: MenuEntry[] = [
       },
       {
         label: 'Liquidity',
-        href: 'https://swap.spiritswap.finance/#/pool',
+        href: 'https://swap.spiritswap.finance/#/add/0x82f0B8B456c1A451378467398982d4834b6829c1/0x0789fF5bA37f72ABC4D561D00648acaDC897b32d',
       },
     ],
   },
@@ -225,10 +225,10 @@ const config: MenuEntry[] = [
         label: 'Docs',
         href: 'https://morpheusswap.gitbook.io/morpheus-swap/',
       },
-      {
-        label: 'Discord',
-        href: 'https://discord.gg/TR7zzfT2ru',
-      },
+      // {
+      //   label: 'Discord',
+      //   href: 'https://discord.gg/TR7zzfT2ru',
+      // },
       // {
       //   label: 'Blog',
       //   href: 'https://lydia.medium.com',

@@ -76,6 +76,14 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://sunfinance.site/'
   },
+  crv: {
+    symbol: 'CRV',
+    address: {
+      250: '0x1e4f97b9f9f913c46f1632781732927b9019c68b',
+    },
+    decimals: 18,
+    projectLink: 'https://curve.fi/'
+  },
   yfi: {
     symbol: 'YFI',
     address: {
@@ -126,6 +134,22 @@ const tokens = {
   },
   mim: {
     symbol: 'MIM',
+    address: {
+      250: '0x82f0B8B456c1A451378467398982d4834b6829c1',
+    },
+    decimals: 18,
+    projectLink: 'https://abracadabra.money/'
+  },
+  wmemo: {
+    symbol: 'wMEMO',
+    address: {
+      250: '0xddc0385169797937066bbd8ef409b5b3c0dfeb52',
+    },
+    decimals: 18,
+    projectLink: 'https://www.wonderland.money/'
+  },
+  mimv2: {
+    symbol: 'MIM (v2)',
     address: {
       250: '0x82f0B8B456c1A451378467398982d4834b6829c1',
     },

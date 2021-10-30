@@ -133,10 +133,6 @@ const VertStats = () => {
             <Text fontSize="14px">{t('New MORPH/sec')}</Text>
             <Text bold fontSize="14px">{morphPerSec}</Text>
           </Row>
-          <Row>
-            <Text fontSize="14px">{t('Max Supply')}</Text>
-            <Text bold fontSize="14px">2,000,000 MORPH</Text>
-          </Row>
 
           {/* <Flex mb="4px" mt='4px'>
             <TokenLink onClick={() => registerToken(tokenAddress, 'MORPH', 18, imageSrc)}>Add MORPH to Metamask</TokenLink>

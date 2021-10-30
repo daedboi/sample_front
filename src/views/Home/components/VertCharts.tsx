@@ -1,14 +1,14 @@
-import React, { useState, ComponentProps } from 'react'
-import BigNumber from 'bignumber.js/bignumber'
-import useTheme from 'hooks/useTheme'
-import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
-import { getCakeAddress } from 'utils/addressHelpers'
-import { getBalanceNumber } from 'utils/formatBalance'
+import React from 'react'
+// import BigNumber from 'bignumber.js/bignumber'
+// import useTheme from 'hooks/useTheme'
+// import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
+// import { getCakeAddress } from 'utils/addressHelpers'
+// import { getBalanceNumber } from 'utils/formatBalance'
 import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components'
-import { PieChart } from 'react-minimal-pie-chart'
-import { LinearGauge } from '@progress/kendo-react-gauges'
-import { Heading } from 'trinityhelper'
+// import { PieChart } from 'react-minimal-pie-chart'
+// import { LinearGauge } from '@progress/kendo-react-gauges'
+// import { Heading } from 'trinityhelper'
 
 const Charts = styled("div")<{isMobile:boolean}>`
   width: 100%;
@@ -17,21 +17,21 @@ const Charts = styled("div")<{isMobile:boolean}>`
   padding-bottom: 5%;
 `
 
-const ChartContainer = styled.div`
-  height: 300px;
-  min-width: 50%;
-  justify-content: space-between;
-  padding: 10px;
-`
+// const ChartContainer = styled.div`
+//   height: 300px;
+//   min-width: 50%;
+//   justify-content: space-between;
+//   padding: 10px;
+// `
 
-const ChartHeading = styled(Heading)`
-  padding: 10px;
-`
+// const ChartHeading = styled(Heading)`
+//   padding: 10px;
+// `
 
 const VertCharts = () => {
-  const totalSupply = useTotalSupply()
-  const burnedBalance = useBurnedBalance(getCakeAddress())
-  const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0)
+  // const totalSupply = useTotalSupply()
+  // const burnedBalance = useBurnedBalance(getCakeAddress())
+  // const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0)
   // const { theme } = useTheme()
   const isMobile = useMediaQuery({ query: `(max-width: 900px)` }); 
   // const myData = [
@@ -40,7 +40,7 @@ const VertCharts = () => {
   // ]
   return (
     <Charts isMobile = {isMobile}>
-      <ChartContainer>
+      {/* <ChartContainer>
         <ChartHeading>MORPH supply</ChartHeading>
         <VertPie
           data={[
@@ -49,109 +49,110 @@ const VertCharts = () => {
           ]}
         />
       </ChartContainer>
-      <ChartContainer>
-        <ChartHeading>MORPH emission</ChartHeading>
-        <VertGauge isMobile={isMobile}/>
-      </ChartContainer>
+      <ChartContainer> */}
+        {/* <ChartHeading>MORPH emission</ChartHeading> */}
+        {/* <VertGauge isMobile={isMobile}/> */}
+        <iframe title="Chart" src="https://keks.app/t/0x0789ff5ba37f72abc4d561d00648acadc897b32d/chart" width="100%" height="400px" frameBorder="0" scrolling="no"> </iframe>
+      {/* </ChartContainer> */}
     </Charts>
   )
 }
 
-type Props = {
-  data: ComponentProps<typeof PieChart>['data']
-}
+// type Props = {
+//   data: ComponentProps<typeof PieChart>['data']
+// }
 
-function VertPie(props: Props) {
-  const [hovered, setHovered] = useState<number | undefined>(undefined)
-  const { data } = props
-  const { theme } = useTheme()
-  const vertData = data.map((entry, i) => {
-    if (hovered === i) {
-      return {
-        ...entry,
-        color: 'grey',
-      }
-    }
-    return entry
-  })
+// function VertPie(props: Props) {
+//   const [hovered, setHovered] = useState<number | undefined>(undefined)
+//   const { data } = props
+//   const { theme } = useTheme()
+//   const vertData = data.map((entry, i) => {
+//     if (hovered === i) {
+//       return {
+//         ...entry,
+//         color: 'grey',
+//       }
+//     }
+//     return entry
+//   })
 
-  const lineWidth = 60
+//   const lineWidth = 60
 
-  return (
-    <PieChart
-      style={{
-        fontSize: '8px',
-      }}
-      data={vertData}
-      radius={PieChart.defaultProps.radius - 6}
-      lineWidth={100}
-      segmentsStyle={{ transition: 'stroke .3s', cursor: 'pointer' }}
-      segmentsShift={(index) => ((index === hovered && index === 0) ? 6 : 1)}
-      animate
-      label={({ dataEntry }) => `${dataEntry.title} - ${dataEntry.percentage.toLocaleString(undefined, {maximumFractionDigits:2})}%`}
-      labelPosition={80 - lineWidth / 100}
-      labelStyle={{
-        fill: theme.colors.text,
-        opacity: 0.75,
-        pointerEvents: 'none',
-      }}
-      onClick={(_, index) => {
-        if (index === 0)
-          window.open(
-            'https://ftmscan.com/token/0x0789fF5bA37f72ABC4D561D00648acaDC897b32d?a=0x000000000000000000000000000000000000dEaD',
-            '_blank',
-          )
-        else if (index === 1)
-          window.open(
-            'https://ftmscan.com/token/0x0789fF5bA37f72ABC4D561D00648acaDC897b32d#tokenAnalytics',
-            '_blank',
-          )
-      }}
-      onMouseOver={(_, index) => {
-        setHovered(index)
-      }}
-      onMouseOut={() => {
-        setHovered(undefined)
-      }}
-    />
-  )
-}
+//   return (
+//     <PieChart
+//       style={{
+//         fontSize: '8px',
+//       }}
+//       data={vertData}
+//       radius={PieChart.defaultProps.radius - 6}
+//       lineWidth={100}
+//       segmentsStyle={{ transition: 'stroke .3s', cursor: 'pointer' }}
+//       segmentsShift={(index) => ((index === hovered && index === 0) ? 6 : 1)}
+//       animate
+//       label={({ dataEntry }) => `${dataEntry.title} - ${dataEntry.percentage.toLocaleString(undefined, {maximumFractionDigits:2})}%`}
+//       labelPosition={80 - lineWidth / 100}
+//       labelStyle={{
+//         fill: theme.colors.text,
+//         opacity: 0.75,
+//         pointerEvents: 'none',
+//       }}
+//       onClick={(_, index) => {
+//         if (index === 0)
+//           window.open(
+//             'https://ftmscan.com/token/0x0789fF5bA37f72ABC4D561D00648acaDC897b32d?a=0x000000000000000000000000000000000000dEaD',
+//             '_blank',
+//           )
+//         else if (index === 1)
+//           window.open(
+//             'https://ftmscan.com/token/0x0789fF5bA37f72ABC4D561D00648acaDC897b32d#tokenAnalytics',
+//             '_blank',
+//           )
+//       }}
+//       onMouseOver={(_, index) => {
+//         setHovered(index)
+//       }}
+//       onMouseOut={() => {
+//         setHovered(undefined)
+//       }}
+//     />
+//   )
+// }
 
-const VertGauge = (props: any) => {
-  const { theme } = useTheme()
-  const totalSupply = (useTotalSupply())
+// const VertGauge = (props: any) => {
+//   const { theme } = useTheme()
+//   const totalSupply = (useTotalSupply())
 
-  const maxSupply = 2000000
-  const {isMobile} = props;
-  const style = {
-    width: isMobile?'100%':'75%',
-    height: '100px',
-    display: 'block',
-  }
-  const linearOptions = {
-    pointer: {
-      value: getBalanceNumber((totalSupply || new BigNumber(0))),
-      color: theme.colors.secondary,
-      border: {
-        color: theme.colors.secondary,
-      },
-    },
-    scale: {
-      vertical: false,
-      majorTicks: { color: theme.colors.secondary,  },
-      labels: { visible: true, content: (e) => `${parseInt(e.value)/(1000000)}M`, color: theme.colors.secondary },
-      min: 0,
-      max: maxSupply,
-    },
-    style,
-  }
-  return <>
-  <LinearGauge {...linearOptions} />
-    <ChartHeading>{(100*getBalanceNumber((totalSupply || new BigNumber(0)))/maxSupply).toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      })}% minted</ChartHeading>
-  </>
-}
+//   const maxSupply = 2000000
+//   const {isMobile} = props;
+//   const style = {
+//     width: isMobile?'100%':'75%',
+//     height: '100px',
+//     display: 'block',
+//   }
+//   const linearOptions = {
+//     pointer: {
+//       value: getBalanceNumber((totalSupply || new BigNumber(0))),
+//       color: theme.colors.secondary,
+//       border: {
+//         color: theme.colors.secondary,
+//       },
+//     },
+//     scale: {
+//       vertical: false,
+//       majorTicks: { color: theme.colors.secondary,  },
+//       labels: { visible: true, content: (e) => `${parseInt(e.value)/(1000000)}M`, color: theme.colors.secondary },
+//       min: 0,
+//       max: maxSupply,
+//     },
+//     style,
+//   }
+//   return <>
+//   <LinearGauge {...linearOptions} />
+//     <ChartHeading>{(100*getBalanceNumber((totalSupply || new BigNumber(0)))/maxSupply).toLocaleString(undefined, {
+//         minimumFractionDigits: 2,
+//         maximumFractionDigits: 2,
+//       })}% minted</ChartHeading>
+//   </>
+// }
 
 export default VertCharts
