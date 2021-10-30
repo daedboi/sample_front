@@ -18,7 +18,8 @@ export default {
     56: '',
   },
   multiCall: {
-    250: '0xeDa5a4a383CA7584EfbB7f8d5C06e6440D9c0B66'
+    // 250: '0xeDa5a4a383CA7584EfbB7f8d5C06e6440D9c0B66',
+    250: '0x263729a73F5566638Cc08f6ABBd6a81dcF10626A'
   },
   pancakeProfile: {
     56: '',

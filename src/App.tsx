@@ -15,6 +15,7 @@ import ToastListener from './components/ToastListener'
 import PageLoader from './components/PageLoader'
 // import EasterEgg from './components/EasterEgg'
 import Pools from './views/Pools'
+import Swap from './views/Swap'
 // import ComingSoon from './views/ComingSoon'
 // import Maximus from './views/Maximus'
 // import Airdrop from './views/Airdrop'
@@ -117,6 +118,11 @@ const App: React.FC = () => {
             {/* Redirect */}
             {/* <Route path="/nft">
               <Redirect to="/collectibles" />
+            </Route> */}
+            <Route exact strict path="/swap" component={Swap} />
+            {/* <Route exact strict path="/liquidity" component={Liquidity} />
+            <Route path="/pool">
+              <Redirect to="/liquidity" />
             </Route> */}
             {/* 404 */}
             <Route component={NotFound} />

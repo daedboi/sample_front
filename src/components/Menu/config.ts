@@ -34,6 +34,20 @@ const config: MenuEntry[] = [
       },
     ],
   },
+  {
+    label: 'Trade',
+    icon: 'TradeIcon',
+    items: [
+      {
+        label: 'Exchange',
+        href: '/swap',
+      },
+      {
+        label: 'Liquidity',
+        href: '/pool',
+      },
+    ],
+  },
   // {
   //   label: 'LYD Gate',
   //   icon: 'GateIcon',

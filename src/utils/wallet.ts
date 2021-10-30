@@ -51,7 +51,7 @@ export const registerToken = async (
   tokenAddress: string,
   tokenSymbol: string,
   tokenDecimals: number,
-  tokenImage: string,
+  tokenImage?: string,
 ) => {
   const tokenAdded = await (window as WindowChain).ethereum.request({
     method: 'wallet_watchAsset',

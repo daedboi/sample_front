@@ -1,5 +1,6 @@
 import BigNumber from 'bignumber.js/bignumber'
 import { BIG_TEN } from 'utils/bigNumber'
+import { ChainId } from '@pancakeswap/sdk'
 
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
@@ -22,3 +23,8 @@ export const LOTTERY_TICKET_PRICE = 500
 export const BASE_AVAX_SCAN_URL = 'https://ftmscan.com/'
 export const DEFAULT_TOKEN_DECIMAL = BIG_TEN.pow(18)
 export const DEFAULT_GAS_PRICE = 5
+
+export const BASE_BSC_SCAN_URLS = {
+  [ChainId.MAINNET]: 'https://bscscan.com',
+  [ChainId.TESTNET]: 'https://testnet.bscscan.com',
+}

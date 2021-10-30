@@ -34,6 +34,14 @@ export interface Address {
   250: string  // FANTOM
 }
 
+export interface SerializedToken {
+  chainId: number
+  address: string
+  decimals: number
+  symbol?: string
+  name?: string
+  projectLink?: string
+}
 
 export interface Token {
   symbol: string
