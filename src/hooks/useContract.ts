@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { Contract } from '@ethersproject/contracts'
+import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import useWeb3 from 'hooks/useWeb3'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 // import { WETH } from '@pancakeswap/sdk'
@@ -192,4 +193,8 @@ export function useBytes32TokenContract(tokenAddress?: string, withSignerIfPossi
 
 export function useTokenContract(tokenAddress?: string, withSignerIfPossible?: boolean): Contract | null {
   return useContract(tokenAddress, ERC20_ABI, withSignerIfPossible)
+}
+
+export function usePairContract(pairAddress?: string, withSignerIfPossible?: boolean): Contract | null {
+  return useContract(pairAddress, IUniswapV2PairABI, withSignerIfPossible)
 }
