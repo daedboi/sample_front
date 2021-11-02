@@ -102,3 +102,5 @@ export const WETH = {
 }
 
 export const ETHER = new Token(250, '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', 18, 'FTM', 'FTM', 'https://fantom.foundation/')
+
+export const BIG_INT_ZERO = JSBI.BigInt(0)

@@ -11,6 +11,8 @@ import user from './user/reducer'
 import lists from './lists/reducer'
 import multicall from './multicall/reducer'
 import transactions from './transactions/reducer'
+import mint from './mint/reducer'
+import burn from './burn/reducer'
 // import maximusReducer from './maximus'
 
 const store = configureStore({
@@ -28,6 +30,8 @@ const store = configureStore({
     lists,
     multicall,
     transactions,
+    burn,
+    mint,
   },
 })
 
