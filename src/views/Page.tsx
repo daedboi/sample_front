@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'trinityhelper'
-import Footer from 'components/Menu/Footer'
-import { PageMeta } from 'components/layout/Page'
+// import Footer from 'components/Menu/Footer'
+// import { PageMeta } from 'components/layout/Page'
 
 const StyledPage = styled.div`
   display: flex;
@@ -36,7 +36,7 @@ const Page: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...pro
       <StyledPage {...props}>
         {children}
         <Flex flexGrow={1} />
-        <Footer />
+        {/* <Footer /> */}
       </StyledPage>
     </>
   )
