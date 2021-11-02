@@ -422,6 +422,21 @@ const pools: PoolConfig[] = [
     sortOrder: 1,
     isFinished: false,
   },
+  {
+    sousId: 28,
+    correspondingFarmId: 36,
+    usesCakeForPrice: false,
+    stakingToken: tokens.morph,
+    earningToken: tokens.spell,
+    contractAddress: {
+      250: '0x9B375e56dEf8B00C61175F2dbaA018E56ff6D9Ef',
+    },
+    poolCategory: PoolCategory.CORE,
+    harvest: true,
+    tokenPerBlock: '4.3032',
+    sortOrder: 1,
+    isFinished: false,
+  },
   //  {
   //  sousId: 193,
   //  stakingToken: tokens.cake,
