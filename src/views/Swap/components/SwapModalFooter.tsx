@@ -105,7 +105,7 @@ export default function SwapModalFooter({
         </RowBetween>
         <RowBetween>
           <RowFixed>
-            <Text fontSize="14px">{t('Liquidity Provider Fee')}</Text>
+            <Text fontSize="14px">{t('Swap Fee')}</Text>
             <QuestionHelper
               text={
                 <>

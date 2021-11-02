@@ -56,7 +56,7 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
       <RowBetween>
         <RowFixed>
           <Text fontSize="14px" color="textSubtle">
-            {t('Liquidity Provider Fee')}
+            {t('Swap Fee')}
           </Text>
           <QuestionHelper
             text={

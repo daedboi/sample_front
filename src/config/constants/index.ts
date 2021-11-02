@@ -13,7 +13,7 @@ type ChainTokenList = {
 
 const communityFarms = farmsConfig.filter((farm) => farm.isCommunity).map((farm) => farm.token.symbol)
 
-export const ROUTER_ADDRESS = '0x10ED43C718714eb63d5aA57B78B54704E256024E'
+export const ROUTER_ADDRESS = '0x16327E3FbDaCA3bcF7E38F5Af2599D2DDc33aE52'
 export { farmsConfig, communityFarms }
 export { default as poolsConfig } from './pools'
 // export { default as maximusConfig } from './maximus'
@@ -29,15 +29,15 @@ export const DEFAULT_DEADLINE_FROM_NOW = 60 * 20
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
-  [ChainId.MAINNET]: [mainnetTokens.wbnb, mainnetTokens.dai, mainnetTokens.busd, mainnetTokens.usdt],
-  [ChainId.TESTNET]: [testnetTokens.wbnb, testnetTokens.cake, testnetTokens.busd],
+  [ChainId.MAINNET]: [mainnetTokens.wftm, mainnetTokens.mim, mainnetTokens.usdc, mainnetTokens.usdt],
+  [ChainId.TESTNET]: [testnetTokens.wftm, testnetTokens.morph, testnetTokens.usdc],
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
   [ChainId.MAINNET]: [
-    [mainnetTokens.cake, mainnetTokens.wbnb],
-    [mainnetTokens.busd, mainnetTokens.usdt],
-    [mainnetTokens.dai, mainnetTokens.usdt],
+    [mainnetTokens.morph, mainnetTokens.wftm],
+    [mainnetTokens.usdc, mainnetTokens.usdt],
+    [mainnetTokens.mim, mainnetTokens.usdt],
   ],
 }
 
@@ -56,16 +56,16 @@ export const ONE_BIPS = new Percent(JSBI.BigInt(1), JSBI.BigInt(10000))
 
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.MAINNET]: [
-    mainnetTokens.wbnb,
-    mainnetTokens.cake,
-    mainnetTokens.busd,
+    mainnetTokens.wftm,
+    mainnetTokens.morph,
+    mainnetTokens.mim,
     mainnetTokens.usdt,
-    mainnetTokens.btcb,
-    mainnetTokens.ust,
-    mainnetTokens.eth,
+    mainnetTokens.wbtc,
+    mainnetTokens.dai,
+    mainnetTokens.weth,
     mainnetTokens.usdc,
   ],
-  [ChainId.TESTNET]: [testnetTokens.wbnb, testnetTokens.cake, testnetTokens.busd],
+  [ChainId.TESTNET]: [testnetTokens.wftm, testnetTokens.morph, testnetTokens.usdc],
 }
 
 /**
@@ -93,8 +93,8 @@ export const ONE_HUNDRED_PERCENT = new Percent('1')
 
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
-  [ChainId.MAINNET]: [mainnetTokens.busd, mainnetTokens.cake, mainnetTokens.btcb],
-  [ChainId.TESTNET]: [testnetTokens.wbnb, testnetTokens.cake, testnetTokens.busd],
+  [ChainId.MAINNET]: [mainnetTokens.mim, mainnetTokens.morph, mainnetTokens.wftm],
+  [ChainId.TESTNET]: [testnetTokens.wftm, testnetTokens.morph, testnetTokens.mim],
 }
 
 export const WETH = {
