@@ -51,25 +51,25 @@ const fetchFarms = async (farmsToFetch: FarmConfig[]) => {
 
       const [tokenBalanceLP, quoteTokenBalanceLP, lpTokenBalanceMC, lpTotalSupply, tokenDecimals, quoteTokenDecimals] =
         await multicall(erc20, calls)
-      
+
       let tokenAmount;
       let lpTotalInQuoteToken;
       let lpStakedTotal;
       let tokenPriceVsQuote;
 
-      if(farmConfig.isTokenOnly){
+      if (farmConfig.isTokenOnly) {
         tokenAmount = new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(tokenDecimals));
-        
-        if(farmConfig.tokenSymbol === 'USDC' && farmConfig.quoteTokenSymbol === 'USDC'){
-          tokenPriceVsQuote = new BigNumber(1);          
-        }else{
+
+        if (farmConfig.tokenSymbol === 'USDC' && farmConfig.quoteTokenSymbol === 'USDC') {
+          tokenPriceVsQuote = new BigNumber(1);
+        } else {
           tokenPriceVsQuote = new BigNumber(quoteTokenBalanceLP).div(new BigNumber(10).pow(quoteTokenDecimals)).div(new BigNumber(tokenBalanceLP).div(new BigNumber(10).pow(tokenDecimals)));
         }
-        
+
         lpTotalInQuoteToken = tokenAmount.times(tokenPriceVsQuote);
-        
+
         lpStakedTotal = tokenAmount;
-      }else{
+      } else {
         // Ratio in % a LP tokens that are in staking, vs the total number in circulation
         const lpTokenRatio = new BigNumber(lpTokenBalanceMC).div(new BigNumber(lpTotalSupply))
 
@@ -85,12 +85,12 @@ const fetchFarms = async (farmsToFetch: FarmConfig[]) => {
           .div(BIG_TEN.pow(quoteTokenDecimals))
           .times(lpTokenRatio)
 
-        if(tokenAmount.comparedTo(0) > 0){
+        if (tokenAmount.comparedTo(0) > 0) {
           tokenPriceVsQuote = quoteTokenAmount.div(tokenAmount);
-        } else{
+        } else {
           tokenPriceVsQuote = new BigNumber(quoteTokenBalanceLP).div(new BigNumber(tokenBalanceLP)).times(new BigNumber(10).pow(tokenDecimals - quoteTokenDecimals));
         }
-        lpStakedTotal = new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(quoteTokenDecimals)) 
+        lpStakedTotal = new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(quoteTokenDecimals))
 
       }
       const [info, totalAllocPoint, morphPerSec] = await multicall(masterchefABI, [
@@ -111,7 +111,7 @@ const fetchFarms = async (farmsToFetch: FarmConfig[]) => {
 
       const allocPoint = new BigNumber(info.allocPoint._hex)
       let poolWeight = allocPoint.div(new BigNumber(totalAllocPoint))
-      if (tokenPriceVsQuote === undefined){
+      if (tokenPriceVsQuote === undefined) {
         console.error(`Could not get token price for pool ${farmConfig.pid} ${farmConfig.lpSymbol}`)
         tokenPriceVsQuote = new BigNumber("0");
         poolWeight = new BigNumber(0)
@@ -125,7 +125,7 @@ const fetchFarms = async (farmsToFetch: FarmConfig[]) => {
         tokenPriceVsQuote: tokenPriceVsQuote.toJSON(),
         poolWeight: poolWeight.toJSON(),
         lpTokenBalanceMC: new BigNumber(lpTokenBalanceMC).toJSON(),
-        multiplier: `${allocPoint.div(100).toString()}X`,
+        multiplier: `${poolWeight.multipliedBy(100).toNumber().toFixed(2)}%`,
         depositFeeBP: info.depositFeeBP,
         lpStakedTotal: lpStakedTotal.toJSON(),
         morphPerSec: new BigNumber(morphPerSec).toNumber(),

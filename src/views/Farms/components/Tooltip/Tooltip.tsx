@@ -14,6 +14,7 @@ const TooltipContent = styled.div`
   display: none;
   padding: 16px;
   max-height: 500px;
+  margin-left: 200px;
   z-index: ${({ theme }) => theme.zIndices.modal};
   position: absolute;
   bottom: calc(100% + 16px);

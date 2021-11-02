@@ -29,7 +29,7 @@ const Container = styled.div`
 
   ${({ theme }) => theme.mediaQueries.sm} {
     svg {
-      margin-left: 0;
+      margin-left: 100;
     }
   }
 `
@@ -44,11 +44,11 @@ const Multiplier: React.FunctionComponent<MultiplierProps> = ({ multiplier }) =>
       <Tooltip
         content={
           <div>
-            {t('The multiplier represents the amount of MORPH rewards each farm gets.')}
+            {t('This percentage represents percent of MORPH emissions directed to the farm/pool.')}
             <br />
             <br />
             {t(
-              'For example, if a 1x farm was getting 1 MORPH per second, a 40x farm would be getting 40 MORPH per second.',
+              'MORPH emissions are set to 0.5MORPH/second.',
             )}
           </div>
         }
