@@ -1,4 +1,4 @@
-import { Currency, JSBI, Percent, Token } from '@pancakeswap/sdk'
+import { JSBI, Percent, Token } from '@pancakeswap/sdk'
 import { mainnetTokens, testnetTokens } from './bscTokens'
 import farmsConfig from './farms'
 
