@@ -75,7 +75,7 @@ const FarmMobileCell = styled.td`
 
 const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
   const { details, userDataReady } = props
-  
+
   const lydPrice = usePriceCakeBusd()
   const wavaxPrice = usePriceBnbBusd()
   const wethPrice = usePriceWethFtm().times(wavaxPrice)
@@ -89,9 +89,9 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
   const totalValue: BigNumber = useMemo(() => {
     if (details.quoteToken.symbol === QuoteToken.FTM) {
       return wavaxPrice.times(details.lpTotalInQuoteToken)
-    }if (details.quoteToken.symbol === QuoteToken.CAKE) {
+    } if (details.quoteToken.symbol === QuoteToken.CAKE) {
       return lydPrice.times(details.lpTotalInQuoteToken)
-    }if (details.quoteToken.symbol === QuoteToken.WETH) {
+    } if (details.quoteToken.symbol === QuoteToken.WETH) {
       return wethPrice.times(details.lpTotalInQuoteToken)
     }
     return details.lpTotalInQuoteToken
@@ -102,7 +102,7 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
   if (totalValue) {
     stakedUsd = stakedUsd.times(new BigNumber(totalValue).div(details.lpStakedTotal))
   }
-  
+
   // const totalValueFormatted = totalValue
   //   ? `$${Number(totalValue).toLocaleString(undefined, { maximumFractionDigits: 0 })}`
   //   : '-'
@@ -227,8 +227,8 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
       {handleRenderRow()}
       {shouldRenderChild && (
         <tr>
-          <td colSpan={6}>
-            <ActionPanel {...props} depositFee={details.depositFeeBP} expanded={actionPanelExpanded} stakedUsd={stakedUsd}/>
+          <td colSpan={7}>
+            <ActionPanel {...props} depositFee={details.depositFeeBP} expanded={actionPanelExpanded} stakedUsd={stakedUsd} />
           </td>
         </tr>
       )}
