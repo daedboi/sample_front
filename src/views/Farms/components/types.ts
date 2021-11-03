@@ -107,7 +107,7 @@ export const DesktopColumnSchema: ColumnsDefTypes[] = [
     name: 'multiplier',
     translationId: 999,
     sortable: true,
-    label: 'Multiplier',
+    label: 'Emissions',
   },
   {
     id: 7,

@@ -34,7 +34,7 @@ import ToggleView from './components/ToggleView/ToggleView'
 import { DesktopColumnSchema, ViewMode } from './components/types'
 // import Background from '../Background'
 
-export interface FarmsProps{
+export interface FarmsProps {
   tokenMode?: boolean
 }
 
@@ -125,7 +125,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const [viewMode, setViewMode] = usePersistState(ViewMode.TABLE, { localStorageKey: 'morpheus_farm_view' })
   const { account } = useWeb3React()
   const [sortOption, setSortOption] = useState('hot')
-  const {tokenMode} = farmsProps;
+  const { tokenMode } = farmsProps;
 
   // const prices = useGetApiPrices()
 
@@ -164,8 +164,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
     }
   }, [isArchived, dispatch, account])
 
-  const activeFarms = farmsLP.filter((farm) => farm.multiplier !== '0X' && !isArchivedPid(farm.pid) && !!farm.isTokenOnly === !!tokenMode)
-  const inactiveFarms = farmsLP.filter((farm) => farm.multiplier === '0X' && !isArchivedPid(farm.pid) && !!farm.isTokenOnly === !!tokenMode)
+  const activeFarms = farmsLP.filter((farm) => farm.multiplier !== '0.00%' && !isArchivedPid(farm.pid) && !!farm.isTokenOnly === !!tokenMode)
+  const inactiveFarms = farmsLP.filter((farm) => farm.multiplier === '0.00%' && !isArchivedPid(farm.pid) && !!farm.isTokenOnly === !!tokenMode)
   const archivedFarms = _farmsLP.filter((farm) => isArchivedPid(farm.pid))
 
   const stakedOnlyFarms = activeFarms.filter(
@@ -180,7 +180,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
     (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
   )
 
-  
+
   const farmsList = useCallback(
     (farmsToDisplay: Farm[]): FarmWithStakedValue[] => {
       let farmsToDisplayWithAPR: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
@@ -190,23 +190,23 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         // useGetApiPrices
         // const quoteTokenPriceUsd = prices[farm?.quoteToken?.symbol?.toLowerCase()]
         // const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(quoteTokenPriceUsd)
-        
+
 
         // let totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(wavaxPrice)
-        
+
         // if (farm.quoteToken.symbol === QuoteToken.CAKE) {
         //   totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(lydPrice)
         // }
-        
+
         const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.usdtPrice)
 
-        
+
         const cakeRewardPerBlock = new BigNumber(farm.morphPerSec || 1)
           .times(new BigNumber(farm.poolWeight))
           .div(new BigNumber(10).pow(18))
         const cakeRewardPerYear = cakeRewardPerBlock.times(SECOND_PER_YEAR)
         let apr = lydPrice.times(cakeRewardPerYear);
-        
+
         // const poolWeight = farm.poolWeight
         // const yearlyCakeRewardAllocation = CAKE_PER_YEAR.times(poolWeight)
         // let apr = yearlyCakeRewardAllocation.times(lydPrice).div(totalLiquidity).times(100)
@@ -215,13 +215,13 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
         if (farm.quoteToken.symbol === QuoteToken.FTM) {
           totalValue = totalValue.times(wavaxPrice);
-        }if (farm.quoteToken.symbol === QuoteToken.CAKE) {
+        } if (farm.quoteToken.symbol === QuoteToken.CAKE) {
           totalValue = totalValue.times(lydPrice);
-        }if (farm.quoteToken.symbol === QuoteToken.WETH) {
+        } if (farm.quoteToken.symbol === QuoteToken.WETH) {
           totalValue = totalValue.times(wethPrice)
         }
 
-        if(totalValue.comparedTo(0) > 0){
+        if (totalValue.comparedTo(0) > 0) {
           apr = apr.div(totalValue);
         }
 
@@ -255,7 +255,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       switch (sortOption) {
         case 'apr':
           return orderBy(farms, (farm: FarmWithStakedValue) => farm.apr, 'desc')
-        case 'multiplier':
+        case 'emissions':
           return orderBy(
             farms,
             (farm: FarmWithStakedValue) => (farm.multiplier ? Number(farm.multiplier.slice(0, -1)) : 0),
@@ -324,11 +324,11 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
     const tokenAddress = token.address
     const quoteTokenAddress = quoteToken.address
     const lpLabel = farm.lpSymbol && farm.lpSymbol.split(' ')[0].toUpperCase().replace('MORPHEUS', '')
-  
+
     let farmImage: string;
     if (farm.isTokenOnly) {
       farmImage = farm.token.symbol.toLowerCase()
-    } else if (farm.token.symbol === 'FTM'){
+    } else if (farm.token.symbol === 'FTM') {
       farmImage = `${farm.quoteToken.symbol.toLowerCase()}-${farm.token.symbol.toLowerCase()}`
     } else {
       farmImage = `${farm.token.symbol.toLowerCase()}-${farm.quoteToken.symbol.toLowerCase()}`
@@ -407,17 +407,17 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         <FlexLayout>
           <Route exact path={`${path}`}>
             {farmsStakedMemoized.map((farm) => (
-              <FarmCard key={farm.pid} farm={farm} lydPrice={lydPrice} wavaxPrice={wavaxPrice} wethPrice ={wethPrice} account={account} removed={false} />
+              <FarmCard key={farm.pid} farm={farm} lydPrice={lydPrice} wavaxPrice={wavaxPrice} wethPrice={wethPrice} account={account} removed={false} />
             ))}
           </Route>
           <Route exact path={`${path}/history`}>
             {farmsStakedMemoized.map((farm) => (
-              <FarmCard key={farm.pid} farm={farm} lydPrice={lydPrice} wavaxPrice={wavaxPrice} wethPrice ={wethPrice} account={account} removed />
+              <FarmCard key={farm.pid} farm={farm} lydPrice={lydPrice} wavaxPrice={wavaxPrice} wethPrice={wethPrice} account={account} removed />
             ))}
           </Route>
           <Route exact path={`${path}/archived`}>
             {farmsStakedMemoized.map((farm) => (
-              <FarmCard key={farm.pid} farm={farm} lydPrice={lydPrice} wavaxPrice={wavaxPrice} wethPrice ={wethPrice} account={account} removed />
+              <FarmCard key={farm.pid} farm={farm} lydPrice={lydPrice} wavaxPrice={wavaxPrice} wethPrice={wethPrice} account={account} removed />
             ))}
           </Route>
         </FlexLayout>
@@ -433,19 +433,19 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
     <>
       <PageHeader>
         <Heading as="h1" scale="xxl" color="secondary" mb="24px">
-        {
-            tokenMode ?    
+          {
+            tokenMode ?
               t('Pools')
               :
-            t('Farms')
+              t('Farms')
           }
         </Heading>
         <Heading scale="lg" color="text">
-        {
+          {
             tokenMode ?
               t('Stake tokens to earn.')
               :
-            t('Stake LP tokens to earn.')
+              t('Stake LP tokens to earn.')
           }
         </Heading>
       </PageHeader>
@@ -469,8 +469,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
                     value: 'hot',
                   },
                   {
-                    label: 'Multiplier',
-                    value: 'multiplier',
+                    label: 'Emissions',
+                    value: 'emissions',
                   },
                   {
                     label: 'Earned',
