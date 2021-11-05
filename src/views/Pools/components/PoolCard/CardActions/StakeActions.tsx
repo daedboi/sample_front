@@ -4,6 +4,7 @@ import BigNumber from 'bignumber.js'
 import { useTranslation } from 'contexts/Localization'
 import { getBalanceNumber, formatNumber, getDecimalAmount } from 'utils/formatBalance'
 import { Pool } from 'state/types'
+import { useTimestamp } from 'state/hooks'
 import NotEnoughTokensModal from '../Modals/NotEnoughTokensModal'
 import StakeModal from '../Modals/StakeModal'
 
@@ -26,7 +27,8 @@ const StakeAction: React.FC<StakeActionsProps> = ({
   isStaked,
   isLoading = false,
 }) => {
-  const { stakingToken, earningToken, stakingLimit, isFinished } = pool
+  const currentBlock = useTimestamp()
+  const { stakingToken, earningToken, stakingLimit, endBlock } = pool
   const { t } = useTranslation()
   const convertedLimit = getDecimalAmount(new BigNumber(stakingLimit), earningToken.decimals)
   const stakingMax =
@@ -35,6 +37,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
   const stakingMaxDollarValue = formatNumber(
     getBalanceNumber(stakedBalance.multipliedBy(stakingTokenPrice), stakingToken.decimals),
   )
+  const isFinished = pool.isFinished || (Math.max(endBlock - currentBlock, 0) === 0)
 
   const [onPresentTokenRequired] = useModal(<NotEnoughTokensModal tokenSymbol={stakingToken.symbol} />)
 

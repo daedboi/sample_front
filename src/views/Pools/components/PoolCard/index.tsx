@@ -5,7 +5,7 @@ import UnlockButton from 'components/UnlockButton'
 import { useTranslation } from 'contexts/Localization'
 // import { getAddress } from 'utils/addressHelpers'
 import { BIG_ZERO } from 'utils/bigNumber'
-import { usePriceCakeBusd } from 'state/hooks'
+import { usePriceCakeBusd, useTimestamp } from 'state/hooks'
 import { Pool } from 'state/types'
 import AprRow from './AprRow'
 import StyledCard from './StyledCard'
@@ -14,16 +14,18 @@ import StyledCardHeader from './StyledCardHeader'
 import CardActions from './CardActions'
 
 const PoolCard: React.FC<{ pool: Pool; account: string; isHomeCard?: boolean }> = ({ pool, account, isHomeCard }) => {
-  const { sousId, stakingToken, earningToken, isFinished, userData } = pool
+  const currentBlock = useTimestamp()
+  const { sousId, stakingToken, earningToken, endBlock, userData } = pool
   const { t } = useTranslation()
   const stakedBalance = userData?.stakedBalance ? new BigNumber(userData.stakedBalance) : BIG_ZERO
   const accountHasStakedBalance = stakedBalance.gt(0)
   const stakingTokenPrice = usePriceCakeBusd().toNumber()
+  const isFinished = pool.isFinished || (Math.max(endBlock - currentBlock, 0) === 0)
 
   return (
     <StyledCard
       isStaking={!isFinished && accountHasStakedBalance}
-      isFinished={isFinished && sousId !== 0}
+      isFinished={(isFinished && sousId !== 0)}
       ribbon={isFinished && <CardRibbon variantColor="textDisabled" text={`${t('Finished')}`} />}
       isHomeCard={isHomeCard}
     >

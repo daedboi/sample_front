@@ -53,20 +53,27 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ({
   const imageSrc = `${BASE_URL}/images/tokens/${earningToken.symbol.toLowerCase()}.png`
   const isMetaMaskInScope = !!(window as WindowChain).ethereum?.isMetaMask
 
-  const shouldShowBlockCountdown = Boolean(!isFinished && startBlock && endBlock)
   const blocksUntilStart = Math.max(startBlock - currentBlock, 0)
   const minutesUntilStart = blocksUntilStart / 60
-  const hoursUntilStart = minutesUntilStart / 60
   const blocksRemaining = Math.max(endBlock - currentBlock, 0)
   const minutesRemaining = blocksRemaining / 60
-  const hoursRemaining = minutesRemaining / 60
   const hasPoolStarted = blocksUntilStart === 0 && blocksRemaining > 0
+  const shouldShowBlockCountdown = Boolean((!isFinished && blocksRemaining !== 0) && startBlock && endBlock)
 
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
     t('Subtracted automatically from each yield harvest and burned.'),
     { placement: 'bottom-end' },
   )
 
+  function formatTime(minutes) {
+    const days = Math.floor(minutes / 1440);
+    const hours = Math.floor(minutes / 60) % 24;
+    const formattedMinutes = Math.floor(minutes % 60);
+    const showD = days > 0;
+    const showH = hours > 0 || showD;
+    const showM = formattedMinutes > 0 || showH;
+    return `${showD ? `${days}d` : ''} ${showH ? `${hours}h` : ''} ${showM ? `${formattedMinutes}m` : ''}`;
+  }
 
   return (
     <ExpandedWrapper flexDirection="column">
@@ -97,22 +104,21 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ({
           <Text small>{hasPoolStarted ? t('End') : t('Start')}:</Text>
           <Flex alignItems="center">
             {blocksRemaining || blocksUntilStart ? (
-              <Balance
-                color="text"
-                fontSize="14px"
-                value={hasPoolStarted ? hoursRemaining : hoursUntilStart}
-                decimals={0}
-              />
+              <Text bold fontSize="14px" color="text" small>
+                {hasPoolStarted ? formatTime(minutesRemaining) : formatTime(minutesUntilStart)}
+              </Text>
             ) : (
               <Skeleton width="54px" height="21px" />
             )}
-            <Text ml="4px" color="text" small>
-              {t('hours')}
-            </Text>
             <TimerIcon ml="4px" color="secondary" />
           </Flex>
         </Flex>
       )}
+      {/* {!shouldShowBlockCountdown && (
+        <Text bold>
+          finished
+        </Text>
+      )} */}
       {isAutoVault && (
         <Flex mb="2px" justifyContent="space-between" alignItems="center">
           {tooltipVisible && tooltip}
@@ -127,7 +133,7 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ({
         </Flex>
       )}
       <Flex mb="2px" justifyContent="flex-end">
-        <LinkExternal color="text"bold={false} small href={earningToken.projectLink}>
+        <LinkExternal color="text" bold={false} small href={earningToken.projectLink}>
           {t('View Project Site')}
         </LinkExternal>
       </Flex>
