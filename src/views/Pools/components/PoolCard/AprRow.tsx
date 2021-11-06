@@ -7,7 +7,7 @@ import { getBalanceNumber } from 'utils/formatBalance'
 import { getPoolApr } from 'utils/apr'
 // import { getAddress } from 'utils/addressHelpers'
 import { tokenEarnedPerThousandDollarsCompounding, getRoi } from 'utils/compoundApyHelpers'
-import { usePriceBnbBusd, usePriceCakeBusd, usePriceQuoteToken } from 'state/hooks'
+import { usePriceBnbBusd, usePriceCakeBusd, usePriceQuoteToken, useTimestamp } from 'state/hooks'
 import Balance from 'components/Balance'
 // import ApyCalculatorModal from 'components/ApyCalculatorModal'
 import { Pool } from 'state/types'
@@ -30,7 +30,7 @@ const AprRow: React.FC<AprRowProps> = ({
   performanceFee = 0,
 }) => {
   const { t } = useTranslation()
-  const { stakingToken, earningToken, totalStaked, isFinished, tokenPerBlock, correspondingFarmId, usesCakeForPrice } = pool
+  const { stakingToken, earningToken, totalStaked, endBlock, tokenPerBlock, correspondingFarmId, usesCakeForPrice } = pool
 
   const tooltipContent = isAutoVault
     ? t('APY includes compounding, APR doesn’t. This pool’s MORPH is compounded automatically, so we show APY.')
@@ -38,19 +38,21 @@ const AprRow: React.FC<AprRowProps> = ({
 
   const { targetRef, tooltip, tooltipVisible } = useTooltip(tooltipContent, { placement: 'bottom-end' })
 
+  const currentBlock = useTimestamp()
   const cakePrice = usePriceCakeBusd()
   const ftmPrice = usePriceBnbBusd()
   const quoteTokenPrice = usePriceQuoteToken(correspondingFarmId)
   const _symbol = earningToken?.symbol?.toUpperCase()
+  const isFinished = pool.isFinished || (Math.max(endBlock - currentBlock, 0) === 0)
 
   let earningTokenPriceBig = quoteTokenPrice.times(ftmPrice);
   if (_symbol === QuoteToken.WFTM) {
     earningTokenPriceBig = ftmPrice
-  } else if (usesCakeForPrice){
+  } else if (usesCakeForPrice) {
     earningTokenPriceBig = quoteTokenPrice.times(cakePrice)
   } else if (_symbol === QuoteToken.SPELL) {
     earningTokenPriceBig = quoteTokenPrice
-  } 
+  }
   const rewardTokenPrice = earningTokenPriceBig.toNumber()
 
   const apr = getPoolApr(

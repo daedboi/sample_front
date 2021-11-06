@@ -22,7 +22,7 @@ const Pools: React.FC = () => {
   const { account } = useWeb3React()
   const pools = usePools(account)
   const { currentBlock } = useBlock()
-  const [stakedOnly, setStakedOnly] = usePersistState(false,  { localStorageKey: 'morpheus_pool_staked' })
+  const [stakedOnly, setStakedOnly] = usePersistState(false, { localStorageKey: 'morpheus_pool_staked' })
 
   const [finishedPools, openPools] = useMemo(
     () => partition(pools, (pool) => pool.isFinished || currentBlock > pool.endBlock),
@@ -71,11 +71,11 @@ const Pools: React.FC = () => {
               {/* <LydVaultCard pool={lydPoolData} showStakedOnly={stakedOnly} /> */}
               {stakedOnly
                 ? orderBy(stakedOnlyPools, ['sortOrder']).map((pool) => (
-                    <PoolCard key={pool.sousId} pool={pool} account={account} />
-                  ))
+                  <PoolCard key={pool.sousId} pool={pool} account={account} />
+                ))
                 : orderBy(openPools, ['sortOrder']).map((pool) => (
-                    <PoolCard key={pool.sousId} pool={pool} account={account} />
-                  ))}
+                  <PoolCard key={pool.sousId} pool={pool} account={account} />
+                ))}
             </>
           </Route>
           <Route path={`${path}/history`}>
