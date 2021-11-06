@@ -6,6 +6,7 @@ import { useERC20 } from 'hooks/useContract'
 import useToast from 'hooks/useToast'
 import { getAddress } from 'utils/addressHelpers'
 import { Pool } from 'state/types'
+import { useTimestamp } from 'state/hooks'
 
 interface ApprovalActionProps {
   pool: Pool
@@ -14,12 +15,14 @@ interface ApprovalActionProps {
 
 
 const ApprovalAction: React.FC<ApprovalActionProps> = ({ pool, isLoading = false }) => {
-  const { sousId, stakingToken, earningToken, isFinished } = pool
+  const { sousId, stakingToken, earningToken, endBlock } = pool
   const { t } = useTranslation()
   const stakingTokenContract = useERC20(stakingToken.address ? getAddress(stakingToken.address) : '')
   const [requestedApproval, setRequestedApproval] = useState(false)
   const { onApprove } = useSousApprove(stakingTokenContract, sousId)
   const { toastSuccess, toastError } = useToast()
+  const currentBlock = useTimestamp()
+  const isFinished = pool.isFinished || (Math.max(endBlock - currentBlock, 0) === 0)
 
   const handleApprove = useCallback(async () => {
     try {
