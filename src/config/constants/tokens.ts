@@ -293,6 +293,22 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://kalmar.io/',
   },
+  new_morph: {
+    symbol: 'MORPH',
+    address: {
+      250: '0xEF5866A2686D9657CFf9036FE8b8B564000F4939',
+    },
+    decimals: 18,
+    projectLink: 'https://morpheusswap.finance/',
+  },
+  pills: {
+    symbol: 'PILLS',
+    address: {
+      250: '0x6aEB19Be7052603c5F364A9302c9fAC3D8B98b5c',
+    },
+    decimals: 18,
+    projectLink: 'https://morpheusswap.finance/',
+  },
 }
 
 export default tokens

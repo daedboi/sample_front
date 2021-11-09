@@ -3,8 +3,10 @@ import poolsConfig from 'config/constants/pools'
 import masterChefABI from 'config/abi/masterchef.json'
 import sousChefABI from 'config/abi/sousChef.json'
 import erc20ABI from 'config/abi/erc20.json'
+import swapperABI from 'config/abi/swapper.json'
+import tokens from 'config/constants/tokens'
 import multicall from 'utils/multicall'
-import { getAddress, getMasterChefAddress } from 'utils/addressHelpers'
+import { getAddress, getMasterChefAddress, getSwapperAddress } from 'utils/addressHelpers'
 import { getWeb3NoAccount } from 'utils/web3'
 import BigNumber from 'bignumber.js'
 
@@ -93,4 +95,50 @@ export const fetchUserPendingRewards = async (account) => {
   const pendingReward = await masterChefContract.methods.pendingMorph('0', account).call()
 
   return { ...pendingRewards, 0: new BigNumber(pendingReward).toJSON() }
+}
+
+export const fetchSwapperRatio = async () => {
+  const calls = [{
+    address: getSwapperAddress(),
+    name: 'getSwapRatio',
+    params: []
+  }]
+  const ratio = await multicall(swapperABI, calls)
+  return ratio[0].toString()
+}
+
+export const fetchSwapperInfo = async (account) => {
+  const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10)
+  const calls = [
+    {
+      address: tokens.new_morph.address[chainId],
+      name: 'balanceOf',
+      params: [account]
+    },
+    {
+      address: tokens.new_morph.address[chainId],
+      name: 'allowance',
+      params: [account, getSwapperAddress()],
+    }
+  ]
+  const res = await multicall(erc20ABI, calls)
+  return {
+    morphBalance: new BigNumber(res[0]).toJSON(),
+    allowance: new BigNumber(res[1]).toJSON()
+  }
+}
+
+export const fetchSwapperAllowance = async (account) => {
+  const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10)
+  const calls = [
+    {
+      address: tokens.new_morph.address[chainId],
+      name: 'allowance',
+      params: [account, getSwapperAddress()],
+    }
+  ]
+  const res = await multicall(erc20ABI, calls)
+  return {
+    allowance: new BigNumber(res[0]).toJSON()
+  }
 }

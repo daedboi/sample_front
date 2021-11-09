@@ -20,6 +20,15 @@ export const getMulticallAddress = () => {
 export const getWavaxAddress = () => {
   return getAddress(tokens.ftm.address)
 }
+export const getSwapperAddress = () => {
+  return getAddress(addresses.swapper)
+}
+export const getMorphAddress = () => {
+  return getAddress(tokens.new_morph.address)
+}
+export const getPillsAddress = () => {
+  return getAddress(tokens.pills.address)
+}
 // export const getLotteryAddress = () => {
 //   return getAddress(addresses.lottery)
 // }

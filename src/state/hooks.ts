@@ -32,6 +32,7 @@ import { State, Farm, Pool, ProfileState, AchievementState, FarmsState } from '.
 // import { fetchProfile } from './profile'
 // import { fetchTeam, fetchTeams } from './teams'
 import { fetchAchievements } from './achievements'
+import { fetchSwapperInfoAsync, fetchSwapperRatioAsync } from './pools'
 // import { fetchPrices } from './prices'
 
 export const useFetchPublicData = () => {
@@ -115,6 +116,23 @@ export const usePools = (account): Pool[] => {
 
   const pools = useSelector((state: State) => state.pools.data)
   return pools
+}
+
+export const useSwapper = (account): {ratio: string, morphBalance: string, allowance: string} => {
+  const { fastRefresh } = useRefresh()
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchSwapperRatioAsync())
+  }, [dispatch, fastRefresh])
+
+  useEffect(() => {
+    if (account) {
+      dispatch(fetchSwapperInfoAsync(account))
+    }
+  }, [account, dispatch, fastRefresh])
+
+  const swapperInfo = useSelector((state: State) => state.pools.swapperInfo)
+  return swapperInfo
 }
 
 export const usePoolsData = (): Pool[] => {

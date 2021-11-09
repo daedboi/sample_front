@@ -1,10 +1,10 @@
 import { useCallback } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import { useDispatch } from 'react-redux'
-import { fetchFarmUserDataAsync, updateUserBalance, updateUserStakedBalance } from 'state/actions'
+import { fetchFarmUserDataAsync, updateUserBalance, updateUserStakedBalance, fetchSwapperInfoAsync, fetchSwapperRatioAsync } from 'state/actions'
 import useToast from 'hooks/useToast'
-import { sousStake, sousStakeAvax, stake } from 'utils/callHelpers'
-import { useMasterchef, useSousChef } from './useContract'
+import { sousStake, sousStakeAvax, stake, swapMorph } from 'utils/callHelpers'
+import { useMasterchef, useSousChef, useSwapperContract } from './useContract'
 
 const useStake = (pid: number) => {
   const dispatch = useDispatch()
@@ -51,6 +51,23 @@ export const useSousStake = (sousId, isUsingAvax = false) => {
   )
 
   return { onStake: handleStake }
+}
+
+export const useSwapMorph = () => {
+  const dispatch = useDispatch()
+  const { account } = useWeb3React()
+  const swapperContract = useSwapperContract()
+
+  const handleSwapMorph = useCallback(
+    async (amount: string) => {
+      await swapMorph(swapperContract, amount, account)
+      dispatch(fetchSwapperRatioAsync())
+      dispatch(fetchSwapperInfoAsync(account))
+    },
+    [account, dispatch, swapperContract],
+  )
+
+  return { onSwapMorph: handleSwapMorph }
 }
 
 export default useStake
