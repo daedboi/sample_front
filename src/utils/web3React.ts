@@ -3,7 +3,7 @@ import { ConnectorNames } from 'trinityhelper'
 import Web3 from 'web3'
 
 const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10)
-console.log('chainId ++++++++++ ', chainId)
+// console.log('chainId ++++++++++ ', chainId)
 
 const injected = new InjectedConnector({ supportedChainIds: [chainId] })
 

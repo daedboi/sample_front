@@ -69,7 +69,7 @@ const MorpheusSwapCard: React.FC<{ account: string; isHomeCard?: boolean }> = ({
             {t('Swap MORPH here and receive PILLS as per the current swap ratio. This swapper automatically burns MORPH and mints PILLS, which are required in order to stake in the Neo Pools. ')}
             <br />
             <br />
-            {t('This ratio will increase over time, once every thirty days.')}
+            {t('This ratio will increase over time (by 0.3 every 30 days).')}
           </Heading>
           <Flex flexDirection="column" className="w-50">
             <Row>
