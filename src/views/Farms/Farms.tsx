@@ -489,9 +489,9 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         <Heading scale="lg" color="text" textAlign="center">
         {
             tokenMode ?
-              t('Some pools will be delisted when our DEX is launched within the next few days (rewards will stop for these pools). Please consider this prior to depositing.')
+              t('Some pools have been de-listed recently and may be found in the "finished" tab.')
               :
-            t('Farms will switch contract pools when our DEX is launched within the next few days. All farms will require restaking, including a deposit fee for non-natives. Please consider this prior to depositing.')
+            t('All old farms have been de-listed and replaced with new LPs. You may find these old farms in the "finished" tab.')
           }
         </Heading>
         {renderContent()}
