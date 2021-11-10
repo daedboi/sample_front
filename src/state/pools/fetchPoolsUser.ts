@@ -100,7 +100,7 @@ export const fetchUserPendingRewards = async (account) => {
 export const fetchSwapperRatio = async () => {
   const calls = [{
     address: getSwapperAddress(),
-    name: 'swapRatio',
+    name: 'getSwapRatio',
     params: []
   }]
   const ratio = await multicall(swapperABI, calls)
@@ -111,12 +111,12 @@ export const fetchSwapperInfo = async (account) => {
   const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10)
   const calls = [
     {
-      address: tokens.new_morph.address[chainId],
+      address: tokens.morph.address[chainId],
       name: 'balanceOf',
       params: [account]
     },
     {
-      address: tokens.new_morph.address[chainId],
+      address: tokens.morph.address[chainId],
       name: 'allowance',
       params: [account, getSwapperAddress()],
     }
@@ -132,7 +132,7 @@ export const fetchSwapperAllowance = async (account) => {
   const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10)
   const calls = [
     {
-      address: tokens.new_morph.address[chainId],
+      address: tokens.morph.address[chainId],
       name: 'allowance',
       params: [account, getSwapperAddress()],
     }

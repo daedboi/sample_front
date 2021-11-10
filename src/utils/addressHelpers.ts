@@ -24,7 +24,7 @@ export const getSwapperAddress = () => {
   return getAddress(addresses.swapper)
 }
 export const getMorphAddress = () => {
-  return getAddress(tokens.new_morph.address)
+  return getAddress(tokens.morph.address)
 }
 export const getPillsAddress = () => {
   return getAddress(tokens.pills.address)

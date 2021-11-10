@@ -12,11 +12,11 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Exchange',
-        href: 'https://adoring-booth-ec3ae3.netlify.app/#/swap',
+        href: 'https://swap.morpheusswap.app/#/swap',
       },
       {
         label: 'Liquidity',
-        href: 'https://adoring-booth-ec3ae3.netlify.app/#/pool',
+        href: 'https://swap.morpheusswap.app/#/pool',
       },
     ],
   },

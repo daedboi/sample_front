@@ -49,19 +49,6 @@
 		"inputs": [
 			{
 				"indexed": false,
-				"internalType": "uint256",
-				"name": "newRatio",
-				"type": "uint256"
-			}
-		],
-		"name": "RatioChanged",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
 				"internalType": "address",
 				"name": "gov",
 				"type": "address"
@@ -190,19 +177,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "_swapRatio",
-				"type": "uint256"
-			}
-		],
-		"name": "setSwapRatio",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "bool",
 				"name": "_swapEnabled",
 				"type": "bool"
@@ -257,19 +231,6 @@
 		"name": "swapMax",
 		"outputs": [],
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "swapRatio",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{

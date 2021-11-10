@@ -12,14 +12,14 @@ interface StakeActionsProps {
 }
 
 const StakeAction: React.FC<StakeActionsProps> = ({
-  stakingTokenPrice,
+  // stakingTokenPrice,
   maxBalance,
   isLoading = false,
 }) => {
   const { t } = useTranslation()
   const [onPresentTokenRequired] = useModal(<NotEnoughTokensModal tokenSymbol="MORPH" />)
   const [onPresentStake] = useModal(
-    <StakeModal maxBalance={maxBalance} stakingTokenPrice={stakingTokenPrice} />,
+    <StakeModal maxBalance={maxBalance} />,
   )
 
   const renderStakeAction = () => {
