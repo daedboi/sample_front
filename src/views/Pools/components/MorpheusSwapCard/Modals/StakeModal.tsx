@@ -5,19 +5,19 @@ import { useSwapMorph } from 'hooks/useStake'
 import useTheme from 'hooks/useTheme'
 import useToast from 'hooks/useToast'
 import BigNumber from 'bignumber.js'
-import { getFullDisplayBalance, formatNumber, getDecimalAmount } from 'utils/formatBalance'
+import { getFullDisplayBalance, getDecimalAmount } from 'utils/formatBalance'
 import PercentageButton from './PercentageButton'
 
 interface StakeModalProps {
   maxBalance: BigNumber
-  stakingTokenPrice: number
+  stakingTokenPrice?: number
   isRemovingStake?: boolean
   onDismiss?: () => void
 }
 
 const StakeModal: React.FC<StakeModalProps> = ({
   maxBalance,
-  stakingTokenPrice,
+  // stakingTokenPrice,
   isRemovingStake = false,
   onDismiss,
 }) => {
@@ -32,7 +32,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
   // eslint-disable-next-line
   const [percent, setPercent] = useState(0)
 
-  const usdValueStaked = stakeAmount && formatNumber(new BigNumber(stakeAmount).times(stakingTokenPrice).toNumber())
+  // const usdValueStaked = stakeAmount && formatNumber(new BigNumber(stakeAmount).times(stakingTokenPrice).toNumber())
 
   const handleStakeInputChange = (input: string) => {
     if (input) {
@@ -57,7 +57,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
     try {
       // staking
       await onSwapMorph(stakeAmount)
-      toastSuccess(`${t('Swapped')}!`, t(`Your Morph funds have been swapped in the swapper!`))
+      toastSuccess(`${t('Swapped')}!`, t(`Your MORPH funds have been swapped for PILLS!`))
       setPendingTx(false)
       onDismiss()
     } catch (e) {
@@ -89,7 +89,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
       <BalanceInput
         value={stakeAmount}
         onUserInput={handleStakeInputChange}
-        currencyValue={`~${usdValueStaked || 0} USD`}
+        // currencyValue={`~${usdValueStaked || 0} USD`}
       />
       <Text mt="8px" ml="auto" color="textSubtle" fontSize="12px" mb="8px">
         Balance: {getFullDisplayBalance(maxBalance, 18)}

@@ -100,7 +100,7 @@ export const fetchUserPendingRewards = async (account) => {
 export const fetchSwapperRatio = async () => {
   const calls = [{
     address: getSwapperAddress(),
-    name: 'getSwapRatio',
+    name: 'swapRatio',
     params: []
   }]
   const ratio = await multicall(swapperABI, calls)

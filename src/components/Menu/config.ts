@@ -7,33 +7,33 @@ const config: MenuEntry[] = [
     href: '/',
   },
   {
-    label: 'Trade (Spooky)',
+    label: 'Trade',
     icon: 'TradeIcon',
     items: [
       {
         label: 'Exchange',
-        href: 'https://spookyswap.finance/swap?outputCurrency=0x0789ff5ba37f72abc4d561d00648acadc897b32d',
+        href: 'https://adoring-booth-ec3ae3.netlify.app/#/swap',
       },
       {
         label: 'Liquidity',
-        href: 'https://spookyswap.finance/pool',
+        href: 'https://adoring-booth-ec3ae3.netlify.app/#/pool',
       },
     ],
   },
-  {
-    label: 'Trade (Spirit)',
-    icon: 'TradeIcon',
-    items: [
-      {
-        label: 'Exchange',
-        href: 'https://swap.spiritswap.finance/#/swap/0x0789fF5bA37f72ABC4D561D00648acaDC897b32d',
-      },
-      {
-        label: 'Liquidity',
-        href: 'https://swap.spiritswap.finance/#/add/0x82f0B8B456c1A451378467398982d4834b6829c1/0x0789fF5bA37f72ABC4D561D00648acaDC897b32d',
-      },
-    ],
-  },
+  // {
+  //   label: 'Trade (Spirit)',
+  //   icon: 'TradeIcon',
+  //   items: [
+  //     {
+  //       label: 'Exchange',
+  //       href: 'https://swap.spiritswap.finance/#/swap/0x0789fF5bA37f72ABC4D561D00648acaDC897b32d',
+  //     },
+  //     {
+  //       label: 'Liquidity',
+  //       href: 'https://swap.spiritswap.finance/#/add/0x82f0B8B456c1A451378467398982d4834b6829c1/0x0789fF5bA37f72ABC4D561D00648acaDC897b32d',
+  //     },
+  //   ],
+  // },
   // {
   //   label: 'LYD Gate',
   //   icon: 'GateIcon',
@@ -54,7 +54,7 @@ const config: MenuEntry[] = [
     href: '/pools',
   },
   {
-    label: 'Neo Pools',
+    label: 'Neo Pools / PILLS',
     icon: 'GroupsIcon',
     href: '/staking',
   },
@@ -152,48 +152,48 @@ const config: MenuEntry[] = [
   //     },
   //   ],
   // },
-  {
-    label: 'Listings',
-    icon: 'InfoIcon',
-    items: [
-      {
-        label: 'Spooky Info',
-        href: 'https://info.spookyswap.finance/token/0x0789ff5ba37f72abc4d561d00648acadc897b32d',
-      },
-      {
-        label: 'Spirit Info',
-        href: 'https://info.spiritswap.finance/token/0x0789ff5ba37f72abc4d561d00648acadc897b32d',
-      },
-      {
-        label: 'Kek Tools',
-        href: 'https://kek.tools/t/0x0789ff5ba37f72abc4d561d00648acadc897b32d',
-      },
-      {
-        label: 'Zoocoin',
-        href: 'https://charts.zoocoin.cash/charts?exchange=SpookySwap&pair=0x7D42442f764985F208E6fa6A7CD0e253CB447D58',
-      },
-      {
-        label: 'Vfat.tools',
-        href: 'https://vfat.tools/fantom/morpheusswap/',
-      },
-      {
-        label: 'Nomics',
-        href: 'https://nomics.com/assets/morph4-morpheus-token',
+  // {
+  //   label: 'Listings',
+  //   icon: 'InfoIcon',
+  //   items: [
+  //     {
+  //       label: 'Spooky Info',
+  //       href: 'https://info.spookyswap.finance/token/0x0789ff5ba37f72abc4d561d00648acadc897b32d',
+  //     },
+  //     {
+  //       label: 'Spirit Info',
+  //       href: 'https://info.spiritswap.finance/token/0x0789ff5ba37f72abc4d561d00648acadc897b32d',
+  //     },
+  //     {
+  //       label: 'Kek Tools',
+  //       href: 'https://kek.tools/t/0x0789ff5ba37f72abc4d561d00648acadc897b32d',
+  //     },
+  //     {
+  //       label: 'Zoocoin',
+  //       href: 'https://charts.zoocoin.cash/charts?exchange=SpookySwap&pair=0x7D42442f764985F208E6fa6A7CD0e253CB447D58',
+  //     },
+  //     {
+  //       label: 'Vfat.tools',
+  //       href: 'https://vfat.tools/fantom/morpheusswap/',
+  //     },
+  //     {
+  //       label: 'Nomics',
+  //       href: 'https://nomics.com/assets/morph4-morpheus-token',
 
-      },
-      {
-        label: 'CoinGecko',
-        href: 'https://www.coingecko.com/en/coins/morpheus-token',
+  //     },
+  //     {
+  //       label: 'CoinGecko',
+  //       href: 'https://www.coingecko.com/en/coins/morpheus-token',
 
-      },
-      {
-        label: 'CoinMarketCap',
-        href: 'https://coinmarketcap.com/currencies/morpheus-token/',
+  //     },
+  //     {
+  //       label: 'CoinMarketCap',
+  //       href: 'https://coinmarketcap.com/currencies/morpheus-token/',
 
-      },
+  //     },
       
-    ],
-  },
+  //   ],
+  // },
   // {
   //   label: 'IFO',
   //   icon: 'IfoIcon',
