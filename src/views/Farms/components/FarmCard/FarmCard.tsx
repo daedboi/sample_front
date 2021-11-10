@@ -6,8 +6,8 @@ import { Farm } from 'state/types'
 import { provider as ProviderType } from 'web3-core'
 import { useTranslation } from 'contexts/Localization'
 import ExpandableSectionButton from 'components/ExpandableSectionButton'
-import { BASE_ADD_LIQUIDITY_URL } from 'config'
-import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
+// import { BASE_ADD_LIQUIDITY_URL } from 'config'
+// import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { QuoteToken } from 'config/constants/types'
 import DetailsSection from './DetailsSection'
 import CardHeading from './CardHeading'
@@ -20,8 +20,8 @@ export interface FarmWithStakedValue extends Farm {
   liquidity?: BigNumber
 }
 
-const chainId = process.env.REACT_APP_CHAIN_ID
-const BASE_TOKEN_LIQUIDITY_URL = `https://info.spookyswap.finance/token`
+// const chainId = process.env.REACT_APP_CHAIN_ID
+const BASE_TOKEN_LIQUIDITY_URL = `https://swap.morpheusswap.app/`
 
 const RainbowLight = keyframes`
 	0% {
@@ -142,21 +142,9 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, lydPrice, account, w
     maximumFractionDigits: 2,
   })
 
-  let liquidityUrlPathParts: string;
-  let addLiquidityUrl: string;
-  if (farm.isTokenOnly) {
-    liquidityUrlPathParts = farm.token.address[chainId]
-    addLiquidityUrl = `${BASE_TOKEN_LIQUIDITY_URL}/${liquidityUrlPathParts}`
-  }else{
-    liquidityUrlPathParts = getLiquidityUrlPathParts({
-      quoteTokenAddress: farm.quoteToken.address,
-      tokenAddress: farm.token.address,
-    })
-    addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
-  }
-  if (farm.isSpirit) {
-    addLiquidityUrl = `https://info.spiritswap.finance/token/${liquidityUrlPathParts}`
-  }
+
+  const addLiquidityUrl = `${BASE_TOKEN_LIQUIDITY_URL}`
+
   const lpAddress = farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
   
   return (

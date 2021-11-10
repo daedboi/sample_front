@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js'
 import React, { useCallback, useMemo, useState } from 'react'
-import { Button, Modal, LinkExternal } from 'trinityhelper'
+import { Button, Modal } from 'trinityhelper'
 import ModalActions from 'components/ModalActions'
 import ModalInput from 'components/ModalInput'
 import { useTranslation } from 'contexts/Localization'
@@ -65,9 +65,9 @@ const DepositModal: React.FC<DepositModalProps> = ({ isTokenOnly, max, onConfirm
           {pendingTx ? t('Pending Confirmation') : t('Confirm')}
         </Button>
       </ModalActions>
-      <LinkExternal color='secondary' href={addLiquidityUrl} style={{ alignSelf: 'center' }}>
+      {/* <LinkExternal color='secondary' href={addLiquidityUrl} style={{ alignSelf: 'center' }}>
         {t('Get')} {tokenName}
-      </LinkExternal>
+      </LinkExternal> */}
     </Modal>
   )
 }

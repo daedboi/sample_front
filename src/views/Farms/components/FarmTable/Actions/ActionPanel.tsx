@@ -5,7 +5,7 @@ import { useTranslation } from 'contexts/Localization'
 import { LinkExternal, Text } from 'trinityhelper'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import { BASE_ADD_LIQUIDITY_URL } from 'config'
-import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
+// import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { CommunityTag, CoreTag, DualTag, NoFeeTag, SpiritTag } from 'components/Tags'
 
 import HarvestAction from './HarvestAction'
@@ -158,7 +158,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
 
   const { t } = useTranslation()
   const isActive = farm.multiplier !== '0X'
-  const { quoteToken, token, dual } = farm
+  const { dual } = farm
   const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('MORPHEUS', '')
   // const liquidityUrlPathParts = getLiquidityUrlPathParts({
   //   quoteTokenAddress: quoteToken.address,
@@ -166,22 +166,9 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   // })
   const lpAddress = farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
   
-  let liquidityUrlPathParts: string;
-  let addLiquidityUrl: string;
-  if (farm.isTokenOnly) {
-    liquidityUrlPathParts = token.address[process.env.REACT_APP_CHAIN_ID]
-    addLiquidityUrl = `https://info.spookyswap.finance/token/${liquidityUrlPathParts}`
-  }else{
-    liquidityUrlPathParts = getLiquidityUrlPathParts({
-      quoteTokenAddress: quoteToken.address,
-      tokenAddress: token.address,
-    })    
-    addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
-  }  
 
-  if (farm.isSpirit) {
-    addLiquidityUrl = `https://info.spiritswap.finance/token/${liquidityUrlPathParts}`
-  }
+  const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}`
+
   let avaxExplorer: string;
   if (farm.isTokenOnly) {
     avaxExplorer = `https://ftmscan.com/address/${farm.token.address[process.env.REACT_APP_CHAIN_ID]}`
