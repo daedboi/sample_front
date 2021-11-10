@@ -397,7 +397,6 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 51,
-    isSpirit: true,
     isTokenOnly: true,
     lpSymbol: 'wMEMO',
     lpAddresses: {
