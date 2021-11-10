@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
 import { BIG_ZERO } from 'utils/bigNumber'
-import { getBep20Contract, getLydContract } from 'utils/contractHelpers'
+import { getBep20Contract, getLydContract, getPillsContract } from 'utils/contractHelpers'
 import useWeb3 from './useWeb3'
 import useRefresh from './useRefresh'
 
@@ -57,6 +57,23 @@ export const useTotalSupply = () => {
     async function fetchTotalSupply() {
       const lydContract = getLydContract()
       const supply = await lydContract.methods.totalSupply().call()
+      setTotalSupply(new BigNumber(supply))
+    }
+
+    fetchTotalSupply()
+  }, [slowRefresh])
+
+  return totalSupply
+}
+
+export const useTotalSupplyPills = () => {
+  const { slowRefresh } = useRefresh()
+  const [totalSupply, setTotalSupply] = useState<BigNumber>()
+
+  useEffect(() => {
+    async function fetchTotalSupply() {
+      const pillsContract = getPillsContract()
+      const supply = await pillsContract.methods.totalSupply().call()
       setTotalSupply(new BigNumber(supply))
     }
 

@@ -11,7 +11,7 @@ const StyledTotalValueLockedCard = styled(Card)<{isMobile:boolean}>`
   justify-content:space-around;
   display: inline-block;
   flex: 1;
-  width:${(props)=>props.isMobile?"100%":"200%"};
+  width:${(props)=>props.isMobile?"100%":"250%"};
   box-shadow: none;
 
 `

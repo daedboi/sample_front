@@ -21,7 +21,8 @@ import {
   // getMaximusFeeManagerAddress,
   // getMaximusDashboardAddress,
   getMulticallAddress,
-  getSwapperAddress
+  getSwapperAddress,
+  getPillsAddress
 } from 'utils/addressHelpers'
 
 // ABI
@@ -31,6 +32,7 @@ import lydiaLionsAbi from 'config/abi/lydiaLions.json'
 import erc20abi from 'config/abi/erc20.json'
 import lpTokenAbi from 'config/abi/lpToken.json'
 import lydAbi from 'config/abi/lyd.json'
+import pillsAbi from 'config/abi/pills.json'
 import ifoV2Abi from 'config/abi/ifoV2.json'
 import ifoV1Abi from 'config/abi/ifoV1.json'
 import ifoAbi from 'config/abi/ifo.json'
@@ -80,6 +82,10 @@ export const getSouschefContract = (id: number, web3?: Web3) => {
 // }
 export const getLydContract = (web3?: Web3) => {
   return getContract(lydAbi, getCakeAddress(), web3)
+}
+
+export const getPillsContract = (web3?: Web3) => {
+  return getContract(pillsAbi, getPillsAddress(), web3)
 }
 // export const getProfileContract = (web3?: Web3) => {
 //   return getContract(profileABI, getLydiaProfileAddress(), web3)
