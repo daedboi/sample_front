@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
-import { Modal, Text, Flex, Button, BalanceInput, AutoRenewIcon, Link } from 'trinityhelper'
+// import styled from 'styled-components'
+import { Modal, Text, Flex, Button, BalanceInput, AutoRenewIcon } from 'trinityhelper'
 import { useTranslation } from 'contexts/Localization'
 // import { BASE_EXCHANGE_URL } from 'config'
 import { useSousStake } from 'hooks/useStake'
@@ -21,9 +21,9 @@ interface StakeModalProps {
   onDismiss?: () => void
 }
 
-const StyledLink = styled(Link)`
-  width: 100%;
-`
+// const StyledLink = styled(Link)`
+//   width: 100%;
+// `
 
 const StakeModal: React.FC<StakeModalProps> = ({
   isBnbPool,
@@ -149,13 +149,13 @@ const StakeModal: React.FC<StakeModalProps> = ({
       >
         {pendingTx ? t('Confirming') : t('Confirm')}
       </Button>
-      {!isRemovingStake && (
+      {/* {!isRemovingStake && (
         <StyledLink external href="https://spookyswap.finance/swap?outputCurrency=0x0789ff5ba37f72abc4d561d00648acadc897b32d">
           <Button width="100%" mt="8px" variant="secondary">
             {t('Get')} {stakingToken.symbol}
           </Button>
         </StyledLink>
-      )}
+      )} */}
     </Modal>
   )
 }

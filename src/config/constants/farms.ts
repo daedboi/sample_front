@@ -81,7 +81,7 @@ const farms: FarmConfig[] = [
     pid: 60,
     lpSymbol: 'nICE-MIM LP',
     lpAddresses: {
-      250: '0xd782EFA7C4361e0BDFc5278943566906AA638f04',
+      250: '0x9f65dF49E9c7430181Ed37e4374b37d6848Abb55',
     },
     token: tokens.nice,
     quoteToken: tokens.mim,
@@ -90,7 +90,7 @@ const farms: FarmConfig[] = [
     pid: 61,
     lpSymbol: 'sSPELL-MIM LP',
     lpAddresses: {
-      250: '0x93D93F3D1aa417B212BAe56D8DF9C88dCCf73A31',
+      250: '0xd782EFA7C4361e0BDFc5278943566906AA638f04',
     },
     token: tokens.sspell,
     quoteToken: tokens.mim,
