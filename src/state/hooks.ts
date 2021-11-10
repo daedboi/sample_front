@@ -286,6 +286,11 @@ export const usePriceWethFtm = (): BigNumber => {
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO;
 }
 
+export const usePricePillsMim = (): BigNumber => {
+  const farm = useFarmFromPid(53); // PILLS-MIM LP
+  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO;
+}
+
 // TVL substitute until debank API
 export const useTotalValue = (): BigNumber => {
   // const farms = useFarms();
@@ -294,6 +299,7 @@ export const useTotalValue = (): BigNumber => {
   const bnbPrice = usePriceBnbBusd();
   const cakePrice = usePriceCakeBusd();
   const wethPrice = usePriceWethFtm().times(bnbPrice)
+  // const pillsPrice = usePricePillsMim();
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]

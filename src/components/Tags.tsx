@@ -9,7 +9,7 @@ const NoFeeTag = () => (
 
 const CoreTag = (props) => (
   <Tag variant="secondary" outline startIcon={<VerifiedIcon color="secondary" />} {...props}>
-    Spooky
+    Morpheus
   </Tag>
 )
 
@@ -27,7 +27,7 @@ const AvaxTag = (props) => (
 
 const SpiritTag = (props) => (
   <Tag variant="textSubtle" outline startIcon={<VerifiedIcon color="secondary" />} {...props}>
-    Spirit
+    Morpheus
   </Tag>
 )
 

@@ -5,8 +5,9 @@ import UnlockButton from 'components/UnlockButton'
 import { useTranslation } from 'contexts/Localization'
 // import { getAddress } from 'utils/addressHelpers'
 import { BIG_ZERO } from 'utils/bigNumber'
-import { usePriceCakeBusd, useTimestamp } from 'state/hooks'
+import { usePriceCakeBusd, usePricePillsMim, useTimestamp } from 'state/hooks'
 import { Pool } from 'state/types'
+import { QuoteToken } from 'config/constants/types'
 import AprRow from './AprRow'
 import StyledCard from './StyledCard'
 import CardFooter from './CardFooter'
@@ -19,7 +20,16 @@ const PoolCard: React.FC<{ pool: Pool; account: string; isHomeCard?: boolean }> 
   const { t } = useTranslation()
   const stakedBalance = userData?.stakedBalance ? new BigNumber(userData.stakedBalance) : BIG_ZERO
   const accountHasStakedBalance = stakedBalance.gt(0)
-  const stakingTokenPrice = usePriceCakeBusd().toNumber()
+  const morphPrice = usePriceCakeBusd().toNumber()
+  const pillsPrice = usePricePillsMim().toNumber()
+  
+  let stakingTokenPrice: number;
+  if (stakingToken.symbol === QuoteToken.PILLS) {
+    stakingTokenPrice = pillsPrice
+  } else {
+    stakingTokenPrice = morphPrice
+  }
+  
   const isFinished = pool.isFinished || (Math.max(endBlock - currentBlock, 0) === 0)
 
   return (

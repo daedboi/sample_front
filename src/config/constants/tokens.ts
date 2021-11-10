@@ -301,6 +301,22 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://morpheusswap.finance/',
   },
+  nice: {
+    symbol: 'nICE',
+    address: {
+      250: '0x7f620d7d0b3479b1655cefb1b0bc67fb0ef4e443',
+    },
+    decimals: 18,
+    projectLink: 'https://popsicle.finance/',
+  },
+  sspell: {
+    symbol: 'sSPELL',
+    address: {
+      250: '0xbB29D2A58d880Af8AA5859e30470134dEAf84F2B',
+    },
+    decimals: 18,
+    projectLink: 'https://abracadabra.money/',
+  },
 }
 
 export default tokens

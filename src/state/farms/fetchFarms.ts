@@ -60,7 +60,7 @@ const fetchFarms = async (farmsToFetch: FarmConfig[]) => {
       if (farmConfig.isTokenOnly) {
         tokenAmount = new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(tokenDecimals));
 
-        if (farmConfig.tokenSymbol === 'USDC' && farmConfig.quoteTokenSymbol === 'USDC') {
+        if (farmConfig.tokenSymbol === 'USDC' && farmConfig.quoteTokenSymbol === 'USDC' && farmConfig.quoteTokenSymbol === 'MIM' && farmConfig.tokenSymbol === 'MIM') {
           tokenPriceVsQuote = new BigNumber(1);
         } else {
           tokenPriceVsQuote = new BigNumber(quoteTokenBalanceLP).div(new BigNumber(10).pow(quoteTokenDecimals)).div(new BigNumber(tokenBalanceLP).div(new BigNumber(10).pow(tokenDecimals)));

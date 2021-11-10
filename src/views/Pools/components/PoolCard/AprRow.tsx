@@ -52,6 +52,8 @@ const AprRow: React.FC<AprRowProps> = ({
     earningTokenPriceBig = quoteTokenPrice.times(cakePrice)
   } else if (_symbol === QuoteToken.SPELL) {
     earningTokenPriceBig = quoteTokenPrice
+  } else if (_symbol === QuoteToken.wMEMO){
+    earningTokenPriceBig = quoteTokenPrice
   }
   const rewardTokenPrice = earningTokenPriceBig.toNumber()
 

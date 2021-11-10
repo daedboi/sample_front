@@ -15,6 +15,90 @@ const farms: FarmConfig[] = [
   //  quoteToken: tokens.wbnb,
   // },
   {
+    pid: 53,
+    lpSymbol: 'PILLS-MIM LP',
+    lpAddresses: {
+      250: '0x93D93F3D1aa417B212BAe56D8DF9C88dCCf73A31',
+    },
+    token: tokens.pills,
+    quoteToken: tokens.mim,
+  },
+  {
+    pid: 54,
+    lpSymbol: 'FTM-MIM LP',
+    lpAddresses: {
+      250: '0x9270bD93a9298047Fdbab9CbD3Bd87FE674A907B',
+    },
+    token: tokens.mim,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 55,
+    lpSymbol: 'FTM-USDC LP',
+    lpAddresses: {
+      250: '0xD095675C684452825e61804dA7d6CEccB613AFe8',
+    },
+    token: tokens.ftm,
+    quoteToken: tokens.usdc,
+  },
+  {
+    pid: 56,
+    lpSymbol: 'FTM-fUSDT LP',
+    lpAddresses: {
+      250: '0xbCa706f1CD20C6e9c00FFBBEC93E66a5302c24b3',
+    },
+    token: tokens.usdt,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 57,
+    lpSymbol: 'FTM-DAI LP',
+    lpAddresses: {
+      250: '0xbcF8dF676dC1935bd6c3a4BbCC43030531641a6f',
+    },
+    token: tokens.dai,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 58,
+    lpSymbol: 'FTM-wETH LP',
+    lpAddresses: {
+      250: '0x4B884c817521247cb9fa2530F2e9D4eABb3B4066',
+    },
+    token: tokens.weth,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 59,
+    lpSymbol: 'FTM-wBTC LP',
+    lpAddresses: {
+      250: '0x751A1Bff4Faa4D2615b9ca2a1a7bB3fC935dA494',
+    },
+    token: tokens.wbtc,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 60,
+    lpSymbol: 'nICE-MIM LP',
+    lpAddresses: {
+      250: '0xd782EFA7C4361e0BDFc5278943566906AA638f04',
+    },
+    token: tokens.nice,
+    quoteToken: tokens.mim,
+  },
+  {
+    pid: 61,
+    lpSymbol: 'sSPELL-MIM LP',
+    lpAddresses: {
+      250: '0x93D93F3D1aa417B212BAe56D8DF9C88dCCf73A31',
+    },
+    token: tokens.sspell,
+    quoteToken: tokens.mim,
+  },
+  /**
+   * Finished LPs
+   */
+  {
     pid: 0,
     lpSymbol: 'MORPH-FTM LP',
     lpAddresses: {
@@ -206,9 +290,6 @@ const farms: FarmConfig[] = [
     token: tokens.papr,
     quoteToken: tokens.usdc,
   },
-  /**
-   * Finished LPs
-   */
   {
     pid: 15,
     isCommunity: true,
@@ -288,6 +369,22 @@ const farms: FarmConfig[] = [
    * Single token pools
    */
 
+   {
+    pid: 62,
+    isTokenOnly: true,
+    lpSymbol: 'PILLS',
+    lpAddresses: {
+      250: '0x93D93F3D1aa417B212BAe56D8DF9C88dCCf73A31',
+    },
+    token: tokens.pills,
+    quoteToken: tokens.mim,
+  },
+
+
+
+    /**
+   * FINISHED
+   */
   {
     pid: 5,
     isTokenOnly: true,
