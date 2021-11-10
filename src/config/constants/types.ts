@@ -22,7 +22,7 @@ export enum QuoteToken {
   'SPELL' = 'SPELL',
   'SPELLv2' = 'SPELL (v2)',
   'PILLS' = 'PILLS',
-  'wMEMO' = 'wMEMO'
+  'wMEMO' = 'WMEMO'
 }
 
 export enum PoolCategory {
