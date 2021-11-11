@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js'
 import { ethers } from 'ethers'
 
-const GAS = 250000
+const GAS = 300000
 
 export const approve = async (lpContract, masterChefContract, account) => {
   return lpContract.methods
