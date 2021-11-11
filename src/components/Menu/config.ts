@@ -7,18 +7,19 @@ const config: MenuEntry[] = [
     href: '/',
   },
   {
-    label: 'Trade',
+    label: 'Exchange',
     icon: 'TradeIcon',
-    items: [
-      {
-        label: 'Exchange',
-        href: 'https://swap.morpheusswap.app/#/swap',
-      },
-      {
-        label: 'Liquidity',
-        href: 'https://swap.morpheusswap.app/#/pool',
-      },
-    ],
+    href: 'https://swap.morpheusswap.app/#/swap'
+    // items: [
+    //   {
+    //     label: 'Exchange',
+    //     href: 'https://swap.morpheusswap.app/#/swap',
+    //   },
+    //   {
+    //     label: 'Liquidity',
+    //     href: 'https://swap.morpheusswap.app/#/pool',
+    //   },
+    // ],
   },
   // {
   //   label: 'Trade (Spirit)',
@@ -191,7 +192,7 @@ const config: MenuEntry[] = [
   //       href: 'https://coinmarketcap.com/currencies/morpheus-token/',
 
   //     },
-      
+
   //   ],
   // },
   // {
