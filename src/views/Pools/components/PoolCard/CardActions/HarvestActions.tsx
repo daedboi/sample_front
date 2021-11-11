@@ -36,11 +36,11 @@ const HarvestActions: React.FC<HarvestActionsProps> = ({
   let earningTokenPriceBig = quoteTokenPrice.times(ftmPrice);
   if (earningToken.symbol.toUpperCase() === QuoteToken.WFTM) {
     earningTokenPriceBig = ftmPrice
-  } else if (usesCakeForPrice){
+  } else if (usesCakeForPrice) {
     earningTokenPriceBig = quoteTokenPrice.times(cakePrice)
   } else if (earningToken.symbol.toUpperCase() === QuoteToken.SPELL) {
     earningTokenPriceBig = quoteTokenPrice
-  } else if (earningToken.symbol.toUpperCase() === QuoteToken.wMEMO){
+  } else if (earningToken.symbol.toUpperCase() === QuoteToken.wMEMO) {
     earningTokenPriceBig = quoteTokenPrice
   }
 
@@ -49,7 +49,7 @@ const HarvestActions: React.FC<HarvestActionsProps> = ({
   // show enough decimals to see 1-9 cent value of a token
   const tokenPriceNoPrecision = earningTokenPriceBig.toFixed(0)
   const maxDecimals = Math.max(tokenPriceNoPrecision === "0" ? 0 : tokenPriceNoPrecision.length + 1, 3)
-  const formattedBalance = formatNumber(getBalanceNumber(earnings, earningToken.decimals), 3, maxDecimals)
+  const formattedBalance = formatNumber(getBalanceNumber(earnings, earningToken.decimals), maxDecimals, maxDecimals)
   const earningsDollarValue = formatNumber(
     getBalanceNumber(earnings.multipliedBy(earningTokenPrice), earningToken.decimals),
   )
