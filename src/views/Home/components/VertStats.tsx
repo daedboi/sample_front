@@ -9,11 +9,11 @@ import { useTranslation } from 'contexts/Localization'
 import { useMediaQuery } from 'react-responsive';
 import { getCakeAddress, getPillsAddress } from 'utils/addressHelpers'
 import useTheme from 'hooks/useTheme'
-import Divider from 'views/Farms/components/Divider'
+// import Divider from 'views/Farms/components/Divider'
 import TotalValueLockedCard from './TotalValueLockedCard'
 import CardValue from './CardValue'
 import { usePricePillsMim } from '../../../state/hooks'
-import VertCharts from './VertCharts'
+// import VertCharts from './VertCharts'
 
 const StyledVertStats = styled(Card)<{isMobile:boolean}>`
   margin-top: auto;
@@ -79,9 +79,9 @@ const InvertedImage = styled(Image)`
   column-span: all;
   `
 
-  const StatsDivider = styled(Divider)`
-    width:80%;
-  `
+  // const StatsDivider = styled(Divider)`
+  //   width:80%;
+  // `
 
 const VertStats = () => {
   const { t } = useTranslation()
@@ -146,9 +146,9 @@ const VertStats = () => {
           <TotalValueLockedCard />
         </Column>
       </ColumnLayout>
-      <StatsDivider/>
+      {/* <StatsDivider/> */}
 
-      <VertCharts/>
+      {/* <VertCharts/> */}
     </StyledVertStats>
   )
 }
