@@ -45,9 +45,11 @@ const HarvestActions: React.FC<HarvestActionsProps> = ({
   }
 
   const earningTokenPrice = earningTokenPriceBig.toNumber()
-
   const fullBalance = getFullDisplayBalance(earnings, earningToken.decimals)
-  const formattedBalance = formatNumber(getBalanceNumber(earnings, earningToken.decimals), 3, 3)
+  // show enough decimals to see 1-9 cent value of a token
+  const tokenPriceNoPrecision = earningTokenPriceBig.toFixed(0)
+  const maxDecimals = Math.max(tokenPriceNoPrecision === "0" ? 0 : tokenPriceNoPrecision.length + 1, 3)
+  const formattedBalance = formatNumber(getBalanceNumber(earnings, earningToken.decimals), 3, maxDecimals)
   const earningsDollarValue = formatNumber(
     getBalanceNumber(earnings.multipliedBy(earningTokenPrice), earningToken.decimals),
   )
