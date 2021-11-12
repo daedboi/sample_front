@@ -18,7 +18,7 @@ export const approveSwapper = async (morphContract, swapperAddress, account) => 
 export const stake = async (masterChefContract, pid, amount, account, decimals = 18) => {
   return masterChefContract.methods
     .deposit(pid, new BigNumber(amount).times(new BigNumber(10).pow(decimals)).toString())
-    .send({ from: account })
+    .send({ from: account, gas: GAS })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
     })
@@ -45,7 +45,7 @@ export const sousStakeAvax = async (sousChefContract, amount, account) => {
 export const unstake = async (masterChefContract, pid, amount, account, decimals = 18) => {
   return masterChefContract.methods
     .withdraw(pid, new BigNumber(amount).times(new BigNumber(10).pow(decimals)).toString())
-    .send({ from: account })
+    .send({ from: account, gas: GAS })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
     })
@@ -56,7 +56,7 @@ export const sousUnstake = async (sousChefContract, amount, decimals = 18, accou
   if (sousChefContract.options.address === '0x3B9B74f48E89Ebd8b45a53444327013a2308A9BC') {
     return sousChefContract.methods
       .emergencyWithdraw()
-      .send({ from: account })
+      .send({ from: account, gas: GAS })
       .on('transactionHash', (tx) => {
         return tx.transactionHash
       })
@@ -64,7 +64,7 @@ export const sousUnstake = async (sousChefContract, amount, decimals = 18, accou
   if (sousChefContract.options.address === '0xBb2B66a2c7C2fFFB06EA60BeaD69741b3f5BF831') {
     return sousChefContract.methods
       .emergencyWithdraw()
-      .send({ from: account })
+      .send({ from: account, gas: GAS })
       .on('transactionHash', (tx) => {
         return tx.transactionHash
       })
@@ -72,7 +72,7 @@ export const sousUnstake = async (sousChefContract, amount, decimals = 18, accou
   if (sousChefContract.options.address === '0x453a75908fb5a36d482d5f8fe88eca836f32ead5') {
     return sousChefContract.methods
       .emergencyWithdraw()
-      .send({ from: account })
+      .send({ from: account, gas: GAS })
       .on('transactionHash', (tx) => {
         return tx.transactionHash
       })
@@ -98,7 +98,7 @@ export const sousEmergencyUnstake = async (sousChefContract, account) => {
 export const harvest = async (masterChefContract, pid, account) => {
   return masterChefContract.methods
     .deposit(pid, '0')
-    .send({ from: account })
+    .send({ from: account, gas: GAS })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
     })
@@ -134,7 +134,7 @@ export const maximusClaimReward = async (maximusContract, account) => {
 export const swapMorph = async (swapperContract, amount, account, decimals = 18) => {
   return swapperContract.methods
     .swap(new BigNumber(amount).times(new BigNumber(10).pow(decimals)).toString())
-    .send({ from: account })
+    .send({ from: account, gas: GAS })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
     })
