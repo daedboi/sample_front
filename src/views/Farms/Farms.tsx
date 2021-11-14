@@ -486,14 +486,14 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
             </LabelWrapper>
           </FilterContainer>
         </ControlContainer>
-        <Heading scale="lg" color="text" textAlign="center">
+        {/* <Heading scale="lg" color="text" textAlign="center">
         {
             tokenMode ?
               t('Some pools have been de-listed recently and may be found in the "finished" tab.')
               :
             t('All old farms have been de-listed and replaced with new LPs. You may find these old farms in the "finished" tab.')
           }
-        </Heading>
+        </Heading> */}
         {renderContent()}
         <div ref={loadMoreRef} />
       </Page>
