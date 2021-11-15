@@ -276,18 +276,20 @@ export const usePriceBnbBusd = (): BigNumber => {
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO
 }
 
-export const usePriceCakeBusd = (): BigNumber => {
-  const farm = useFarmFromPid(35); // MORPH-USDC LP
+export const usePricePillsMim = (): BigNumber => {
+  const farm = useFarmFromPid(53); // PILLS-MIM LP
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO;
+}
+
+export const usePriceCakeBusd = (): BigNumber => {
+  // const farm = useFarmFromPid(35); // MORPH-USDC LP
+  // return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO;
+  const pillsPrice = usePricePillsMim();
+  return pillsPrice.div(1.3)
 }
 
 export const usePriceWethFtm = (): BigNumber => {
   const farm = useFarmFromPid(3); // WETH-FTM LP
-  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO;
-}
-
-export const usePricePillsMim = (): BigNumber => {
-  const farm = useFarmFromPid(53); // PILLS-MIM LP
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO;
 }
 
@@ -298,8 +300,9 @@ export const useTotalValue = (): BigNumber => {
   const pools = usePoolsData();
   const bnbPrice = usePriceBnbBusd();
   const cakePrice = usePriceCakeBusd();
+  const pillsPrice = usePricePillsMim();
   const wethPrice = usePriceWethFtm().times(bnbPrice)
-  // const pillsPrice = usePricePillsMim();
+
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
@@ -321,7 +324,7 @@ export const useTotalValue = (): BigNumber => {
     const pool = pools[i]
     if (pool.totalStaked) {
       const totalStaked = getBalanceNumber(pool.totalStaked, pool.stakingToken.decimals)
-      const poolVal = (cakePrice.times(totalStaked));
+      const poolVal = (pillsPrice.times(totalStaked));
       value = value.plus(poolVal);
     }
   }
