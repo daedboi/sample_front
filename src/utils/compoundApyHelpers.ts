@@ -1,6 +1,8 @@
+import DepositFee from "views/Farms/components/FarmTable/DepositFee"
+
 const roundToTwoDp = (number) => Math.round(number * 100) / 100
 
-export const calculateTokenEarnedPerThousandDollars = ({ numberOfDays, farmApy, tokenPrice }) => {
+export const calculateTokenEarnedPerThousandDollars = ({ numberOfDays, farmApy, tokenPrice, depositFee }) => {
   // Everything here is worked out relative to a year, with the asset compounding daily
   const timesCompounded = 365
   //   We use decimal values rather than % in the math for both APY and the number of days being calculates as a proportion of the year
@@ -9,17 +11,19 @@ export const calculateTokenEarnedPerThousandDollars = ({ numberOfDays, farmApy, 
   //   Calculate the starting LYD balance with a dollar balance of $1000.
   const principal = 1000 / tokenPrice
 
+  const deposit = (10000 - depositFee) / 10000
+
   // This is a translation of the typical mathematical compounding APY formula. Details here: https://www.calculatorsoup.com/calculators/financial/compound-interest-calculator.php
-  const finalAmount = principal * (1 + apyAsDecimal / timesCompounded) ** (timesCompounded * daysAsDecimalOfYear)
+  const finalAmount = principal * (1 + (apyAsDecimal / timesCompounded) * deposit) ** (timesCompounded * daysAsDecimalOfYear)
 
   // To get the lyd earned, deduct the amount after compounding (finalAmount) from the starting LYD balance (principal)
   const interestEarned = finalAmount - principal
   return roundToTwoDp(interestEarned)
 }
 
-export const apyModalRoi = ({ amountEarned, amountInvested }) => {
+export const apyModalRoi = ({ amountEarned, amountInvested, depositFee }) => {
   const percentage = (amountEarned / amountInvested) * 100
-  return percentage.toFixed(2)
+  return (percentage - (depositFee / 100)).toFixed(2)
 }
 
 /**
@@ -29,10 +33,9 @@ export const apyModalRoi = ({ amountEarned, amountInvested }) => {
 * @returns APY calcualated based on NEO pool strategy
 */
 export const calculateApyNeoPools = (
-  { baseApr, depostiFee }) => {
+  { baseApr, depostiFee, days }) => {
   const apr: number = +baseApr
   const startLpValue = 1000 // can be whatever for simulation
-  const days = 365  // number of days to simulate
   const neoPoolsAPR = 200  // neo pools reward APR (TODO change for dynamic)
   const pillsPrice = 1  // this price doesn't affect simulation
   const deposit = (10000 - depostiFee) / 10000  // % of tokens which gets deposited
@@ -52,7 +55,8 @@ export const calculateApyNeoPools = (
   const sumValue = lpValue + neoRewardsValue + (pills * pillsPrice)
   const profit = sumValue - startLpValue
 
-  return apyModalRoi({ amountEarned: profit, amountInvested: startLpValue })
+  const percentage = (profit / startLpValue) * 100
+  return percentage.toFixed(2)
 }
 
 

@@ -25,7 +25,7 @@ export interface AprProps {
 const Container = styled.div`
   display: flex;
   align-items: center;
-  color: #DF652C;
+  color: #2CA6DF;
 
   button {
     width: 20px;
@@ -58,7 +58,7 @@ const Apr: React.FC<AprProps> = ({
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAddress, tokenAddress })
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
 
-  const apy = calculateApyNeoPools({ baseApr: value, depostiFee: depositFee })
+  const apy = calculateApyNeoPools({ baseApr: value, depostiFee: depositFee, days: 365 })
 
   return originalValue !== 0 ? (
     <Container>
@@ -66,7 +66,7 @@ const Apr: React.FC<AprProps> = ({
         <>
           <AprWrapper>{apy}%</AprWrapper>
           {!hideButton && (
-            <ApyButton lpLabel={lpLabel} lydPrice={lydPrice} apr={new BigNumber(originalValue)} addLiquidityUrl={addLiquidityUrl} />
+            <ApyButton lpLabel={lpLabel} lydPrice={lydPrice} apr={new BigNumber(originalValue)} addLiquidityUrl={addLiquidityUrl} depositFee={depositFee} />
           )}
         </>
       ) : (

@@ -3,7 +3,7 @@ import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
 import { Modal, Text, LinkExternal, Flex, Box } from 'trinityhelper'
 import { useTranslation } from 'contexts/Localization'
-import { calculateTokenEarnedPerThousandDollars, apyModalRoi } from 'utils/compoundApyHelpers'
+import { calculateTokenEarnedPerThousandDollars, apyModalRoi, calculateApyNeoPools } from 'utils/compoundApyHelpers'
 
 interface ApyCalculatorModalProps {
   onDismiss?: () => void
@@ -15,6 +15,7 @@ interface ApyCalculatorModalProps {
   roundingDecimals?: number
   compoundFrequency?: number
   performanceFee?: number
+  depositFee?: number
 }
 
 
@@ -23,6 +24,7 @@ const Grid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, auto);
   margin-bottom: 24px;
+  margin-left: 10px;
 `
 
 const GridItem = styled.div`
@@ -55,19 +57,22 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
   // roundingDecimals = 2,
   compoundFrequency = 1,
   performanceFee = 0,
+  depositFee,
 }) => {
   const { t } = useTranslation()
   const oneThousandDollarsWorthOfToken = 1000 / tokenPrice
 
+  console.log(apr)
+
   const farmApy = new BigNumber(apr).times(new BigNumber(100)).toNumber()
 
-  const tokenEarnedPerThousand1D = calculateTokenEarnedPerThousandDollars({ numberOfDays: 1, farmApy, tokenPrice })
-  const tokenEarnedPerThousand7D = calculateTokenEarnedPerThousandDollars({ numberOfDays: 7, farmApy, tokenPrice })
-  const tokenEarnedPerThousand30D = calculateTokenEarnedPerThousandDollars({ numberOfDays: 30, farmApy, tokenPrice })
-  const tokenEarnedPerThousand365D = calculateTokenEarnedPerThousandDollars({ numberOfDays: 365, farmApy, tokenPrice })
+  const tokenEarnedPerThousand1D = calculateTokenEarnedPerThousandDollars({ numberOfDays: 1, farmApy, tokenPrice, depositFee })
+  const tokenEarnedPerThousand7D = calculateTokenEarnedPerThousandDollars({ numberOfDays: 7, farmApy, tokenPrice, depositFee })
+  const tokenEarnedPerThousand30D = calculateTokenEarnedPerThousandDollars({ numberOfDays: 30, farmApy, tokenPrice, depositFee })
+  const tokenEarnedPerThousand365D = calculateTokenEarnedPerThousandDollars({ numberOfDays: 365, farmApy, tokenPrice, depositFee })
 
   return (
-    <Modal title="ROI" onDismiss={onDismiss}>
+    <Modal title="Calcualting returns" onDismiss={onDismiss}>
       <Grid>
         <GridItem>
           <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase" mb="20px">
@@ -76,79 +81,109 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
         </GridItem>
         <GridItem>
           <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase" mb="20px">
-            {t('ROI')}
+            {t('Farm APY')}
           </Text>
         </GridItem>
         <GridItem>
           <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase" mb="20px">
-            {earningTokenSymbol} {t('per')} $1000
+            Farm + NEO APY
           </Text>
         </GridItem>
+        {/* <GridItem>
+          <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase" mb="20px">
+            {t('return per')}
+          </Text>
+        </GridItem> */}
         {/* 1 day row */}
         <GridItem>
           <Text>1d</Text>
         </GridItem>
         <GridItem>
-          <Text>
-            {apyModalRoi({ amountEarned: tokenEarnedPerThousand1D, amountInvested: oneThousandDollarsWorthOfToken })}%
+          <Text color="#2CA6DF">
+            {apyModalRoi({ amountEarned: tokenEarnedPerThousand1D, amountInvested: oneThousandDollarsWorthOfToken, depositFee })}%
           </Text>
         </GridItem>
         <GridItem>
-          <Text>{tokenEarnedPerThousand1D}</Text>
+          <Text color="#DF652C">
+            {calculateApyNeoPools({ baseApr: apr * 100, depostiFee: depositFee, days: 1 })}%
+          </Text>
         </GridItem>
+        {/* <GridItem>
+          <Text>{tokenEarnedPerThousand1D}</Text>
+        </GridItem> */}
         {/* 7 day row */}
         <GridItem>
           <Text>7d</Text>
         </GridItem>
         <GridItem>
-          <Text>
-            {apyModalRoi({ amountEarned: tokenEarnedPerThousand7D, amountInvested: oneThousandDollarsWorthOfToken })}%
+          <Text color="#2CA6DF">
+            {apyModalRoi({ amountEarned: tokenEarnedPerThousand7D, amountInvested: oneThousandDollarsWorthOfToken, depositFee })}%
           </Text>
         </GridItem>
         <GridItem>
-          <Text>{tokenEarnedPerThousand7D}</Text>
+          <Text color="#DF652C">
+            {calculateApyNeoPools({ baseApr: apr * 100, depostiFee: depositFee, days: 7 })}%
+          </Text>
         </GridItem>
+        {/* <GridItem>
+          <Text>{tokenEarnedPerThousand7D}</Text>
+        </GridItem> */}
         {/* 30 day row */}
         <GridItem>
           <Text>30d</Text>
         </GridItem>
         <GridItem>
-          <Text>
+          <Text color="#2CA6DF">
             {apyModalRoi({
               amountEarned: tokenEarnedPerThousand30D,
               amountInvested: oneThousandDollarsWorthOfToken,
+              depositFee
             })}%
           </Text>
         </GridItem>
         <GridItem>
-          <Text>{tokenEarnedPerThousand30D}</Text>
+          <Text color="#DF652C">
+            {calculateApyNeoPools({ baseApr: apr * 100, depostiFee: depositFee, days: 30 })}%
+          </Text>
         </GridItem>
+        {/* <GridItem>
+          <Text>{tokenEarnedPerThousand30D}</Text>
+        </GridItem> */}
         {/* 365 day / APY row */}
         <GridItem>
-          <Text>365d(APY)</Text>
+          <Text>365d</Text>
         </GridItem>
         <GridItem>
-          <Text>
+          <Text color="#2CA6DF">
             {apyModalRoi({
               amountEarned: tokenEarnedPerThousand365D,
               amountInvested: oneThousandDollarsWorthOfToken,
+              depositFee
             })}%
           </Text>
         </GridItem>
         <GridItem>
-          <Text>{tokenEarnedPerThousand365D}</Text>
+          <Text color="#DF652C">
+            {calculateApyNeoPools({ baseApr: apr * 100, depostiFee: depositFee, days: 365 })}%
+          </Text>
         </GridItem>
+        {/* <GridItem>
+          <Text>{tokenEarnedPerThousand365D}</Text>
+        </GridItem> */}
       </Grid>
-      <Box mb="28px" maxWidth="280px">
-        <Text fontSize="12px" color="textSubtle">
-          {t(
-            `Calculated based on current rates. Compounding %freq%x daily. Rates are estimates provided for your convenience only, and by no means represent guaranteed returns.`,
-            { freq: compoundFrequency.toLocaleString() },
-          )}
+      <Box mb="28px" maxWidth="400px">
+        <Text fontSize="14px" color="#2CA6DF">
+          FARM APY: Compound once per day farmed PILLS into LP.
         </Text>
-        {performanceFee > 0 && (
-          <Text mt="14px" fontSize="12px" color="textSubtle">
-            {t(`All estimated rates take into account this pool's %fee%% performance fee`, { fee: performanceFee })}
+        <br />
+        <Text fontSize="14px" color="#DF652C">
+          FARM+NEO APY: <br />
+          1. Once per day stake PILLS into NEO Pools, and <br />
+          2. Compound NEO Pools&apos; rewards into LP.
+        </Text>
+        {depositFee > 0 && (
+          <Text mt="12px" fontSize="14px" color="textSubtle">
+            {t(`All estimated rates take into account this pool's %fee%% deposit fee.`, { fee: depositFee / 100 })}
           </Text>
         )}
       </Box>
