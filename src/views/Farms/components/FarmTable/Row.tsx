@@ -17,9 +17,11 @@ import DepositFee, { FeeProps } from './DepositFee'
 import ActionPanel from './Actions/ActionPanel'
 import CellLayout from './CellLayout'
 import { DesktopColumnSchema, MobileColumnSchema } from '../types'
+import Apy from './Apy'
 
 export interface RowProps {
   apr: AprProps
+  apy: AprProps
   farm: FarmProps
   earned: EarnedProps
   multiplier: MultiplierProps
@@ -146,8 +148,18 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
                 return (
                   <td key={key}>
                     <CellInner>
-                      <CellLayout label={t('APY')}>
+                      <CellLayout label={t('APR')}>
                         <Apr {...props.apr} depositFee={props.depositFee.depositFeeBP} hideButton={isMobile} />
+                      </CellLayout>
+                    </CellInner>
+                  </td>
+                )
+              case 'apy':
+                return (
+                  <td key={key}>
+                    <CellInner>
+                      <CellLayout label={t('NEO APY')}>
+                        <Apy {...props.apr} depositFee={props.depositFee.depositFeeBP} hideButton={isMobile} />
                       </CellLayout>
                     </CellInner>
                   </td>

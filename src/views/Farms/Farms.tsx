@@ -347,6 +347,18 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         lydPrice,
         originalValue: farm.apr.toNumber(),
       },
+      apy: {
+        value: farm.apr && farm.apr.times(new BigNumber(100)).toNumber().toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }),
+        multiplier: farm.multiplier,
+        lpLabel,
+        tokenAddress,
+        quoteTokenAddress,
+        lydPrice,
+        originalValue: farm.apr.toNumber(),
+      },
       farm: {
         image: farmImage,
         label: lpLabel,
@@ -465,8 +477,12 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
               <Select
                 options={[
                   {
-                    label: 'Hot',
-                    value: 'hot',
+                    label: 'APR',
+                    value: 'apr',
+                  },
+                  {
+                    label: 'APY',
+                    value: 'apy',
                   },
                   {
                     label: 'Emissions',
