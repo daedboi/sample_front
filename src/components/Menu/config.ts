@@ -7,9 +7,9 @@ const config: MenuEntry[] = [
     href: '/',
   },
   {
-    label: 'Exchange',
+    label: 'Swap',
     icon: 'TradeIcon',
-    href: 'https://swap.morpheusswap.app/#/swap'
+    href: 'https://swap.morpheusswap.app/swap'
     // items: [
     //   {
     //     label: 'Exchange',
