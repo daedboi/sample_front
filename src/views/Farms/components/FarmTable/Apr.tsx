@@ -6,6 +6,9 @@ import BigNumber from 'bignumber.js'
 import { BASE_ADD_LIQUIDITY_URL } from 'config'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { useTranslation } from 'contexts/Localization'
+import { calculateApyNeoPools } from 'utils/compoundApyHelpers'
+import { ProposalIcon } from 'trinityhelper'
+import DepositFee from './DepositFee'
 
 export interface AprProps {
   value: string
@@ -16,6 +19,7 @@ export interface AprProps {
   lydPrice: BigNumber
   originalValue: number
   hideButton?: boolean
+  depositFee?: number
 }
 
 const Container = styled.div`
@@ -48,16 +52,19 @@ const Apr: React.FC<AprProps> = ({
   lydPrice,
   originalValue,
   hideButton = false,
+  depositFee,
 }) => {
   const { t } = useTranslation()
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAddress, tokenAddress })
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
 
+  const apy = calculateApyNeoPools({ baseApr: value, depostiFee: depositFee })
+
   return originalValue !== 0 ? (
     <Container>
       {originalValue ? (
         <>
-          <AprWrapper>{value}%</AprWrapper>
+          <AprWrapper>{apy}%</AprWrapper>
           {!hideButton && (
             <ApyButton lpLabel={lpLabel} lydPrice={lydPrice} apr={new BigNumber(originalValue)} addLiquidityUrl={addLiquidityUrl} />
           )}
