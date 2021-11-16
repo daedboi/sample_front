@@ -8,9 +8,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import BigNumber from 'bignumber.js'
 import { BIG_ZERO } from 'utils/bigNumber'
 
-export const usePoolsAPR = account => {
+export const usePoolsAPR = () => {
 	// const [apr, setAPR] = useState(0)
-	const pools = usePools(account);
+	const pools = usePools(null);
 	const { currentBlock } = useBlock()
   	const pillsPrice = usePricePillsMim().toNumber()
 	const [finishedPools, openPools] = useMemo(
