@@ -133,6 +133,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   // const prices = useGetApiPrices()
 
   const poolsApr = usePoolsApr();
+  console.log('the apri is', poolsApr)
 
   const dispatch = useAppDispatch()
   const { fastRefresh } = useRefresh()

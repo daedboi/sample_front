@@ -71,7 +71,7 @@ export const usePoolsAPR = () => {
 
 	// console.log('the avg apr is', totalApr/openPools.length)
 
-  return totalApr/pools.length;
+  return totalApr/openPools.length;
 }
 
 export default usePoolsAPR
