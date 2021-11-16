@@ -95,15 +95,15 @@ const farms: FarmConfig[] = [
     token: tokens.sspell,
     quoteToken: tokens.mim,
   },
-  // {
-  //   pid: 63,
-  //   lpSymbol: 'wMEMO-MIM LP',
-  //   lpAddresses: {
-  //     250: '0xc9b98e4a4e306dfc24bc5b5f66e271e19fd74c5a',
-  //   },
-  //   token: tokens.wmemo,
-  //   quoteToken: tokens.mim,
-  // },
+  {
+    pid: 63,
+    lpSymbol: 'wMEMO-MIM LP',
+    lpAddresses: {
+      250: '0xc9b98e4a4e306dfc24bc5b5f66e271e19fd74c5a',
+    },
+    token: tokens.wmemo,
+    quoteToken: tokens.mim,
+  },
 
   
   /**
