@@ -1,10 +1,10 @@
-import { useState, useEffect, useMemo } from 'react'
-import { usePools, useBlock, usePriceBnbBusd, usePriceCakeBusd, usePriceQuoteToken, useTimestamp, usePricePillsMim, useFarmsData } from 'state/hooks';
+import { useMemo } from 'react'
+import { usePools, useBlock, usePriceBnbBusd, usePriceCakeBusd, usePricePillsMim, useFarmsData } from 'state/hooks';
 import partition from 'lodash/partition'
 import { QuoteToken } from 'config/constants/types'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { getPoolApr } from 'utils/apr'
-import { useSelector, useDispatch } from 'react-redux'
+// import { useSelector, useDispatch } from 'react-redux'
 import BigNumber from 'bignumber.js'
 import { BIG_ZERO } from 'utils/bigNumber'
 
@@ -13,7 +13,7 @@ export const usePoolsAPR = () => {
 	const pools = usePools(null);
 	const { currentBlock } = useBlock()
   	const pillsPrice = usePricePillsMim().toNumber()
-	const [finishedPools, openPools] = useMemo(
+	const [openPools] = useMemo(
 		() => partition(pools, (pool) => pool.isFinished || currentBlock > pool.endBlock),
 		[currentBlock, pools],
 	)
@@ -39,12 +39,12 @@ export const usePoolsAPR = () => {
 
 	for(let j = 0; j < openPools.length; j++) {
 		const pool = openPools[j];
-		const { stakingToken, earningToken, totalStaked, endBlock, tokenPerBlock, correspondingFarmId, usesCakeForPrice } = pool
+		const { stakingToken, earningToken, totalStaked, tokenPerBlock, correspondingFarmId, usesCakeForPrice } = pool
 
 
 		const quoteTokenPrice = getPriceQuoteToken(correspondingFarmId)
 		const _symbol = earningToken?.symbol?.toUpperCase()
-		const isFinished = pool.isFinished || (Math.max(endBlock - currentBlock, 0) === 0)
+		// const isFinished = pool.isFinished || (Math.max(endBlock - currentBlock, 0) === 0)
 
 		let earningTokenPriceBig = quoteTokenPrice.times(ftmPrice);
 		if (_symbol === QuoteToken.WFTM) {

@@ -6,9 +6,9 @@ import BigNumber from 'bignumber.js'
 import { BASE_ADD_LIQUIDITY_URL } from 'config'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { useTranslation } from 'contexts/Localization'
-import { calculateApyNeoPools } from 'utils/compoundApyHelpers'
-import { ProposalIcon } from 'trinityhelper'
-import DepositFee from './DepositFee'
+import { CalculateApyNeoPools } from 'utils/compoundApyHelpers'
+// import { ProposalIcon } from 'trinityhelper'
+// import DepositFee from './DepositFee'
 
 export interface AprProps {
   value: string
@@ -58,7 +58,7 @@ const Apr: React.FC<AprProps> = ({
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAddress, tokenAddress })
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
 
-  const apy = calculateApyNeoPools({ baseApr: value, depostiFee: depositFee, days: 365 })
+  const apy = CalculateApyNeoPools({ baseApr: value, depostiFee: depositFee, days: 365 })
 
   return originalValue !== 0 ? (
     <Container>
