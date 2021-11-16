@@ -171,7 +171,8 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
       </Grid>
       <Box mb="28px" maxWidth="400px">
         <Text fontSize="14px">
-          FARM APY: Compound daily farmed PILLS into LP/token.
+          FARM APY: <br />
+          Compound daily farmed PILLS into LP/token.
         </Text>
         <br />
         <Text fontSize="14px" color="#2CA6DF">
@@ -179,14 +180,14 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
           1. Stake PILLS daily into NEO Pools. <br />
           2. Compound Neo Pool rewards into LP/token.
         </Text>
-        {depositFee > 0 && (
+        {false && (
           <Text mt="12px" fontSize="14px" color="textSubtle">
             {t(`All estimated rates take into account this pool's %fee%% deposit fee.`, { fee: depositFee / 100 })}
           </Text>
         )}
       </Box>
       <Text fontSize="12px" bold color="textSubtle" mb="20px" textAlign='center'>
-            {t('Calculated based on current rates.')}
+        {t('Calculated based on current rates.')}
       </Text>
       {/* <Flex justifyContent="center">
         <StyledLinkExternal href={linkHref}>{linkLabel}</StyledLinkExternal>
