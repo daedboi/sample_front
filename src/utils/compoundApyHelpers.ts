@@ -23,7 +23,7 @@ export const calculateTokenEarnedPerThousandDollars = ({ numberOfDays, farmApy, 
   return roundToTwoDp(interestEarned)
 }
 
-export const apyModalRoi = ({ amountEarned, amountInvested, depositFee }) => {
+export const apyModalRoi = ({ amountEarned, amountInvested }) => {
   const percentage = (amountEarned / amountInvested) * 100
   return (percentage).toFixed(2)
 }

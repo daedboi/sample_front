@@ -1,6 +1,6 @@
-import { useMemo } from 'react'
-import { usePools, useBlock, usePriceBnbBusd, usePriceCakeBusd, usePricePillsMim, useFarmsData } from 'state/hooks';
-import partition from 'lodash/partition'
+// import { useMemo } from 'react'
+import { usePools, usePriceBnbBusd, usePriceCakeBusd, usePricePillsMim, useFarmsData } from 'state/hooks';
+// import partition from 'lodash/partition'
 import { QuoteToken } from 'config/constants/types'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { getPoolApr } from 'utils/apr'
@@ -11,7 +11,7 @@ import { BIG_ZERO } from 'utils/bigNumber'
 export const usePoolsAPR = () => {
 	// const [apr, setAPR] = useState(0)
 	const pools = usePools(null);
-	const { currentBlock } = useBlock()
+	// const { currentBlock } = useBlock()
   	const pillsPrice = usePricePillsMim().toNumber()
   	const openPools = pools.filter(p => !p.isFinished);
 	// const [openPools] = useMemo(

@@ -90,7 +90,7 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
         </GridItem>
         <GridItem>
           <Text>
-            {apyModalRoi({ amountEarned: tokenEarnedPerThousand1D, amountInvested: oneThousandDollarsWorthOfToken, depositFee: depositFee })}%
+            {apyModalRoi({ amountEarned: tokenEarnedPerThousand1D, amountInvested: oneThousandDollarsWorthOfToken})}%
           </Text>
         </GridItem>
         <GridItem>
@@ -102,7 +102,7 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
         </GridItem>
         <GridItem>
           <Text>
-            {apyModalRoi({ amountEarned: tokenEarnedPerThousand7D, amountInvested: oneThousandDollarsWorthOfToken, depositFee: depositFee })}%
+            {apyModalRoi({ amountEarned: tokenEarnedPerThousand7D, amountInvested: oneThousandDollarsWorthOfToken })}%
           </Text>
         </GridItem>
         <GridItem>
@@ -117,7 +117,6 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
             {apyModalRoi({
               amountEarned: tokenEarnedPerThousand30D,
               amountInvested: oneThousandDollarsWorthOfToken,
-              depositFee: depositFee
             })}%
           </Text>
         </GridItem>
@@ -133,7 +132,6 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
             {apyModalRoi({
               amountEarned: tokenEarnedPerThousand365D,
               amountInvested: oneThousandDollarsWorthOfToken,
-              depositFee: depositFee
             })}%
           </Text>
         </GridItem>
