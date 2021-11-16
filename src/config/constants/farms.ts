@@ -99,7 +99,7 @@ const farms: FarmConfig[] = [
     pid: 63,
     lpSymbol: 'wMEMO-MIM LP',
     lpAddresses: {
-      250: '0xc9b98e4a4e306dfc24bc5b5f66e271e19fd74c5a',
+      250: '0x10a0e66552C234432290785d0941985fb553C41F',
     },
     token: tokens.wmemo,
     quoteToken: tokens.mim,
