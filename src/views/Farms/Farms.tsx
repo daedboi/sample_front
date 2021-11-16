@@ -9,8 +9,10 @@ import styled from 'styled-components'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
 // import { useFarms, useGetApiPrices, useGetApiPrice } from 'state/hooks'
-import { useFarms, usePriceCakeBusd, usePriceBnbBusd, usePriceWethFtm } from 'state/hooks'
+import { useFarms, usePriceCakeBusd, usePriceBnbBusd, usePriceWethFtm, usePools, useBlock } from 'state/hooks'
 import useRefresh from 'hooks/useRefresh'
+import usePoolsApr from 'hooks/usePoolsApr'
+import partition from 'lodash/partition'
 import { fetchFarmUserDataAsync } from 'state/actions'
 import usePersistState from 'hooks/usePersistState'
 import { Farm } from 'state/types'
@@ -127,7 +129,10 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const [sortOption, setSortOption] = useState('hot')
   const { tokenMode } = farmsProps;
 
+
   // const prices = useGetApiPrices()
+
+  const poolsApr = usePoolsApr(account);
 
   const dispatch = useAppDispatch()
   const { fastRefresh } = useRefresh()

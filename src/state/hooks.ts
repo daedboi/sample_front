@@ -66,6 +66,7 @@ export const useFarms = (): FarmsState => {
 
 export const useFarmsData = (): Farm[] => {
   const farms = useSelector((state: State) => state.farms.data)
+  // console.log('the farms is', farms)
   return farms
 }
 
