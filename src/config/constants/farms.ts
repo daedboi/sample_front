@@ -95,6 +95,17 @@ const farms: FarmConfig[] = [
     token: tokens.sspell,
     quoteToken: tokens.mim,
   },
+  // {
+  //   pid: 63,
+  //   lpSymbol: 'wMEMO-MIM LP',
+  //   lpAddresses: {
+  //     250: '0xc9b98e4a4e306dfc24bc5b5f66e271e19fd74c5a',
+  //   },
+  //   token: tokens.wmemo,
+  //   quoteToken: tokens.mim,
+  // },
+
+  
   /**
    * Finished LPs
    */
@@ -379,22 +390,6 @@ const farms: FarmConfig[] = [
     token: tokens.pills,
     quoteToken: tokens.mim,
   },
-
-
-
-    /**
-   * FINISHED
-   */
-  {
-    pid: 5,
-    isTokenOnly: true,
-    lpSymbol: 'MORPH',
-    lpAddresses: {
-      250: '0x3425B1c18491dDC780fb5ab7ACC3dF7D8B802C87',
-    },
-    token: tokens.cake,
-    quoteToken: tokens.usdc,
-  },
   {
     pid: 51,
     isTokenOnly: true,
@@ -423,16 +418,6 @@ const farms: FarmConfig[] = [
       250: '0x4fc38a2735c7da1d71ccabf6dec235a7da4ec52c',
     },
     token: tokens.yfi,
-    quoteToken: tokens.ftm,
-  },
-  {
-    pid: 52,
-    isTokenOnly: true,
-    lpSymbol: 'CRV',
-    lpAddresses: {
-      250: '0xb471ac6ef617e952b84c6a9ff5de65a9da96c93b',
-    },
-    token: tokens.crv,
     quoteToken: tokens.ftm,
   },
   {
@@ -465,6 +450,32 @@ const farms: FarmConfig[] = [
       250: '0xB32b31DfAfbD53E310390F641C7119b5B9Ea0488',
     },
     token: tokens.mim,
+    quoteToken: tokens.ftm,
+  },
+
+
+
+    /**
+   * FINISHED
+   */
+  {
+    pid: 5,
+    isTokenOnly: true,
+    lpSymbol: 'MORPH',
+    lpAddresses: {
+      250: '0x3425B1c18491dDC780fb5ab7ACC3dF7D8B802C87',
+    },
+    token: tokens.cake,
+    quoteToken: tokens.usdc,
+  },
+  {
+    pid: 52,
+    isTokenOnly: true,
+    lpSymbol: 'CRV',
+    lpAddresses: {
+      250: '0xb471ac6ef617e952b84c6a9ff5de65a9da96c93b',
+    },
+    token: tokens.crv,
     quoteToken: tokens.ftm,
   },
   {
