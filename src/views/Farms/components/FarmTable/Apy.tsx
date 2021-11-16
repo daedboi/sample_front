@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-// import ApyButton from 'views/Farms/components/FarmCard/ApyButton'
+import ApyButton from 'views/Farms/components/FarmCard/ApyButton'
 import { Address } from 'config/constants/types'
 import BigNumber from 'bignumber.js'
-// import { BASE_ADD_LIQUIDITY_URL } from 'config'
-// import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
+import { BASE_ADD_LIQUIDITY_URL } from 'config'
+import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { useTranslation } from 'contexts/Localization'
-// import { calculateApyNeoPools } from 'utils/compoundApyHelpers'
+import { CalculateApyNeoPools } from 'utils/compoundApyHelpers'
 // import { ProposalIcon } from 'trinityhelper'
 // import DepositFee from './DepositFee'
 
@@ -25,8 +25,8 @@ export interface AprProps {
 const Container = styled.div`
   display: flex;
   align-items: center;
-  color: ${({ theme }) => theme.colors.text};
-  
+  color: #2CA6DF;
+
   button {
     width: 20px;
     height: 20px;
@@ -46,26 +46,28 @@ const AprWrapper = styled.div`
 
 const Apr: React.FC<AprProps> = ({
   value,
-  // lpLabel,
-  // tokenAddress,
-  // quoteTokenAddress,
-  // lydPrice,
+  lpLabel,
+  tokenAddress,
+  quoteTokenAddress,
+  lydPrice,
   originalValue,
-  // hideButton = false,
-  // depositFee,
+  hideButton = false,
+  depositFee,
 }) => {
   const { t } = useTranslation()
-  // const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAddress, tokenAddress })
-  // const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+  const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAddress, tokenAddress })
+  const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+
+  const apy = CalculateApyNeoPools({ baseApr: value, depostiFee: depositFee, days: 365 })
 
   return originalValue !== 0 ? (
     <Container>
       {originalValue ? (
         <>
-          <AprWrapper>{value}%</AprWrapper>
-          {/* {!hideButton && (
-            <ApyButton lpLabel={lpLabel} lydPrice={lydPrice} apr={new BigNumber(originalValue)} addLiquidityUrl={addLiquidityUrl} />
-          )} */}
+          <AprWrapper>{apy}%</AprWrapper>
+          {!hideButton && (
+            <ApyButton lpLabel={lpLabel} lydPrice={lydPrice} apr={new BigNumber(originalValue)} addLiquidityUrl={addLiquidityUrl} depositFee={depositFee} />
+          )}
         </>
       ) : (
         <AprWrapper>{t('Loading...')}</AprWrapper>

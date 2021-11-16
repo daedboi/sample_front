@@ -40,6 +40,7 @@ const Pools: React.FC = () => {
   // This pool is passed explicitly to the lyd vault
   // const lydPoolData = useMemo(() => openPools.find((pool) => pool.sousId === 0), [openPools])
 
+  // console.log('open pools', openPools)
   return (
     <>
       <PageHeader>
