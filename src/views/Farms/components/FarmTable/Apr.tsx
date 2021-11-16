@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import ApyButton from 'views/Farms/components/FarmCard/ApyButton'
+// import ApyButton from 'views/Farms/components/FarmCard/ApyButton'
 import { Address } from 'config/constants/types'
 import BigNumber from 'bignumber.js'
-import { BASE_ADD_LIQUIDITY_URL } from 'config'
-import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
+// import { BASE_ADD_LIQUIDITY_URL } from 'config'
+// import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { useTranslation } from 'contexts/Localization'
-import { calculateApyNeoPools } from 'utils/compoundApyHelpers'
-import { ProposalIcon } from 'trinityhelper'
-import DepositFee from './DepositFee'
+// import { calculateApyNeoPools } from 'utils/compoundApyHelpers'
+// import { ProposalIcon } from 'trinityhelper'
+// import DepositFee from './DepositFee'
 
 export interface AprProps {
   value: string
@@ -46,17 +46,17 @@ const AprWrapper = styled.div`
 
 const Apr: React.FC<AprProps> = ({
   value,
-  lpLabel,
-  tokenAddress,
-  quoteTokenAddress,
-  lydPrice,
+  // lpLabel,
+  // tokenAddress,
+  // quoteTokenAddress,
+  // lydPrice,
   originalValue,
-  hideButton = false,
-  depositFee,
+  // hideButton = false,
+  // depositFee,
 }) => {
   const { t } = useTranslation()
-  const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAddress, tokenAddress })
-  const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
+  // const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAddress, tokenAddress })
+  // const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
 
   return originalValue !== 0 ? (
     <Container>

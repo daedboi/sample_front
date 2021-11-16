@@ -3,7 +3,7 @@ import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
 import { Modal, Text, LinkExternal, Flex, Box } from 'trinityhelper'
 import { useTranslation } from 'contexts/Localization'
-import { calculateTokenEarnedPerThousandDollars, apyModalRoi, calculateApyNeoPools } from 'utils/compoundApyHelpers'
+import { calculateTokenEarnedPerThousandDollars, apyModalRoi, CalculateApyNeoPools } from 'utils/compoundApyHelpers'
 
 interface ApyCalculatorModalProps {
   onDismiss?: () => void
@@ -52,17 +52,17 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
   apr,
   linkLabel,
   linkHref,
-  earningTokenSymbol = 'MORPH',
+  // earningTokenSymbol = 'MORPH',
   // eslint-disable-next-line
   // roundingDecimals = 2,
-  compoundFrequency = 1,
-  performanceFee = 0,
+  // compoundFrequency = 1,
+  // performanceFee = 0,
   depositFee,
 }) => {
   const { t } = useTranslation()
   const oneThousandDollarsWorthOfToken = 1000 / tokenPrice
 
-  console.log(apr)
+  // console.log(apr)
 
   const farmApy = new BigNumber(apr).times(new BigNumber(100)).toNumber()
 
@@ -72,7 +72,7 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
   const tokenEarnedPerThousand365D = calculateTokenEarnedPerThousandDollars({ numberOfDays: 365, farmApy, tokenPrice, depositFee })
 
   return (
-    <Modal title="Calcualting returns" onDismiss={onDismiss}>
+    <Modal title="Calculating returns" onDismiss={onDismiss}>
       <Grid>
         <GridItem>
           <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase" mb="20px">
@@ -105,7 +105,7 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
         </GridItem>
         <GridItem>
           <Text color="#DF652C">
-            {calculateApyNeoPools({ baseApr: apr * 100, depostiFee: depositFee, days: 1 })}%
+            {CalculateApyNeoPools({ baseApr: apr * 100, depostiFee: depositFee, days: 1 })}%
           </Text>
         </GridItem>
         {/* <GridItem>
@@ -122,7 +122,7 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
         </GridItem>
         <GridItem>
           <Text color="#DF652C">
-            {calculateApyNeoPools({ baseApr: apr * 100, depostiFee: depositFee, days: 7 })}%
+            {CalculateApyNeoPools({ baseApr: apr * 100, depostiFee: depositFee, days: 7 })}%
           </Text>
         </GridItem>
         {/* <GridItem>
@@ -143,7 +143,7 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
         </GridItem>
         <GridItem>
           <Text color="#DF652C">
-            {calculateApyNeoPools({ baseApr: apr * 100, depostiFee: depositFee, days: 30 })}%
+            {CalculateApyNeoPools({ baseApr: apr * 100, depostiFee: depositFee, days: 30 })}%
           </Text>
         </GridItem>
         {/* <GridItem>
@@ -164,7 +164,7 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
         </GridItem>
         <GridItem>
           <Text color="#DF652C">
-            {calculateApyNeoPools({ baseApr: apr * 100, depostiFee: depositFee, days: 365 })}%
+            {CalculateApyNeoPools({ baseApr: apr * 100, depostiFee: depositFee, days: 365 })}%
           </Text>
         </GridItem>
         {/* <GridItem>
@@ -173,13 +173,13 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
       </Grid>
       <Box mb="28px" maxWidth="400px">
         <Text fontSize="14px" color="#2CA6DF">
-          FARM APY: Compound once per day farmed PILLS into LP.
+          FARM APY: Compound daily farmed PILLS into LP.
         </Text>
         <br />
         <Text fontSize="14px" color="#DF652C">
           FARM+NEO APY: <br />
-          1. Once per day stake PILLS into NEO Pools, and <br />
-          2. Compound NEO Pools&apos; rewards into LP.
+          1. Stake PILLS daily into NEO Pools. <br />
+          2. Compound Neo Pool rewards into LP.
         </Text>
         {depositFee > 0 && (
           <Text mt="12px" fontSize="14px" color="textSubtle">

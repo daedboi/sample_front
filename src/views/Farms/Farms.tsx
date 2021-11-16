@@ -9,10 +9,10 @@ import styled from 'styled-components'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
 // import { useFarms, useGetApiPrices, useGetApiPrice } from 'state/hooks'
-import { useFarms, usePriceCakeBusd, usePriceBnbBusd, usePriceWethFtm, usePools, useBlock } from 'state/hooks'
+import { useFarms, usePriceCakeBusd, usePriceBnbBusd, usePriceWethFtm } from 'state/hooks'
 import useRefresh from 'hooks/useRefresh'
-import usePoolsApr from 'hooks/usePoolsApr'
-import partition from 'lodash/partition'
+// import usePoolsApr from 'hooks/usePoolsApr'
+// import partition from 'lodash/partition'
 import { fetchFarmUserDataAsync } from 'state/actions'
 import usePersistState from 'hooks/usePersistState'
 import { Farm } from 'state/types'
@@ -32,7 +32,7 @@ import Table from './components/FarmTable/FarmTable'
 import FarmTabButtons from './components/FarmTabButtons'
 import SearchInput from './components/SearchInput'
 import { RowProps } from './components/FarmTable/Row'
-import ToggleView from './components/ToggleView/ToggleView'
+// import ToggleView from './components/ToggleView/ToggleView'
 import { DesktopColumnSchema, ViewMode } from './components/types'
 // import Background from '../Background'
 
@@ -124,7 +124,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const wavaxPrice = usePriceBnbBusd()
   const wethPrice = usePriceWethFtm().times(wavaxPrice)
   const [query, setQuery] = useState('')
-  const [viewMode, setViewMode] = usePersistState(ViewMode.TABLE, { localStorageKey: 'morpheus_farm_view' })
+  const [viewMode] = usePersistState(ViewMode.TABLE, { localStorageKey: 'morpheus_farm_view' })
   const { account } = useWeb3React()
   const [sortOption, setSortOption] = useState('hot')
   const { tokenMode } = farmsProps;
@@ -132,8 +132,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
   // const prices = useGetApiPrices()
 
-  const poolsApr = usePoolsApr();
-  console.log('the apri is', poolsApr)
+  // const poolsApr = usePoolsApr();
+  // console.log('the apri is', poolsApr)
 
   const dispatch = useAppDispatch()
   const { fastRefresh } = useRefresh()
@@ -470,7 +470,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       <Page>
         <ControlContainer>
           <ViewControls>
-            <ToggleView viewMode={viewMode} onToggle={(mode: ViewMode) => setViewMode(mode)} />
+            {/* <ToggleView viewMode={viewMode} onToggle={(mode: ViewMode) => setViewMode(mode)} /> */}
             <ToggleWrapper>
               <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="sm" />
               <Text> {t('Staked only')}</Text>

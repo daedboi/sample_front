@@ -3,7 +3,7 @@ import BigNumber from 'bignumber.js'
 import { IconButton, useModal, CalculateIcon } from 'trinityhelper'
 import ApyCalculatorModal from 'components/ApyCalculatorModal'
 import { useTranslation } from 'contexts/Localization'
-import DepositFee from '../FarmTable/DepositFee'
+// import DepositFee from '../FarmTable/DepositFee'
 
 export interface ApyButtonProps {
   lpLabel?: string

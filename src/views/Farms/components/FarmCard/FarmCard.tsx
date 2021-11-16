@@ -9,7 +9,7 @@ import ExpandableSectionButton from 'components/ExpandableSectionButton'
 // import { BASE_ADD_LIQUIDITY_URL } from 'config'
 // import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { QuoteToken } from 'config/constants/types'
-import { calculateApyNeoPools } from 'utils/compoundApyHelpers'
+import { CalculateApyNeoPools } from 'utils/compoundApyHelpers'
 import DetailsSection from './DetailsSection'
 import CardHeading from './CardHeading'
 import CardActionsContainer from './CardActionsContainer'
@@ -22,7 +22,7 @@ export interface FarmWithStakedValue extends Farm {
 }
 
 // const chainId = process.env.REACT_APP_CHAIN_ID
-const BASE_TOKEN_LIQUIDITY_URL = `https://swap.morpheusswap.app/`
+const BASE_TOKEN_LIQUIDITY_URL = `https://swap.morpheusswap.app`
 
 const RainbowLight = keyframes`
 	0% {
@@ -148,7 +148,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, lydPrice, account, w
 
   const lpAddress = farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
 
-  const apy = calculateApyNeoPools({ baseApr: farmAPR, depostiFee: farm.depositFeeBP, days: 365 })
+  const apy = CalculateApyNeoPools({ baseApr: farmAPR, depostiFee: farm.depositFeeBP, days: 365 })
 
   return (
     <FCard>
