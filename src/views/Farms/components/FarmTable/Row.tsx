@@ -239,7 +239,7 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
       {handleRenderRow()}
       {shouldRenderChild && (
         <tr>
-          <td colSpan={7}>
+          <td colSpan={8}>
             <ActionPanel {...props} depositFee={details.depositFeeBP} expanded={actionPanelExpanded} stakedUsd={stakedUsd} />
           </td>
         </tr>

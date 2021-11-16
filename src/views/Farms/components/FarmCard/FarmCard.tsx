@@ -9,6 +9,7 @@ import ExpandableSectionButton from 'components/ExpandableSectionButton'
 // import { BASE_ADD_LIQUIDITY_URL } from 'config'
 // import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { QuoteToken } from 'config/constants/types'
+import { calculateApyNeoPools } from 'utils/compoundApyHelpers'
 import DetailsSection from './DetailsSection'
 import CardHeading from './CardHeading'
 import CardActionsContainer from './CardActionsContainer'
@@ -100,11 +101,11 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, lydPrice, account, w
   const { t } = useTranslation()
 
   const [showExpandableSection, setShowExpandableSection] = useState(false)
-  
+
   let farmImage: string;
   if (farm.isTokenOnly) {
     farmImage = farm.token.symbol.toLowerCase()
-  } else if (farm.token.symbol === 'FTM'){
+  } else if (farm.token.symbol === 'FTM') {
     farmImage = `${farm.quoteToken.symbol.toLowerCase()}-${farm.token.symbol.toLowerCase()}`
   } else {
     farmImage = `${farm.token.symbol.toLowerCase()}-${farm.quoteToken.symbol.toLowerCase()}`
@@ -118,9 +119,9 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, lydPrice, account, w
 
     if (farm.quoteToken.symbol === QuoteToken.CAKE) {
       return lydPrice.times(farm.lpTotalInQuoteToken)
-    }if (farm.quoteToken.symbol === QuoteToken.FTM) {
+    } if (farm.quoteToken.symbol === QuoteToken.FTM) {
       return wavaxPrice.times(farm.lpTotalInQuoteToken)
-    }if (farm.quoteToken.symbol === QuoteToken.WETH) {
+    } if (farm.quoteToken.symbol === QuoteToken.WETH) {
       return wethPrice.times(farm.lpTotalInQuoteToken)
     }
     return farm.lpTotalInQuoteToken
@@ -146,7 +147,9 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, lydPrice, account, w
   const addLiquidityUrl = `${BASE_TOKEN_LIQUIDITY_URL}`
 
   const lpAddress = farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
-  
+
+  const apy = calculateApyNeoPools({ baseApr: farmAPR, depostiFee: farm.depositFeeBP, days: 365 })
+
   return (
     <FCard>
       {(farm.token.symbol === 'MORPH' || farm.quoteToken.symbol === 'MORPH' || farm.token.symbol === 'CAKE' || farm.quoteToken.symbol === 'CAKE' || farm.token.symbol === 'ICE' || farm.token.symbol === 'SPELL' || farm.token.symbol === 'MIM') && <StyledCardAccent />}
@@ -162,12 +165,27 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, lydPrice, account, w
       />
       {!removed && (
         <Flex justifyContent="space-between" alignItems="center">
-          <Text>{t('APR')}:</Text>
+          <Text>{t('FARM APR')}:</Text>
           <Text bold style={{ display: 'flex', alignItems: 'center' }}>
             {farm.apr ? (
               <>
-                <ApyButton lpLabel={lpLabel} addLiquidityUrl={addLiquidityUrl} lydPrice={lydPrice} apr={farm.apr} />
+                {/* <ApyButton lpLabel={lpLabel} addLiquidityUrl={addLiquidityUrl} lydPrice={lydPrice} apr={farm.apr} /> */}
                 {farmAPR}%
+              </>
+            ) : (
+              <Skeleton height={24} width={80} />
+            )}
+          </Text>
+        </Flex>
+      )}
+      {!removed && (
+        <Flex justifyContent="space-between" alignItems="center">
+          <Text>{t('FARM+NEO APY')}:</Text>
+          <Text bold color="#2CA6DF" style={{ display: 'flex', alignItems: 'center' }}>
+            {farm.apr ? (
+              <>
+                <ApyButton depositFee={farm.depositFeeBP} lpLabel={lpLabel} addLiquidityUrl={addLiquidityUrl} lydPrice={lydPrice} apr={farm.apr} />
+                {apy}%
               </>
             ) : (
               <Skeleton height={24} width={80} />
@@ -183,7 +201,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, lydPrice, account, w
         <Text style={{ fontSize: '24px' }}>{t('Deposit Fee')}:</Text>
         <Text bold style={{ fontSize: '24px' }}>{(farm.depositFeeBP / 100)}%</Text>
       </Flex>
-      <CardActionsContainer farm={farm} account={account} addLiquidityUrl={addLiquidityUrl} totalValue={totalValue}/>
+      <CardActionsContainer farm={farm} account={account} addLiquidityUrl={addLiquidityUrl} totalValue={totalValue} />
       <Divider />
       <ExpandableSectionButton
         onClick={() => setShowExpandableSection(!showExpandableSection)}
