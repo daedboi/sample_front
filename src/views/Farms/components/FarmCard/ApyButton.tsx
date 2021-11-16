@@ -32,7 +32,7 @@ const ApyButton: React.FC<ApyButtonProps> = ({ lpLabel, lydPrice, apr, addLiquid
 
   return (
     <IconButton onClick={handleClickButton} variant="text" scale="sm" ml="4px">
-      <CalculateIcon width="18px" />
+      <CalculateIcon color="#2CA6DF" width="18px" />
     </IconButton>
   )
 }

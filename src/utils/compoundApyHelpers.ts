@@ -23,7 +23,7 @@ export const calculateTokenEarnedPerThousandDollars = ({ numberOfDays, farmApy, 
 
 export const apyModalRoi = ({ amountEarned, amountInvested, depositFee }) => {
   const percentage = (amountEarned / amountInvested) * 100
-  return (percentage - (depositFee / 100)).toFixed(2)
+  return (percentage).toFixed(2)
 }
 
 /**
@@ -56,7 +56,7 @@ export const calculateApyNeoPools = (
   const profit = sumValue - startLpValue
 
   const percentage = (profit / startLpValue) * 100
-  return percentage.toFixed(2)
+  return (percentage + (100 * (1 - deposit))).toFixed(2)
 }
 
 
