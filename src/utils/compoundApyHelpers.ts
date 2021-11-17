@@ -1,6 +1,6 @@
 // import DepositFee from "views/Farms/components/FarmTable/DepositFee"
 
-import usePoolsAPR from "hooks/usePoolsApr"
+// import usePoolsAPR from "hooks/usePoolsApr"
 
 const roundToTwoDp = (number) => Math.round(number * 100) / 100
 
@@ -38,7 +38,8 @@ export const CalculateApyNeoPools = (
   { baseApr, depostiFee, days }) => {
   const apr: number = +baseApr
   const startLpValue = 1000 // can be whatever for simulation
-  const neoPoolsAPR = usePoolsAPR();  // neo pools reward APR (TODO change for dynamic)
+  // const neoPoolsAPR = usePoolsAPR();  // neo pools reward APR (TODO change for dynamic)
+  const neoPoolsAPR = 250;
   const pillsPrice = 1  // this price doesn't affect simulation
   const deposit = (10000 - depostiFee) / 10000  // % of tokens which gets deposited
   let lpValue = deposit * startLpValue
