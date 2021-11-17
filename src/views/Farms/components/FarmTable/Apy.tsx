@@ -58,7 +58,7 @@ const Apr: React.FC<AprProps> = ({
   const liquidityUrlPathParts = getLiquidityUrlPathParts({ quoteTokenAddress, tokenAddress })
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`
 
-  const apy = CalculateApyNeoPools({ baseApr: value, depostiFee: depositFee, days: 365 })
+  const apy = CalculateApyNeoPools({ baseApr: value.replace(',',''), depostiFee: depositFee, days: 365 })
 
   return originalValue !== 0 ? (
     <Container>
