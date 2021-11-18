@@ -70,7 +70,7 @@ export const usePoolsAPR = () => {
 		totalApr += apr;
 	}
 
-  let _apr = totalApr/openPools.length;
+  const _apr = totalApr/openPools.length;
   return _apr > 450 ? 450 : _apr;
 }
 
