@@ -126,7 +126,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const [query, setQuery] = useState('')
   const [viewMode] = usePersistState(ViewMode.TABLE, { localStorageKey: 'morpheus_farm_view' })
   const { account } = useWeb3React()
-  const [sortOption, setSortOption] = useState('hot')
+  const [sortOption, setSortOption] = useState('apr')
   const { tokenMode } = farmsProps;
 
 
@@ -485,10 +485,6 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
                   {
                     label: 'APR',
                     value: 'apr',
-                  },
-                  {
-                    label: 'APY',
-                    value: 'apy',
                   },
                   {
                     label: 'Emissions',
