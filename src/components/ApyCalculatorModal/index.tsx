@@ -172,12 +172,12 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
       <Box mb="28px" maxWidth="400px">
         <Text fontSize="14px">
           FARM APY: <br />
-          Compound daily farmed PILLS into LP/token.
+          Compound daily earned PILLS into LP/token.
         </Text>
         <br />
         <Text fontSize="14px" color="#2CA6DF">
           FARM+NEO APY: <br />
-          1. Stake PILLS daily into NEO Pools. <br />
+          1. Stake earned PILLS daily into NEO Pools. <br />
           2. Compound Neo Pool rewards into LP/token.
         </Text>
         {false && (
