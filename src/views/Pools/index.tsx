@@ -40,7 +40,8 @@ const Pools: React.FC = () => {
   // This pool is passed explicitly to the lyd vault
   // const lydPoolData = useMemo(() => openPools.find((pool) => pool.sousId === 0), [openPools])
 
-  // console.log('open pools', openPools)
+  const recentlyFinishedPools = finishedPools.filter(p => Date.now() / 1000 - p.endBlock < 518400)
+  
   return (
     <>
       <PageHeader>
@@ -82,7 +83,7 @@ const Pools: React.FC = () => {
             </>
           </Route>
           <Route path={`${path}/history`}>
-            {orderBy(finishedPools, ['sortOrder']).map((pool) => (
+            {orderBy(finishedPools, ['sortOrder']).reverse().map((pool) => (
               <PoolCard key={pool.sousId} pool={pool} account={account} />
             ))}
           </Route>
