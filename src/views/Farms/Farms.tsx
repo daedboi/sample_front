@@ -461,7 +461,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         <Heading scale="lg" color="text">
           {
             tokenMode ?
-              t('Stake tokens to earn.')
+              t('All single stake pools will be delisted on November 22nd. Please take this into consideration before depositing.')
               :
               t('Stake LP tokens to earn.')
           }
