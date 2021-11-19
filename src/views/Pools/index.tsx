@@ -40,7 +40,7 @@ const Pools: React.FC = () => {
   // This pool is passed explicitly to the lyd vault
   // const lydPoolData = useMemo(() => openPools.find((pool) => pool.sousId === 0), [openPools])
 
-  const recentlyFinishedPools = finishedPools.filter(p => Date.now() / 1000 - p.endBlock < 518400)
+  // const recentlyFinishedPools = finishedPools.filter(p => Date.now() / 1000 - p.endBlock < 518400)
   
   return (
     <>
