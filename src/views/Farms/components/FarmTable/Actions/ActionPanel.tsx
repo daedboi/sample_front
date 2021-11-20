@@ -6,7 +6,7 @@ import { LinkExternal, Text } from 'trinityhelper'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import { BASE_ADD_LIQUIDITY_URL } from 'config'
 // import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
-import { CommunityTag, CoreTag, DualTag, NoFeeTag, SpiritTag } from 'components/Tags'
+import { NoFeeTag } from 'components/Tags'
 
 import HarvestAction from './HarvestAction'
 import StakedAction from './StakedAction'
@@ -158,7 +158,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
 
   const { t } = useTranslation()
   const isActive = farm.multiplier !== '0X'
-  const { dual } = farm
+  // const { dual } = farm
   const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('MORPHEUS', '')
   // const liquidityUrlPathParts = getLiquidityUrlPathParts({
   //   quoteTokenAddress: quoteToken.address,
@@ -192,9 +192,9 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
         {/* <StyledLinkExternal href={info}>{t('See Pair Info')}</StyledLinkExternal> */}
         <TagsContainer>
           {depositFee === 0 ? <NoFeeTag /> : null}
-          {farm.isSpirit ? <SpiritTag /> : <CoreTag />}
+          {/* {farm.isSpirit ? <SpiritTag /> : <CoreTag />}
           {farm.isCommunity ? <CommunityTag /> : null}
-          {dual ? <DualTag /> : null}
+          {dual ? <DualTag /> : null} */}
         </TagsContainer>
       </InfoContainer>
       <ValueContainer>
