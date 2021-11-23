@@ -280,13 +280,16 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       }
     }
 
-    if (isActive) {
-      farmsStaked = stakedOnly ? farmsList(stakedOnlyFarms) : farmsList(activeFarms)
-    }
-    if (isInactive) {
+    if (tokenMode) {
       farmsStaked = stakedOnly ? farmsList(stakedInactiveFarms) : farmsList(inactiveFarms)
     }
-    if (isArchived) {
+    if (isActive && !tokenMode) {
+      farmsStaked = stakedOnly ? farmsList(stakedOnlyFarms) : farmsList(activeFarms)
+    }
+    if (isInactive && !tokenMode) {
+      farmsStaked = stakedOnly ? farmsList(stakedInactiveFarms) : farmsList(inactiveFarms)
+    }
+    if (isArchived && !tokenMode) {
       farmsStaked = stakedOnly ? farmsList(stakedArchivedFarms) : farmsList(archivedFarms)
     }
 
@@ -300,6 +303,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
     isActive,
     isInactive,
     isArchived,
+    tokenMode,
     stakedArchivedFarms,
     stakedInactiveFarms,
     stakedOnly,
@@ -461,7 +465,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         <Heading scale="lg" color="text">
           {
             tokenMode ?
-              t('All single stake pools will be delisted on November 22nd. Please take this into consideration before depositing.')
+              t('All single stake pools are now inactive. Check out our Farms for staking opportunities!')
               :
               t('Stake LP tokens to earn.')
           }
@@ -475,7 +479,12 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
               <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="sm" />
               <Text> {t('Staked only')}</Text>
             </ToggleWrapper>
-            <FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
+            {
+              tokenMode ?
+              <Text/>
+              :
+              <FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
+            }
           </ViewControls>
           <FilterContainer>
             <LabelWrapper>

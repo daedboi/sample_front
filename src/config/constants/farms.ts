@@ -377,7 +377,7 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.cake,
   },
   /**
-   * Single token pools
+   * Single token pools ALL FINISHED
    */
 
    {
