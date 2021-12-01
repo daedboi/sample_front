@@ -54,6 +54,8 @@ const AprRow: React.FC<AprRowProps> = ({
     earningTokenPriceBig = quoteTokenPrice
   } else if (_symbol === QuoteToken.wMEMO){
     earningTokenPriceBig = quoteTokenPrice;
+  } else if (_symbol === QuoteToken.PILLS){
+    earningTokenPriceBig = quoteTokenPrice;
   }
 
   const rewardTokenPrice = earningTokenPriceBig.toNumber()

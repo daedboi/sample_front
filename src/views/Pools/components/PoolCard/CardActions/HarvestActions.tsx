@@ -42,6 +42,8 @@ const HarvestActions: React.FC<HarvestActionsProps> = ({
     earningTokenPriceBig = quoteTokenPrice
   } else if (earningToken.symbol.toUpperCase() === QuoteToken.wMEMO) {
     earningTokenPriceBig = quoteTokenPrice
+  } else if (earningToken.symbol.toUpperCase() === QuoteToken.PILLS) {
+    earningTokenPriceBig = quoteTokenPrice
   }
 
   const earningTokenPrice = earningTokenPriceBig.toNumber()
