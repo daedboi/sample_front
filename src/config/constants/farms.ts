@@ -104,6 +104,15 @@ const farms: FarmConfig[] = [
     token: tokens.wmemo,
     quoteToken: tokens.mim,
   },
+  {
+    pid: 65,
+    lpSymbol: 'FTM-UST LP',
+    lpAddresses: {
+      250: '0x846a1004f827A824fb5F70Cfd3F7E75e4d259869',
+    },
+    token: tokens.ftm,
+    quoteToken: tokens.ust,
+  },
 
   
   /**

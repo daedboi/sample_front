@@ -140,6 +140,14 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://abracadabra.money/'
   },
+  ust: {
+    symbol: 'UST',
+    address: {
+      250: '0xe2D27f06F63d98b8e11b38b5b08A75D0c8dD62B9',
+    },
+    decimals: 6,
+    projectLink: 'https://www.terra.money/'
+  },
   wmemo: {
     symbol: 'wMEMO',
     address: {
