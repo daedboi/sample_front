@@ -286,7 +286,7 @@ export const usePriceCakeBusd = (): BigNumber => {
   // const farm = useFarmFromPid(35); // MORPH-USDC LP
   // return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : BIG_ZERO;
   const pillsPrice = usePricePillsMim();
-  return pillsPrice.div(1.6)
+  return pillsPrice.div(1.9)
 }
 
 export const usePriceWethFtm = (): BigNumber => {
