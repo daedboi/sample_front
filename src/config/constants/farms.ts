@@ -122,6 +122,24 @@ const farms: FarmConfig[] = [
     token: tokens.wmemo,
     quoteToken: tokens.ftm,
   },
+  {
+    pid: 67,
+    lpSymbol: 'FTM-nICE LP',
+    lpAddresses: {
+      250: '0x2cDDa0F7266Ac059921f63C0D4ce8035854F85F5',
+    },
+    token: tokens.nice,
+    quoteToken: tokens.ftm,
+  },
+  {
+    pid: 68,
+    lpSymbol: 'FTM-sSPELL LP',
+    lpAddresses: {
+      250: '0x0Fe0c21162F82C16c98A1779a9F56be5aB0E020d',
+    },
+    token: tokens.sspell,
+    quoteToken: tokens.ftm,
+  },
   
   /**
    * Finished LPs
