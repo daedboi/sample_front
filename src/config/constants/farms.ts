@@ -140,6 +140,15 @@ const farms: FarmConfig[] = [
     token: tokens.sspell,
     quoteToken: tokens.ftm,
   },
+  {
+    pid: 69,
+    lpSymbol: 'MIM-DAI LP',
+    lpAddresses: {
+      250: '0xeBAA2BDD1435Cce852948e9c1fb3F0b9C479Ce71',
+    },
+    token: tokens.dai,
+    quoteToken: tokens.mim,
+  },
   
   /**
    * Finished LPs
