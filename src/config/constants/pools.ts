@@ -857,6 +857,36 @@ const pools: PoolConfig[] = [
     sortOrder: 1,
     isFinished: false,
   },
+  {
+    sousId: 57,
+    correspondingFarmId: 53,
+    usesCakeForPrice: false,
+    stakingToken: tokens.pills,
+    earningToken: tokens.pills,
+    contractAddress: {
+      250: '0x616a0030688329b4FaaFda8Cf469f1899e58cBfC',
+    },
+    poolCategory: PoolCategory.CORE,
+    harvest: true,
+    tokenPerBlock: '0.0247',
+    sortOrder: 1,
+    isFinished: false,
+  },
+  {
+    sousId: 58,
+    correspondingFarmId: 55,
+    usesCakeForPrice: false,
+    stakingToken: tokens.pills,
+    earningToken: tokens.wftm,
+    contractAddress: {
+      250: '0x94005434C078e9d8cC23fF4b5D88FC9bc7c0E1A5',
+    },
+    poolCategory: PoolCategory.CORE,
+    harvest: true,
+    tokenPerBlock: '0.0201',
+    sortOrder: 1,
+    isFinished: false,
+  },
 ]
 
 export default pools
