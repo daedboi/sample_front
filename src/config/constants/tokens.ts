@@ -20,6 +20,14 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://www.binance.org/en/blog/what-is-wbnb/'
   },
+  frg: {
+    symbol: 'FRG',
+    address: {
+      250: '0x507633A6076DC92B2587acEE01349c21e5F3B985',
+    },
+    decimals: 18,
+    projectLink: 'https://frognationdao.com/'
+  },
   usdc: {
     symbol: 'USDC',
     address: {

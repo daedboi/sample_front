@@ -149,6 +149,15 @@ const farms: FarmConfig[] = [
     token: tokens.dai,
     quoteToken: tokens.mim,
   },
+  {
+    pid: 70,
+    lpSymbol: 'FTM-FRG LP',
+    lpAddresses: {
+      250: '0xedb14354733296B162775cBfB7032C3EC28A927E',
+    },
+    token: tokens.frg,
+    quoteToken: tokens.ftm,
+  },
   
   /**
    * Finished LPs
