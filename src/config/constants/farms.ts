@@ -158,6 +158,15 @@ const farms: FarmConfig[] = [
     token: tokens.frg,
     quoteToken: tokens.ftm,
   },
+  {
+    pid: 71,
+    lpSymbol: 'FTM-xSCREAM LP',
+    lpAddresses: {
+      250: '0x49156F4d1aa6dF3e98565711f8E02596Af3960F5',
+    },
+    token: tokens.xscream,
+    quoteToken: tokens.ftm,
+  },
   
   /**
    * Finished LPs

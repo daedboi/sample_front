@@ -292,6 +292,14 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://fantom.foundation/'
   },
+  xscream: {
+    symbol: 'xSCREAM',
+    address: {
+      250: '0xe3D17C7e840ec140a7A51ACA351a482231760824',
+    },
+    decimals: 18,
+    projectLink: 'https://scream.sh/'
+  },
   wftm: {
     symbol: 'WFTM',
     address: {
