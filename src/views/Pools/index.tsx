@@ -54,7 +54,7 @@ const Pools: React.FC = () => {
               {t('Swap MORPH for PILLS.')}
             </Heading>
             <Heading scale="md" color="text">
-              {t('Simply stake PILLS to earn other tokens.')}
+              {t('Constant Neo Pool is only accessible through our V2 UI.')}
             </Heading>
           </Flex>
           <Flex height="fit-content" justifyContent="center" alignItems="center" mt={['24px', null, '0']}>
